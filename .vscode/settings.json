@@ -26,4 +26,15 @@
         },
         "editor.suggest.insertMode": "replace"
     },
+
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    
+    "tailwindCSS.experimental.classRegex": [
+            "cntl`([^`]*)", // cntl`...`
+    ],
+    "tailwindCSS.includeLanguages": { "javascriptreact": "html", "typescriptreact": "html", "plaintext": "html" },
+    "emmet.triggerExpansionOnTab": true,
+    "tailwindCSS.emmetCompletions": true,
 }

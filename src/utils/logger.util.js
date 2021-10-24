@@ -48,9 +48,6 @@ const logTransport = new WinstonDaily({
     filename: 'log-%DATE%.log',
 });
 
-
-
-
 /**
  * Config for format of log messages saved to file
  */
