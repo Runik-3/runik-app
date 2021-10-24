@@ -1,0 +1,12 @@
+@import url('./normalize.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('./fonts.css');
+
+
+body {
+    min-width: 320px;
+}
