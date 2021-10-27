@@ -1,21 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
-/* @import url(//db.onlinewebfonts.com/c/fd1ad3a0f95210975d2f5607501020b5?family=Norse); */
-
-/* @font-face {
-    font-family: "Norse";
-    src: local('Norse'), url(/fonts/Norse.woff), format("woff");
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Norse";
-    src: local('Norse'), url(/fonts/Norsebold.woff), format("woff");
-    font-style: bold;
-    font-weight: 700;
-    font-display: swap;
-} */
 
 @font-face {
     font-family:"Norse";
