@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -- -p 8080",
     "build": "next build",
     "cypress:open": "cypress open -- --project tests",
     "cypress:run": "cross-env NODE_ENV=test  cypress run -- --spec tests/cypress/integration/runik/**/*.spec.js",
