@@ -1,4 +1,5 @@
-const Button = ({size}) => {
+/* eslint-disable react/prop-types */
+const Button = ({ size }) => {
     return (
         <button
             type="button"
