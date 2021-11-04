@@ -1,7 +1,14 @@
 /* eslint-disable no-undef */
-const SearchBar = () => {
+// eslint-disable-next-line react/prop-types
+const SearchBar = ({ visibility }) => {
     return (
-        <div className="w-5/6 mx-auto max-w-5xl flex">
+        <div
+            /* Work in progress */
+            className={`w-5/6 mx-auto max-w-5xl flex ${
+                visibility === 'hidden'
+            }`}
+        >
+            {/* Work in progress prop ^ */}
             <input
                 type="text"
                 placeholder="Search"

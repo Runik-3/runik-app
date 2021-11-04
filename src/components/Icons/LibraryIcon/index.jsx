@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-function LibraryIcon(props) {
+// eslint-disable-next-line react/prop-types
+const LibraryIcon = ({ props }) => {
     return (
         <svg
             width={66}
@@ -26,6 +27,6 @@ function LibraryIcon(props) {
             />
         </svg>
     );
-}
+};
 
 export default LibraryIcon;

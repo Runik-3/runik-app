@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-function MainLogo(props) {
+// eslint-disable-next-line react/prop-types
+const MainLogo = ({ props }) => {
     return (
         <svg
             width={364}
@@ -33,6 +34,6 @@ function MainLogo(props) {
             </defs>
         </svg>
     );
-}
+};
 
 export default MainLogo;
