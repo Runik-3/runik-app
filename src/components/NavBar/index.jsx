@@ -1,7 +1,7 @@
 import React from 'react';
 import LibraryIcon from '../Icons/LibraryIcon';
+import AboutIcon from '../Icons/AboutIcon/Index';
 // eslint-disable-next-line import/no-unresolved
-import AboutIcon from '../Icons/AboutIcon';
 // import SearchBar from '../SearchBar';
 
 const NavBar = () => {
