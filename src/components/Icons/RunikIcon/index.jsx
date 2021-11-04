@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-function RunikIcon(props) {
+// eslint-disable-next-line react/prop-types
+const RunikIcon = ({ props }) => {
     return (
         <svg
             width={30}
@@ -33,6 +34,6 @@ function RunikIcon(props) {
             </defs>
         </svg>
     );
-}
+};
 
 export default RunikIcon;
