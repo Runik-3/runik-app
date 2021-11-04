@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-function AboutIcon(props) {
+// eslint-disable-next-line react/prop-types
+const AboutIcon = ({ props }) => {
     return (
         <svg
             width={60}
@@ -19,6 +20,6 @@ function AboutIcon(props) {
             />
         </svg>
     );
-}
+};
 
 export default AboutIcon;
