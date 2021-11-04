@@ -9,7 +9,7 @@ const SearchBar = () => {
             />
             <button
                 type="submit"
-                className="transform -translate-x-12 scale-75"
+                className="transform -translate-x-12 scale-75 transform -translate-y-3"
             >
                 <svg
                     width={41}
