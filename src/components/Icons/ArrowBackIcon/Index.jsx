@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-function ArrowBackIcon(props) {
+// eslint-disable-next-line react/prop-types
+const ArrowBackIcon = ({ props }) => {
     return (
         <svg
             width={49}
@@ -16,6 +17,6 @@ function ArrowBackIcon(props) {
             />
         </svg>
     );
-}
+};
 
 export default ArrowBackIcon;
