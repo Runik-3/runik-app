@@ -1,7 +1,6 @@
 export default async function installDictionary(dictionaries) {
     // modal explaining steps?
-    console.log(dictionaries);
-    let dir = await window
+    const dir = await window
         .showDirectoryPicker()
         .catch((error) => console.log(error));
     await dir
@@ -12,17 +11,17 @@ export default async function installDictionary(dictionaries) {
     if (dir.name.includes('KOBO' || 'kobo' || 'Kobo')) {
         // perform KOBO conversion
         // nest through kobo file system and target dictionary dir
-        try {
-            dir = await dir.getDirectoryHandle('.kobo');
-            dir = await dir.getDirectoryHandle('custom-dict');
-        } catch (error) {
-            console.log(error);
-        }
+        // try {
+        //     dir = await dir.getDirectoryHandle('.kobo');
+        //     dir = await dir.getDirectoryHandle('custom-dict');
+        // } catch (error) {
+        //     console.log(error);
+        // }
         dictionaries.forEach(async (dict) => {
             console.log(dict);
             try {
                 const file = await dir.getFileHandle(
-                    'dicthtml-gameofthrones-en.kobo.zip',
+                    `dicthtml-${'got'}.kobo.zip`,
                     {
                         create: true,
                     }
