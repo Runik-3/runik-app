@@ -12,13 +12,14 @@ export default async function convertDictionary(
     const endpoints = `api/${targetDevice}/${inputFormat}/${dictionaryName}`;
     const url = baseUrl + endpoints;
 
-    console.log(inputFiles);
-
     const convertedDict = await axios
-        .post(url, inputFiles[0])
+        .post(url, inputFiles[0], {
+            headers: {
+                'Content-Type': 'application/xml',
+            },
+        })
         .then((data) => data)
         .catch((error) => console.log(error));
 
-    console.log(convertedDict);
     return convertedDict;
 }

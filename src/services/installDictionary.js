@@ -1,5 +1,6 @@
 export default async function installDictionary(dictionaries) {
     // modal explaining steps?
+    console.log(dictionaries);
     let dir = await window
         .showDirectoryPicker()
         .catch((error) => console.log(error));
@@ -18,13 +19,18 @@ export default async function installDictionary(dictionaries) {
             console.log(error);
         }
         dictionaries.forEach(async (dict) => {
+            console.log(dict);
             try {
-                const file = await dir.getFileHandle(dict.name, {
-                    create: true,
-                });
+                const file = await dir.getFileHandle(
+                    'dicthtml-gameofthrones-en.kobo.zip',
+                    {
+                        create: true,
+                    }
+                );
                 const stream = await file.createWritable();
-                await stream.write(dict.data);
+                await stream.write(dict.data); // throw error here if doesn't write
                 await stream.close();
+                console.log('finished writing to device');
             } catch (error) {
                 console.log(error);
             }

@@ -6,7 +6,7 @@ export default function dictionary() {
     // should wrap this entire thing up in hook after
     // it all works and return array of converted
     // files to be installed
-    let convertedDict;
+    const convertedDicts = [];
     const [files, setFiles] = useState([]);
 
     function handleConvert(event) {
@@ -17,19 +17,20 @@ export default function dictionary() {
 
     function handleInstall(event) {
         event.preventDefault();
-        installDictionary(files);
+        installDictionary(convertedDicts);
     }
 
     useEffect(async () => {
         if (files.length > 0) {
             // if files is empty, don't convert
             console.log('Converting...');
-            convertedDict = await convertDictionary(
+            const convertedDict = await convertDictionary(
                 'kobo',
                 'xdxf',
                 'test',
                 files
             ).catch((error) => console.log(error));
+            convertedDicts.push(convertedDict);
             console.log('Dictionary converted... files ready to be installed');
             // document.querySelector('.install-btn').style.display = 'block';
         }
