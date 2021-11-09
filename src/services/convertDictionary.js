@@ -1,5 +1,4 @@
 import axios from 'axios';
-import readUploadedFile from './readUploadedFile';
 
 export default async function convertDictionary(
     targetDevice,
@@ -13,17 +12,17 @@ export default async function convertDictionary(
     const endpoints = `api/${targetDevice}/${inputFormat}/${dictionaryName}`;
     const url = baseUrl + endpoints;
 
-    const binary = await readUploadedFile(inputFiles[0]).catch((err) =>
-        console.log(err)
-    );
-
-    console.log(binary);
+    // const textBinary = await readUploadedFile(inputFiles[0]).catch((err) =>
+    //     console.log(err)
+    // );
 
     const convertedDict = await axios
-        .post(url, binary, {
-            headers: { 'Content-Type': 'application/octet-stream' },
+        .post(url, inputFiles[0], {
+            headers: {
+                'Content-Type': 'application/xml',
+                'Accept-Encoding': ['gzip', 'deflate', 'br'],
+            },
         })
-        .then((data) => data)
         .catch((error) => console.log(error));
     console.log(convertedDict);
 

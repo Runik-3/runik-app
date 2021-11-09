@@ -8,7 +8,7 @@ export default async function installDictionary(dictionaries) {
         .catch((error) => console.log(error));
 
     // check device target
-    if (dir.name.includes('KOBO' || 'kobo' || 'Kobo')) {
+    if (dir.name.includes('kobo' || 'KOBO' || 'Kobo')) {
         // perform KOBO conversion
         // nest through kobo file system and target dictionary dir
         // try {
@@ -18,16 +18,16 @@ export default async function installDictionary(dictionaries) {
         //     console.log(error);
         // }
         dictionaries.forEach(async (dict) => {
-            console.log(dict);
+            console.log(dict.data);
             try {
                 const file = await dir.getFileHandle(
-                    `dicthtml-${'got'}.kobo.zip`,
+                    `dicthtml-gameofthrones-en.kobo.zip`,
                     {
                         create: true,
                     }
                 );
                 const stream = await file.createWritable();
-                await stream.write(dict.data); // throw error here if doesn't write
+                await stream.write({ type: 'write', data: dict.data }); // throw error here if doesn't write
                 await stream.close();
                 console.log('finished writing to device');
             } catch (error) {
