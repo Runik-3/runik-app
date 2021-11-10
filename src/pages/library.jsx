@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-redundant-roles */
-import { Fragment, useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 
@@ -16,7 +16,34 @@ const products = [
     // More products...
 ];
 
+// eslint-disable-next-line react/prefer-stateless-function
+// class Library extends Component {
+//     state = {
+//             open: false,
+//     };
+
+//     isOpen = () => {
+//         if (this.state.open === true) {
+//             this.setClose();
+//         } else {
+//             this.setOpen();
+//         }
+//     }
+
+//     setOpen = () => {
+//         this.state = {
+//             open: true,
+//         }
+//     }
+
+//     setClose = () => {
+//         this.state = {
+//             open: false,
+//         }
+//     };
+
 export default function Library() {
+    // render() {
     const [open, setOpen] = useState(true);
 
     return (
@@ -169,3 +196,6 @@ export default function Library() {
         </Transition.Root>
     );
 }
+// }
+
+// export default Library;
