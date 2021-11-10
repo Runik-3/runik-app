@@ -4,8 +4,8 @@ import React from 'react';
 const DetailsCard = ({ img, headerTitle, description }) => {
     return (
         // direction-row
-        <div className="flex flex-row mx-6 p-4 pl-0 min-w-max max-w-lg sm:min-h-0 h-96 bg-white text-runik-neutral-dark">
-            <div className="flex rounded-xl mx-6 w-64">
+        <div className="flex flex-row p-4 pl-0 min-w-max max-w-lg sm:min-h-0 h-96 bg-white text-runik-neutral-dark">
+            <div className="flex rounded-xl mr-6 w-64">
                 <img
                     src={img}
                     alt="Placeholder"
