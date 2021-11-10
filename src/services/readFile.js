@@ -1,7 +1,7 @@
-export default function readUploadedFile(inputFile) {
+export default function readFile(inputFile) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
-        reader.readAsArrayBuffer(inputFile);
+        reader.readAsBinaryString(inputFile);
 
         reader.onerror = () => {
             reject(console.log('error parsing file'));

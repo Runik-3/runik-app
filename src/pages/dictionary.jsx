@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import convertDictionary from '../services/convertDictionary';
 import installDictionary from '../services/installDictionary';
+import fetchDictionary from '../services/fetchDictionary';
 
 export default function dictionary() {
     // should wrap this entire thing up in hook after
@@ -8,6 +9,13 @@ export default function dictionary() {
     // files to be installed
     const convertedDicts = [];
     const [files, setFiles] = useState([]);
+
+    async function handleGetDict() {
+        const dict = await fetchDictionary(
+            'http://ec2-18-144-45-206.us-west-1.compute.amazonaws.com:8000/api/dictionary/gameofthrones?lang=en&capacity=1000'
+        );
+        setFiles([...files, dict]);
+    }
 
     function handleConvert(event) {
         event.preventDefault();
@@ -33,6 +41,7 @@ export default function dictionary() {
             convertedDicts.push(convertedDict);
             console.log('Dictionary converted... files ready to be installed');
             // document.querySelector('.install-btn').style.display = 'block';
+            console.log(files);
         }
     }, [files]);
 
@@ -48,6 +57,13 @@ export default function dictionary() {
                     Convert Dictionary
                 </button>
             </form>
+            <button
+                type="button"
+                className="install-btn mr-6 p-2 border-2 border-solid border-black"
+                onClick={() => handleGetDict()}
+            >
+                Fetch Dict
+            </button>
             <button
                 type="button"
                 className="install-btn mr-6 p-2 border-2 border-solid border-black"
