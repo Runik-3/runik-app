@@ -12,7 +12,9 @@ export default function Results() {
                 <SearchBar />
                 <LibraryIcon />
             </div>
-            <Library />
+            <div>
+                <Library />
+            </div>
             <div className="flex w-full max-w-6xl justify-evenly items-center py-16 flex-wrap">
                 <ResultsCard />
                 <ResultsCard />
