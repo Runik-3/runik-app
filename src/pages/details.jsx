@@ -3,7 +3,7 @@ import LibraryIcon from '../components/Icons/LibraryIcon';
 import RunikIcon from '../components/Icons/RunikIcon';
 import SearchBar from '../components/SearchBar';
 import ResultsCard from '../components/ResultsCard';
-import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index'
+import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index';
 
 export default function Details() {
     return (
