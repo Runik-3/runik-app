@@ -1,31 +1,25 @@
 import React from 'react';
+import Button from '../Button/index'
 
 // eslint-disable-next-line react/prop-types
 const DetailsCard = ({ img, headerTitle, description }) => {
     return (
         // direction-row
-        <div className="flex flex-row p-4 pl-0 min-w-max max-w-lg sm:min-h-0 h-96 bg-white text-runik-neutral-dark">
-            <div className="flex rounded-xl mr-6 w-64">
+        <div className="flex text-runik-neutral-dark h-full ">
+            <div className="overflow-hidden flex shadow-lg rounded-xl w-80 h-full mr-4">
                 <img
                     src={img}
                     alt="Placeholder"
-                    className="max-w-full rounded-xl"
+                    className="min-w-full rounded-xl"
                 />
             </div>
-            {/* direction-column */}
-            <div className="flex flex-col justify-between sm:min-w-0 max-w-2xl sm:min-h-0 h-full bg-white">
-                {/* direction-column */}
-                <div className="flex flex-col bg-white font-spartan">
-                    <h3 className="pb-3 text-4xl">{headerTitle}</h3>
-                    <p className="">{description}</p>
-                </div>
-                <div className="flex flex-row-reverse">
-                    <button
-                        className="w-80 h-16 bg-white border-black border-2 rounded-xl font-spartan font-semibold"
-                        type="submit"
-                    >
-                        Add to Library
-                    </button>
+            <div className="flex flex-col font-spartan w-5/12">
+                <h3 className="pb-3 text-4xl">{headerTitle}</h3>
+                <p className="">{description}</p>
+                <div className="flex w-full h-full justify-end items-end">
+                    <div>
+                        <Button text="Add to Library" />
+                    </div>
                 </div>
             </div>
         </div>

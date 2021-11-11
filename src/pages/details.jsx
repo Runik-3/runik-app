@@ -3,6 +3,7 @@ import LibraryIcon from '../components/Icons/LibraryIcon';
 import RunikIcon from '../components/Icons/RunikIcon';
 import SearchBar from '../components/SearchBar';
 import ResultsCard from '../components/ResultsCard';
+import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index'
 
 export default function Details() {
     return (
@@ -12,7 +13,10 @@ export default function Details() {
                 <SearchBar />
                 <LibraryIcon />
             </div>
-            <div className="flex max-w-8xl justify-evenly items-start py-16">
+            <div className="pt-8">
+                <ArrowBackIcon />
+            </div>
+            <div className="flex w-11/12 items-start pb-16 pt-6">
                 <DetailsCard
                     headerTitle="Harry Potter"
                     description="Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights Petrificus Totalus. So thirsty, deluminator."
