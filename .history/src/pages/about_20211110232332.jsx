@@ -10,7 +10,7 @@ export default function About() {
                 <ArrowBackIcon />
             </div>
             <div className="flex text-center flex-col">
-                <div className="pb-12 flex justify-evenly">
+                <div className="pb-12 place-content-center">
                     <MainLogo />
                 </div>
                 <div className="pt-12 pl-4 pr-4 font-spartan text-runik-neutral-dark">

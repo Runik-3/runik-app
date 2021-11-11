@@ -10,15 +10,15 @@ export default function About() {
                 <ArrowBackIcon />
             </div>
             <div className="flex text-center flex-col">
-                <div className="pb-12 flex justify-evenly">
+                <div className="pb-12">
                     <MainLogo />
                 </div>
-                <div className="pt-12 pl-4 pr-4 font-spartan text-runik-neutral-dark">
-                    <h3 className="text-2xl">
+                <div className="pl-4 pr-4">
+                    <h3 className="font-spartan font-small">
                         Short blurb about development team and process of the
                         creation of the application.
                     </h3>
-                    <h1 className="font-bold text-4xl pt-24 pb-12">
+                    <h1 className="font-spartan font-medium text-2xl pt-12 pb-12">
                         Meet the Team
                     </h1>
                 </div>
