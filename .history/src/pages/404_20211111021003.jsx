@@ -16,8 +16,8 @@ export default function PageNotFound() {
                         404 error.
                     </h1>
                     <p className="text-2xl">
-                        Uh oh! It looks like the page you’re looking for doesn't
-                        exist.
+                        Uh oh! I think you’re lost. It looks like the page
+                        you’re looking for doesn't exist.
                     </p>
                 </div>
             </div>

@@ -11,13 +11,13 @@ export default function PageNotFound() {
                 <div className="pb-12 flex justify-evenly">
                     <MainLogo />
                 </div>
-                <div className="pt-4 pl-4 pr-4 font-spartan text-runik-neutral-dark">
+                <div className="pt-12 pl-4 pr-4 font-spartan text-runik-neutral-dark">
                     <h1 className="font-bold text-4xl pt-24 pb-12">
                         404 error.
                     </h1>
                     <p className="text-2xl">
-                        Uh oh! It looks like the page you’re looking for doesn't
-                        exist.
+                        Uh oh! I think you’re lost. It looks like the page
+                        you’re looking for doesn&apos;t exist.
                     </p>
                 </div>
             </div>
