@@ -43,4 +43,6 @@ yarn-error.log*
 
 # Log files
 *.log
+
 *.mp4
+

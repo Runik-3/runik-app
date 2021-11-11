@@ -5,14 +5,14 @@ import React from 'react';
 const AboutIcon = ({ props }) => {
     return (
         <svg
-            width={60}
-            height={60}
+            width={48}
+            height={48}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             {...props}
         >
             <path
-                d="M30 57.5c15.188 0 27.5-12.312 27.5-27.5S45.188 2.5 30 2.5 2.5 14.812 2.5 30 14.812 57.5 30 57.5zM30 43.2V25.6M30 18.267h.027"
+                d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4 4 12.954 4 24s8.954 20 20 20zM24 33.6V20.8M24 15.467h.02"
                 stroke="#000"
                 strokeWidth={4}
                 strokeLinecap="round"

@@ -5,7 +5,7 @@ import SearchBar from '../components/SearchBar';
 export default function Home() {
     return (
         <div className="flex flex-col min-h-full h-screen">
-            <NavBar />
+            <NavBar visibility="hide" />
             <div className="flex flex-col items-center justify-between h-96 w-5/6 max-w-5xl mx-auto pt-20">
                 <MainLogo />
                 <SearchBar />
