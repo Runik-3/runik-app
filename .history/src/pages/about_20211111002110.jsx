@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import MainLogo from '../components/MainLogo';
 import ArrowBackIcon from '../components/Icons/ArrowBackIcon';
 import Avatar from '../components/Avatar';

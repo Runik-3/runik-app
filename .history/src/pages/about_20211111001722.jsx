@@ -14,7 +14,7 @@ export default function About() {
                     <MainLogo />
                 </div>
                 <div className="pt-12 pl-4 pr-4 font-spartan text-runik-neutral-dark">
-                    <p className="text-2xl">
+                    <p className="text-2xl break-all">
                         Short blurb about development team and process of the
                         creation of the application.
                     </p>

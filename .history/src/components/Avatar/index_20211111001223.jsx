@@ -1,6 +1,6 @@
 const Avatar = () => {
     return (
-        <div className="w-40 h-50 relative m-8 place-content-center pt-4">
+        <div className="w-40 h-50 relative m-10 place-content-center pt-4">
             <div className="w-full h-40 rounded-full overflow-hidden shadow-outer text-center bg-purple ">
                 <img
                     src="https://pickaface.net/gallery/avatar/unr_random_180410_1905_z1exb.png"

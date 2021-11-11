@@ -17,7 +17,7 @@ export default function About() {
                     <p className="text-2xl">
                         Short blurb about development team and process of the
                         creation of the application.
-                    </p>
+                    </>
                     <h1 className="font-bold text-4xl pt-24 pb-12">
                         Meet the Team
                     </h1>
