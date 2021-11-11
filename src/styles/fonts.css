@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-family:"Norse";
+    src:url("/fonts/Norse.eot?") format("eot"),
+    url("/fonts/Norse.woff") format("woff"),
+    url("/fonts/Norse.ttf") format("truetype"),
+    url("/fonts/Norse.svg#Norse") format("svg");
+    font-weight:400;
+    font-style:normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family:"Norse";
+    src:url("/fonts/Norse-Bold.eot") format("eot"),
+    url("/fonts/Norse-Bold.woff") format("woff"),
+    url("/fonts/Norse-Bold.ttf") format("truetype"),
+    url("/fonts/Norse-Bold.svg#Norse-Bold") format("svg");
+    font-weight:700;
+    font-style:bold;
+    font-display: swap;
+}
