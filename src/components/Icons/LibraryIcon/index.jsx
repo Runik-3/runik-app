@@ -2,7 +2,7 @@
 import React from 'react';
 
 // eslint-disable-next-line react/prop-types
-const LibraryIcon = ({ props /* ,onLibraryIconCLick */ }) => {
+const LibraryIcon = ({ props /* ,onLibraryIconCLick,libraryVisability */ }) => {
     return (
         <div className="hover:opacity-60 transition-ease-in-out duration-500 ">
             <svg
