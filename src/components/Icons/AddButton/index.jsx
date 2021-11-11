@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
-function AddButton(props) {
+// eslint-disable-next-line react/prop-types
+function AddButton({ props /* , onClick, addToIcon, addToColor */ }) {
     return (
         <svg
             width={40}
