@@ -36,7 +36,6 @@ const RunikIcon = ({ props }) => {
                 </defs>
             </svg>
         </Link>
-
     );
 };
 
