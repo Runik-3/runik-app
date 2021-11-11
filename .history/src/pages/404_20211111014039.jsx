@@ -1,3 +1,6 @@
+import ArrowBackIcon from "../components/Icons/ArrowBackIcon/Index";
+import MainLogo from "../components/MainLogo";
+
 export default function PageNotFound() {
     return (
         <main
