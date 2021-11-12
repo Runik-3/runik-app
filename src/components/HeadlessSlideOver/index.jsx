@@ -87,11 +87,11 @@ export default function HeadlessSlideOver({ open, setOpen, children }) {
                                                 className="mr-2"
                                             />
                                             Kindle <br />
-                                            <div className="w-4/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded">
+                                            <div className="w-4/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
                                                 <input
                                                     type="submit"
                                                     value="Download"
-                                                    className="font-semibold"
+                                                    className="font-semibold cursor-pointer"
                                                 />
                                             </div>
                                         </form>
