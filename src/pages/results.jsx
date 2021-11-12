@@ -2,7 +2,6 @@ import RunikIcon from '../components/Icons/RunikIcon/index';
 import LibraryIcon from '../components/Icons/LibraryIcon/index';
 import SearchBar from '../components/SearchBar';
 import ResultsCard from '../components/ResultsCard';
-import Library from './library';
 
 export default function Results() {
     return (
@@ -12,9 +11,7 @@ export default function Results() {
                 <SearchBar />
                 <LibraryIcon />
             </div>
-            <div>
-                <Library />
-            </div>
+            <div />
             <div className="flex w-full max-w-6xl justify-evenly items-center py-16 flex-wrap">
                 <ResultsCard />
                 <ResultsCard />

@@ -3,7 +3,8 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { XIcon } from '@heroicons/react/outline';
+import LibraryOpenIcon from '../Icons/LibraryOpenIcon';
+import Divider from '../Icons/Divider';
 
 export default function HeadlessSlideOver({ open, setOpen, children }) {
     return (
@@ -25,7 +26,7 @@ export default function HeadlessSlideOver({ open, setOpen, children }) {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <Dialog.Overlay className="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                        <Dialog.Overlay className="absolute inset-0 transition-opacity" />
                     </Transition.Child>
                     <div className="fixed inset-y-0 right-0 pl-10 max-w-full flex">
                         <Transition.Child
@@ -37,7 +38,7 @@ export default function HeadlessSlideOver({ open, setOpen, children }) {
                             leaveFrom="translate-x-0"
                             leaveTo="translate-x-full"
                         >
-                            <div className="relative w-screen max-w-md">
+                            <div className="relative w-screen max-w-sm">
                                 <Transition.Child
                                     as={Fragment}
                                     enter="ease-in-out duration-500"
@@ -47,26 +48,53 @@ export default function HeadlessSlideOver({ open, setOpen, children }) {
                                     leaveFrom="opacity-100"
                                     leaveTo="opacity-0"
                                 >
-                                    <div className="absolute top-0 left-0 -ml-8 pt-4 pr-2 flex sm:-ml-10 sm:pr-4">
-                                        <button
-                                            className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                                            onClick={() => setOpen(false)}
-                                        >
+                                    <div className="absolute top-library-icon-top left-library-icon-right">
+                                        <button onClick={() => setOpen(false)}>
                                             <span className="sr-only">
                                                 Close panel
                                             </span>
-                                            <XIcon
-                                                className="h-6 w-6"
-                                                aria-hidden="true"
-                                            />
+                                            <LibraryOpenIcon />
                                         </button>
                                     </div>
                                 </Transition.Child>
-                                <div className="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
-                                    <div className="mt-6 relative flex-1 px-4 sm:px-6">
+                                <div className="h-full flex flex-col justify-center items-center bg-runik-neutral-light pt-library-children overflow-y-scroll">
+                                    <Divider />
+                                    <div className="w-library-children-width mt-4 text-3xl text-runik-neutral-med">
+                                        <h1>Library</h1>
+                                    </div>
+                                    <div className="mt-6 relative flex-1">
                                         {/* Replace with your content */}
                                         {children}
                                         {/* /End replace */}
+                                    </div>
+                                    <Divider />
+                                    <div className="flex flex-col w-library-children-width mt-4 text-3xl text-runik-neutral-med">
+                                        <h2>
+                                            Select Your <br /> Device
+                                        </h2>
+                                        <form className="mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-10">
+                                            <input
+                                                type="radio"
+                                                value="Kobo"
+                                                name="device"
+                                                className="mr-2"
+                                            />
+                                            Kobo <br />
+                                            <input
+                                                type="radio"
+                                                value="Kindle"
+                                                name="device"
+                                                className="mr-2"
+                                            />
+                                            Kindle <br />
+                                            <div className="w-4/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded">
+                                                <input
+                                                    type="submit"
+                                                    value="Download"
+                                                    className="font-semibold"
+                                                />
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
