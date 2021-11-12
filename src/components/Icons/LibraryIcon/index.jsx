@@ -2,33 +2,33 @@
 import React from 'react';
 
 // eslint-disable-next-line react/prop-types
-const LibraryIcon = ({ props /* ,onLibraryIconCLick,libraryVisability */ }) => {
+function LibraryIcon({ children, className, ...props }) {
     return (
-        <div className="hover:opacity-60 transition-ease-in-out duration-500 ">
+        <button type="button" {...props}>
             <svg
-                width={48}
-                height={48}
+                width={66}
+                height={66}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 {...props}
             >
                 <path
-                    d="M8 39a5 5 0 015-5h27"
+                    d="M11 53.625a6.875 6.875 0 016.875-6.875H55"
                     stroke="#000"
                     strokeWidth={4}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                 />
                 <path
-                    d="M13 4h27v40H13a5 5 0 01-5-5V9a5 5 0 015-5v0z"
+                    d="M17.875 5.5H55v55H17.875A6.875 6.875 0 0111 53.625v-41.25A6.875 6.875 0 0117.875 5.5v0z"
                     stroke="#000"
                     strokeWidth={4}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                 />
             </svg>
-        </div>
+        </button>
     );
-};
+}
 
 export default LibraryIcon;

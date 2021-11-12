@@ -21,7 +21,23 @@ module.exports = {
                 'runik-primary-med': '#D3F4FF',
                 'runik-primary-light': '#8DDCE3',
                 'runik-neutral-light': '#f6f6f6',
+                'runik-neutral-med': '#808080',
                 'runik-neutral-dark': '#323232',
+            },
+            spacing: {
+                'library-icon-top': '18px',
+                'library-icon-right': '250px',
+                'library-children': '120px',
+            },
+            width: {
+                'library-icon-width': '66px',
+                'library-children-width': '280px',
+            },
+            height: {
+                'library-icon-height': '66px',
+            },
+            outline: {
+                dark: '2px solid #323232',
             },
         },
     },
