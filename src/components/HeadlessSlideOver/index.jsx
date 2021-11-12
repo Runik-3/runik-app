@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XIcon } from '@heroicons/react/outline';
 
-export default function HeadlessSlideOver({ open, setOpen, title, children }) {
+export default function HeadlessSlideOver({ open, setOpen, children }) {
     return (
         <Transition.Root show={open} as={Fragment}>
             <Dialog
@@ -63,11 +63,6 @@ export default function HeadlessSlideOver({ open, setOpen, title, children }) {
                                     </div>
                                 </Transition.Child>
                                 <div className="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
-                                    <div className="px-4 sm:px-6">
-                                        <Dialog.Title className="text-lg font-medium text-gray-900">
-                                            {title}
-                                        </Dialog.Title>
-                                    </div>
                                     <div className="mt-6 relative flex-1 px-4 sm:px-6">
                                         {/* Replace with your content */}
                                         {children}

@@ -11,25 +11,22 @@ import LibraryButton from '../LibraryButton';
 export default function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
     const [open, setOpen] = useState(false);
-
     const handleOnClose = () => setIsOpen(false);
+
     usePreventScroll({ isDisabled: !isOpen });
+
     return (
         <OverlayProvider>
             <div className="flex flex-row justify-between w-full px-5 pt-5">
                 <AboutIcon />
                 {/* <SearchBar /> */}{' '}
-                <LibraryButton className="mx-2" onClick={() => setOpen(true)} />
+                <LibraryButton onClick={() => setOpen(true)} />
                 <HeadlessSlideOver open={open} setOpen={setOpen}>
-                    <div className="flex flex-col">
-                        <input
-                            type="text"
-                            className="border-gray-300 rounded-md"
-                        />
-                        {/* <LibraryButton className="mt-4" onClick={handleOnClose}>
+                    {/* <div className="flex flex-col">
+                        <LibraryButton className="mt-4" onClick={handleOnClose}>
                             OK
-                        </LibraryButton> */}
-                    </div>
+                        </LibraryButton>
+                    </div> */}
                 </HeadlessSlideOver>
             </div>
         </OverlayProvider>
