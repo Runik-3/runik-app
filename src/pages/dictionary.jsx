@@ -7,7 +7,7 @@ export default function dictionary() {
     // should wrap this entire thing up in hook after
     // it all works and return array of converted
     // files to be installed
-    const convertedDicts = [];
+    const [dicts, setDicts] = useState([]);
     const [files, setFiles] = useState([]);
     const [status, setStatus] = useState('');
 
@@ -26,7 +26,8 @@ export default function dictionary() {
 
     async function handleInstall(event) {
         event.preventDefault();
-        await installDictionary(convertedDicts);
+        await installDictionary(dicts);
+        setStatus('Dictionary installed');
     }
 
     useEffect(async () => {
@@ -41,7 +42,7 @@ export default function dictionary() {
             ).catch((error) => {
                 throw new Error(error);
             });
-            convertedDicts.push(convertedDict);
+            setDicts([...dicts, convertedDict]);
             setStatus('Dictionary converted... files ready to be installed');
             // document.querySelector('.install-btn').style.display = 'block';
         }

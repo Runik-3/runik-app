@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 export default async function installDictionary(dictionaries) {
     // modal explaining steps?
     let dir = await window.showDirectoryPicker().catch((error) => {
@@ -16,11 +17,14 @@ export default async function installDictionary(dictionaries) {
             throw new Error(error);
         });
 
-        dir = await dir.getDirectoryHandle('custom-dict').catch(async () => {
-            dir = await dir.getDirectoryHandle('dict').catch((err) => {
-                throw new Error(err);
-            });
-        });
+        // iterate over directories in .kobo, point to appropriate dict location
+        for await (const [, handle] of dir.entries()) {
+            if (handle.name === 'custom-dict') {
+                dir = handle;
+            } else if (handle.name === 'dict') {
+                dir = handle;
+            }
+        }
 
         dictionaries.forEach(async (dict) => {
             try {
