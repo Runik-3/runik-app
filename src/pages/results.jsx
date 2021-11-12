@@ -11,6 +11,7 @@ export default function Results() {
                 <SearchBar />
                 <LibraryIcon />
             </div>
+            <div />
             <div className="flex w-full max-w-6xl justify-evenly items-center py-16 flex-wrap">
                 <ResultsCard />
                 <ResultsCard />
