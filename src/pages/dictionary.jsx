@@ -9,6 +9,7 @@ export default function dictionary() {
     // files to be installed
     const convertedDicts = [];
     const [files, setFiles] = useState([]);
+    const [status, setStatus] = useState('');
 
     async function handleGetDict() {
         const dict = await fetchDictionary(
@@ -23,32 +24,33 @@ export default function dictionary() {
         setFiles([...files, file]);
     }
 
-    function handleInstall(event) {
+    async function handleInstall(event) {
         event.preventDefault();
-        installDictionary(convertedDicts);
+        await installDictionary(convertedDicts);
     }
 
     useEffect(async () => {
         if (files.length > 0) {
             // if files is empty, don't convert
-            console.log('Converting...');
+            setStatus('Converting...');
             const convertedDict = await convertDictionary(
                 'kobo',
                 'xdxf',
                 'test',
                 files
-            ).catch((error) => console.log(error));
+            ).catch((error) => {
+                throw new Error(error);
+            });
             convertedDicts.push(convertedDict);
-            console.log('Dictionary converted... files ready to be installed');
+            setStatus('Dictionary converted... files ready to be installed');
             // document.querySelector('.install-btn').style.display = 'block';
-            console.log(files);
         }
     }, [files]);
 
     return (
         <div>
             <form onSubmit={(e) => handleConvert(e)}>
-                <label htmlFor="xdxf">Upload .xdxf file:</label>
+                <span>Upload .xdxf file:</span>
                 <input name="dictionary" id="xdxf" type="file" />
                 <button
                     type="submit"
@@ -71,6 +73,7 @@ export default function dictionary() {
             >
                 Install Dictionary
             </button>
+            {status}
         </div>
     );
 }

@@ -1,27 +1,28 @@
 export default async function installDictionary(dictionaries) {
     // modal explaining steps?
-    let dir = await window
-        .showDirectoryPicker()
-        .catch((error) => console.log(error));
-    await dir
-        .requestPermission({ mode: 'readwrite' })
-        .catch((error) => console.log(error));
+    let dir = await window.showDirectoryPicker().catch((error) => {
+        throw new Error(error);
+    });
+    await dir.requestPermission({ mode: 'readwrite' }).catch((error) => {
+        throw new Error(error);
+    });
 
     // check device target
-    if (true) {
+    if (dir.name.toLowerCase().includes('kobo')) {
         // perform KOBO conversion
         // nest through kobo file system and target dictionary dir
-        try {
-            dir = await dir.getDirectoryHandle('.kobo');
-            dir = await dir.getDirectoryHandle('custom-dict');
-        } catch (error) {
-            console.log(error);
-        }
+
+        dir = await dir.getDirectoryHandle('.kobo').catch((error) => {
+            throw new Error(error);
+        });
+
+        dir = await dir.getDirectoryHandle('custom-dict').catch(async () => {
+            dir = await dir.getDirectoryHandle('dict').catch((err) => {
+                throw new Error(err);
+            });
+        });
+
         dictionaries.forEach(async (dict) => {
-            // const fileReadStream = await readFile(dict).catch((error) =>
-            //     console.log(error)
-            // );
-            console.log(dict);
             try {
                 const file = await dir.getFileHandle(`test.zip`, {
                     create: true,
@@ -29,12 +30,11 @@ export default async function installDictionary(dictionaries) {
                 const stream = await file.createWritable();
                 await stream.write({ type: 'write', data: dict }); // throw error here if doesn't write
                 await stream.close();
-                console.log('finished writing to device');
             } catch (error) {
-                console.log(error);
+                throw new Error(error);
             }
         });
-    } else if (dir.name.includes('kindle'.toLowerCase())) {
+    } else if (dir.name.toLowerCase().includes('kindle')) {
         // perform kindle conversion
     }
 }
