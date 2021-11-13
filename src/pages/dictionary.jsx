@@ -12,6 +12,7 @@ export default function dictionary() {
     const [status, setStatus] = useState('');
 
     async function handleGetDict() {
+        // takes in an object from search and parses the URL to fetch XDXF
         const dict = await fetchDictionary(
             'http://ec2-18-144-45-206.us-west-1.compute.amazonaws.com:8000/api/dictionary/gameofthrones?lang=en&capacity=1000'
         );
@@ -30,6 +31,7 @@ export default function dictionary() {
         setStatus('Dictionary installed');
     }
 
+    // this use effect to set convertedDicts custom hook returns convertedDicts array
     useEffect(async () => {
         if (files.length > 0) {
             // if files is empty, don't convert
