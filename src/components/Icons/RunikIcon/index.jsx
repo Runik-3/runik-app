@@ -3,17 +3,18 @@ import React from 'react';
 import Link from 'next/link';
 
 // eslint-disable-next-line react/prop-types
-const RunikIcon = ({ props }) => {
+const RunikIcon = ({ rDisplay }) => {
     return (
-        <div className="hover:opacity-60 transition-ease-in-out duration-500 ">
-            <Link href="/">
+        <Link href="/">
+            <div
+                className={`hover:opacity-60 transition-ease-in-out duration-500 ${rDisplay}`}
+            >
                 <svg
                     width={30}
                     height={64}
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink"
-                    {...props}
                 >
                     <path fill="url(#prefix__pattern0)" d="M0 0h30v64H0z" />
                     <defs>
@@ -36,8 +37,8 @@ const RunikIcon = ({ props }) => {
                         />
                     </defs>
                 </svg>
-            </Link>
-        </div>
+            </div>
+        </Link>
     );
 };
 
