@@ -7,20 +7,18 @@ const SearchBar = ({ visibility }) => {
     return (
         <div
             /* Work in progress */
-            className={`w-5/6 mx-auto max-w-5xl flex ${
-                visibility === 'hide' ? 'invisible' : 'visible'
-            }`}
+            className={`w-2/3 mx-auto max-w-5xl flex border-b-2 border-l-0 border-r-0 border-t-0 border-runik-neutral-dark h-2/3 ${visibility}`}
         >
             {/* Work in progress prop ^ */}
             <input
                 type="text"
                 placeholder="Search"
-                className="w-full h-12  border-b-2 border-l-0 border-r-0 border-t-0 text-xl font-spartan text-gray-500 focus:ring-0 focus:border-gray-700"
+                className="w-full h-12 border-0 text-xl font-spartan text-gray-500 focus:ring-0 focus:border-gray-700"
             />
             <Link href="results">
                 <button
                     type="submit"
-                    className="-translate-x-12 scale-75 transform -translate-y-1"
+                    className="scale-75 transform -translate-y-1"
                 >
                     <svg
                         width={41}

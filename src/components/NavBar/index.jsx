@@ -1,18 +1,38 @@
-import React from 'react';
-import LibraryIcon from '../Icons/LibraryIcon';
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import { React, useState } from 'react';
+import { OverlayProvider, usePreventScroll } from 'react-aria';
 import AboutIcon from '../Icons/AboutIcon/Index';
+import HeadlessSlideOver from '../HeadlessSlideOver';
+import LibraryButton from '../LibraryButton';
 import SearchBar from '../SearchBar';
+import RunikIcon from '../Icons/RunikIcon';
 // eslint-disable-next-line import/no-unresolved
 
-// eslint-disable-next-line react/prop-types
-const NavBar = ({ visibility }) => {
-    return (
-        <div className="flex flex-row justify-between w-full px-5 pt-5">
-            <AboutIcon />
-            <SearchBar visibility={visibility} />
-            <LibraryIcon />
-        </div>
-    );
-};
+export default function NavBar({ visibility, aDisplay, rDisplay }) {
+    const [isOpen, setIsOpen] = useState(false);
+    const [open, setOpen] = useState(false);
+    const handleOnClose = () => setIsOpen(false);
 
-export default NavBar;
+    usePreventScroll({ isDisabled: !isOpen });
+
+    return (
+        <OverlayProvider className="w-full flex items-end">
+            <div className="flex flex-row items-center w-full">
+                <AboutIcon aDisplay={aDisplay} />
+                {/* Having this icon in the NavBar comp makes the MainLogo comp disapear from the Search page, needs to be adjusted so that doesnt happen */}
+                <RunikIcon rDisplay={rDisplay} />
+                {/* */}
+                <SearchBar visibility={visibility} />
+                <LibraryButton onClick={() => setOpen(true)} />
+                <HeadlessSlideOver open={open} setOpen={setOpen}>
+                    {/* <div className="flex flex-col">
+                            <LibraryButton className="mt-4" onClick={handleOnClose}>
+                                OK
+                            </LibraryButton>
+                        </div> */}
+                </HeadlessSlideOver>
+            </div>
+        </OverlayProvider>
+    );
+}

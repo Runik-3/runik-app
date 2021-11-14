@@ -5,7 +5,7 @@ export default function PageNotFound() {
     return (
         <div className="flex flex-col min-h-full h-screen">
             <div className="pl-8 pt-8 pb-8">
-                <ArrowBackIcon path="/" />
+                <ArrowBackIcon />
             </div>
             <div className="flex text-center flex-col">
                 <div className="pb-12 flex justify-evenly">

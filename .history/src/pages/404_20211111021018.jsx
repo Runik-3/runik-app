@@ -5,7 +5,7 @@ export default function PageNotFound() {
     return (
         <div className="flex flex-col min-h-full h-screen">
             <div className="pl-8 pt-8 pb-8">
-                <ArrowBackIcon path="/" />
+                <ArrowBackIcon />
             </div>
             <div className="flex text-center flex-col">
                 <div className="pb-12 flex justify-evenly">
@@ -16,8 +16,8 @@ export default function PageNotFound() {
                         404 error.
                     </h1>
                     <p className="text-2xl">
-                        Uh oh! It looks like the page you&apos;re looking for
-                        doesn&apos;t exist.
+                        Uh oh! I think you’re lost. It looks like the page
+                        you’re looking for doesn't exist.
                     </p>
                 </div>
             </div>
