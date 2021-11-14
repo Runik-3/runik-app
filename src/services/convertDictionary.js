@@ -1,3 +1,5 @@
+import fetchDictionary from './fetchDictionary';
+
 // takes in library of refs and returns converted
 // dictionaries for the correct target device
 export default async function convertDictionary(
@@ -7,6 +9,19 @@ export default async function convertDictionary(
     dictionaryName,
     inputFormat = 'xdxf'
 ) {
+    async function handleLibraryRefs() {
+        if (library.length > 0) {
+            library.map(async (/* libRef, i */) => {
+                // when object, use ref to send right data to generator enpoints
+                const dict = await fetchDictionary(
+                    'http://ec2-18-144-45-206.us-west-1.compute.amazonaws.com:8000/api/dictionary/gameofthrones?lang=en&capacity=1000',
+                    'test'
+                );
+                states.setFiles([...states.files, dict]);
+            });
+        }
+    }
+
     async function dictConverter(inputFile) {
         // live conversion api test environment
         const baseUrl =
@@ -30,9 +45,7 @@ export default async function convertDictionary(
         return content;
     }
 
-    // async function handleLibrryRefs() {}
-
-    async function handleConvertRefs() {
+    async function handleRawDicts() {
         console.log(library.length);
         if (library.length > 0) {
             library.map(async (libRef, i) => {
@@ -55,6 +68,6 @@ export default async function convertDictionary(
         }
         return states.dicts;
     }
-    // await handleLibraryRefs();
-    await handleConvertRefs();
+    await handleLibraryRefs();
+    await handleRawDicts();
 }

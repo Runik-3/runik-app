@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import installDictionary from '../services/installDictionary';
 import { LibraryContext } from '../context/libraryContext';
 import useDictionaryStates from '../hooks/useDictionaryStates';
@@ -52,7 +52,7 @@ export default function dictionary() {
 
     return (
         <div>
-            <form onSubmit={(e) => handleConvert(e)}>
+            <form>
                 <span>Upload .xdxf file:</span>
                 <input name="dictionary" id="xdxf" type="file" />
                 <button

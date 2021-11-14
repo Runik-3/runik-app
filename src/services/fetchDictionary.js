@@ -1,6 +1,10 @@
 import convertBlobToFile from './convertBlobToFile';
 
-export default async function fetchDictionary(queryString, fileName, fileType) {
+export default async function fetchDictionary(
+    queryString,
+    fileName,
+    fileType = 'xdxf'
+) {
     const dict = await fetch(queryString).catch((err) => {
         throw new Error(err);
     });
