@@ -1,55 +1,47 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import convertDictionary from '../services/convertDictionary';
 import installDictionary from '../services/installDictionary';
 import fetchDictionary from '../services/fetchDictionary';
+import { LibraryContext } from '../context/libraryContext';
 
 export default function dictionary() {
     // should wrap this entire thing up in hook after
     // it all works and return array of converted
     // files to be installed
-    const [dicts, setDicts] = useState([]);
-    const [files, setFiles] = useState([]);
-    const [status, setStatus] = useState('');
 
-    async function handleGetDict() {
-        // takes in an object from search and parses the URL to fetch XDXF
-        const dict = await fetchDictionary(
-            'http://ec2-18-144-45-206.us-west-1.compute.amazonaws.com:8000/api/dictionary/gameofthrones?lang=en&capacity=1000'
-        );
-        setFiles([...files, dict]);
-    }
+    // const [dicts, setDicts] = useState([]);
 
-    function handleConvert(event) {
-        event.preventDefault();
-        const file = event.target.dictionary.files[0];
-        setFiles([...files, file]);
-    }
+    // async function handleGetDict() {}
 
-    async function handleInstall(event) {
-        event.preventDefault();
-        await installDictionary(dicts);
-        setStatus('Dictionary installed');
-    }
+    // function handleConvert(event) {
+    //     event.preventDefault();
+    // }
 
-    // this use effect to set convertedDicts custom hook returns convertedDicts array
-    useEffect(async () => {
-        if (files.length > 0) {
-            // if files is empty, don't convert
-            setStatus('Converting...');
-            const convertedDict = await convertDictionary(
-                'kobo',
-                'xdxf',
-                'test',
-                files
-            ).catch((error) => {
-                throw new Error(error);
-            });
-            setDicts([...dicts, convertedDict]);
-            setStatus('Dictionary converted... files ready to be installed');
-            // document.querySelector('.install-btn').style.display = 'block';
-        }
-    }, [files]);
+    // async function handleInstall(event) {
+    //     event.preventDefault();
+    //     await installDictionary(dicts);
+    //     setStatus('Dictionary installed');
+    // }
 
+    // // this use effect to set convertedDicts custom hook returns convertedDicts array
+    // useEffect(async () => {
+    //     if (files.length > 0) {
+    //         // if files is empty, don't convert
+    //         setStatus('Converting...');
+    //         const convertedDict = await convertDictionary(
+    //             'kobo',
+    //             'xdxf',
+    //             'test',
+    //             files
+    //         ).catch((error) => {
+    //             throw new Error(error);
+    //         });
+    //         setDicts([...dicts, convertedDict]);
+    //         setStatus('Dictionary converted... files ready to be installed');
+    //         // document.querySelector('.install-btn').style.display = 'block';
+    //     }
+    // }, [files]);
+    const { library } = useContext(LibraryContext);
     return (
         <div>
             <form onSubmit={(e) => handleConvert(e)}>
@@ -76,7 +68,7 @@ export default function dictionary() {
             >
                 Install Dictionary
             </button>
-            {status}
+            {library}
         </div>
     );
 }

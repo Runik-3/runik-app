@@ -3,6 +3,9 @@ import convertDictionary from '../services/convertDictionary';
 import fetchDictionary from '../services/fetchDictionary';
 
 export default async function useConvert(library) {
+    const [files, setFiles] = useState([]);
+    const [status, setStatus] = useState('');
+
     const dict = await fetchDictionary(
         'http://ec2-18-144-45-206.us-west-1.compute.amazonaws.com:8000/api/dictionary/gameofthrones?lang=en&capacity=1000'
     );
