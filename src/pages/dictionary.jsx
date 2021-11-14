@@ -1,18 +1,26 @@
-import { useContext, useEffect, useState } from 'react';
-import convertDictionary from '../services/convertDictionary';
+import { useContext, useState } from 'react';
 import installDictionary from '../services/installDictionary';
-import fetchDictionary from '../services/fetchDictionary';
 import { LibraryContext } from '../context/libraryContext';
+import useDictionaryStates from '../hooks/useDictionaryStates';
+import convertDictionary from '../services/convertDictionary';
 
 export default function dictionary() {
     // should wrap this entire thing up in hook after
     // it all works and return array of converted
     // files to be installed
 
-    // const [dicts, setDicts] = useState([]);
+    // necessary states to be passed to various functions
+    const { library } = useContext(LibraryContext);
+    const states = useDictionaryStates();
 
-    // async function handleGetDict() {}
+    async function handleGetDict() {
+        await convertDictionary(states, library, 'kobo', 'test');
+        console.log(states.dicts);
+    }
 
+    async function handleInstall() {
+        await installDictionary((await states).status);
+    }
     // function handleConvert(event) {
     //     event.preventDefault();
     // }
@@ -41,7 +49,7 @@ export default function dictionary() {
     //         // document.querySelector('.install-btn').style.display = 'block';
     //     }
     // }, [files]);
-    const { library } = useContext(LibraryContext);
+
     return (
         <div>
             <form onSubmit={(e) => handleConvert(e)}>
