@@ -30,6 +30,10 @@ export default async function convertDictionary(
         return content;
     }
 
+    async function handleLibrryRefs() {
+        
+    }
+
     async function handleConvertRefs() {
         console.log(library.length);
         if (library.length > 0) {
