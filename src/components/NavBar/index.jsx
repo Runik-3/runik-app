@@ -17,8 +17,8 @@ export default function NavBar({ visibility, aDisplay, rDisplay }) {
     usePreventScroll({ isDisabled: !isOpen });
 
     return (
-        <OverlayProvider>
-            <div className="flex flex-row justify-between w-full px-5 pt-5">
+        <OverlayProvider className="w-full flex items-end">
+            <div className="flex flex-row items-center w-full">
                 <AboutIcon aDisplay={aDisplay} />
                 {/* Having this icon in the NavBar comp makes the MainLogo comp disapear from the Search page, needs to be adjusted so that doesnt happen */}
                 <RunikIcon rDisplay={rDisplay} />

@@ -7,7 +7,7 @@ const SearchBar = ({ visibility }) => {
     return (
         <div
             /* Work in progress */
-            className={`w-2/3 mx-auto max-w-5xl flex border-b-2 border-l-0 border-r-0 border-t-0 border-runik-neutral-dark ${visibility}`}
+            className={`w-2/3 mx-auto max-w-5xl flex border-b-2 border-l-0 border-r-0 border-t-0 border-runik-neutral-dark h-2/3 ${visibility}`}
         >
             {/* Work in progress prop ^ */}
             <input
