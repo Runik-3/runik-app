@@ -1,62 +1,62 @@
+/* eslint-disable no-plusplus */
 import { useContext, useEffect } from 'react';
 import installDictionary from '../services/installDictionary';
 import { LibraryContext } from '../context/libraryContext';
-import useDictionaryStates from '../hooks/useDictionaryStates';
 import convertDictionary from '../services/convertDictionary';
+import handleLibraryRefs from '../services/handleLibraryRefs';
+import useDictionaryStates from '../hooks/useDictionaryStates';
 
 export default function dictionary() {
-    // should wrap this entire thing up in hook after
-    // it all works and return array of converted
-    // files to be installed
-
     // necessary states to be passed to various functions
     const { library } = useContext(LibraryContext);
     const states = useDictionaryStates();
 
     async function handleGetDict() {
-        await convertDictionary(states, library, 'kobo', 'test');
+        states.setStatus(
+            library.length === 1
+                ? `Generating words list for ${library.length} dictionary...`
+                : `Generating words list for ${library.length} dictionaries...`
+        );
+        const rawDicts = await handleLibraryRefs(library).catch((err) => {
+            throw new Error(err);
+        });
+        states.setStatus('Words list generated');
+        states.setDicts(rawDicts);
     }
-
-    useEffect(() => {
-        console.log(states.dicts);
-        console.log('dicts changed');
-    }, [states.dicts]);
 
     async function handleInstall() {
-        await installDictionary((await states).status);
+        await installDictionary(states.convertedDicts).catch((err) => {
+            throw new Error(err);
+        });
+        states.setStatus('Dictionaries installed!');
     }
-    // function handleConvert(event) {
-    //     event.preventDefault();
-    // }
 
-    // async function handleInstall(event) {
-    //     event.preventDefault();
-    //     await installDictionary(dicts);
-    //     setStatus('Dictionary installed');
-    // }
-
-    // // this use effect to set convertedDicts custom hook returns convertedDicts array
-    // useEffect(async () => {
-    //     if (files.length > 0) {
-    //         // if files is empty, don't convert
-    //         setStatus('Converting...');
-    //         const convertedDict = await convertDictionary(
-    //             'kobo',
-    //             'xdxf',
-    //             'test',
-    //             files
-    //         ).catch((error) => {
-    //             throw new Error(error);
-    //         });
-    //         setDicts([...dicts, convertedDict]);
-    //         setStatus('Dictionary converted... files ready to be installed');
-    //         // document.querySelector('.install-btn').style.display = 'block';
-    //     }
-    // }, [files]);
+    useEffect(async () => {
+        if (states.dicts.length > 0) {
+            let converted = [];
+            states.setStatus('Converting dictionaries...');
+            for (let i = 0; i < states.dicts.length; i++) {
+                const dict = states.dicts[i];
+                const convertedDict = convertDictionary(
+                    dict,
+                    'kobo',
+                    'gameofthrones'
+                );
+                converted.push(convertedDict);
+            }
+            converted = await Promise.all(converted).catch((err) => {
+                throw new Error(err);
+            });
+            states.setConvertedDicts(converted);
+            states.setStatus(
+                'Dictionaries converted and ready to be installed'
+            );
+        }
+    }, [states.dicts]);
 
     return (
         <div>
-            <form onSubmit={(e) => handleConvert(e)}>
+            <form>
                 <span>Upload .xdxf file:</span>
                 <input name="dictionary" id="xdxf" type="file" />
                 <button
@@ -80,7 +80,7 @@ export default function dictionary() {
             >
                 Install Dictionary
             </button>
-            {library}
+            <p>{states.status}</p>
         </div>
     );
 }

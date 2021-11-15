@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 export default async function installDictionaries(dictionaries) {
     // modal explaining steps?
+    console.log(dictionaries);
     let dir = await window.showDirectoryPicker().catch((error) => {
         throw new Error(error);
     });
@@ -12,7 +13,6 @@ export default async function installDictionaries(dictionaries) {
     if (dir.name.toLowerCase().includes('kobo')) {
         // perform KOBO conversion
         // nest through kobo file system and target dictionary dir
-
         dir = await dir.getDirectoryHandle('.kobo').catch((error) => {
             throw new Error(error);
         });
