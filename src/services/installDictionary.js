@@ -1,7 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 export default async function installDictionaries(dictionaries) {
     // modal explaining steps?
-    console.log(dictionaries);
     let dir = await window.showDirectoryPicker().catch((error) => {
         throw new Error(error);
     });
@@ -31,7 +30,9 @@ export default async function installDictionaries(dictionaries) {
                 const file = await dir.getFileHandle(`test.zip`, {
                     create: true,
                 });
-                const stream = await file.createWritable();
+                const stream = await file.createWritable().catch((err) => {
+                    throw new Error(err);
+                });
                 await stream.write({ type: 'write', data: dict }); // throw error here if doesn't write
                 await stream.close();
             } catch (error) {
