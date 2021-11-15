@@ -1,12 +1,10 @@
-import { useState, useContext } from 'react';
-import { LibraryContext } from '../context/libraryContext';
-import convertDictionary from '../services/convertDictionary';
-import fetchDictionary from '../services/fetchDictionary';
+import { useState } from 'react';
 
 export default function useDictionaryStates() {
     const [dicts, setDicts] = useState([]);
     const [convertedDicts, setConvertedDicts] = useState([]);
     const [status, setStatus] = useState(['test']);
+    const [targetDevice, setTargetDevice] = useState('');
 
     // takes in fandom list objects returns xdxf files -- passes file name and url through dictRef
 
@@ -17,5 +15,7 @@ export default function useDictionaryStates() {
         setConvertedDicts,
         status,
         setStatus,
+        targetDevice,
+        setTargetDevice,
     };
 }

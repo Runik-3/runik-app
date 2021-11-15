@@ -10,7 +10,7 @@ export default async function convertDictionary(
     async function dictConverter(inputFile) {
         // live conversion api test environment
         const baseUrl =
-            'http://ec2-54-219-83-200.us-west-1.compute.amazonaws.com:8080/';
+            'https://runik-generator.herokuapp.com/api/dictionary/gameofthrones?lang=en&capacity=100';
         // api/<target_device>/<input_format>/<dictionary_title>
         const endpoints = `api/${targetDevice.toLowerCase()}/${inputFormat}/${dictionaryName}`;
         const url = baseUrl + endpoints;

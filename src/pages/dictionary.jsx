@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import installDictionary from '../services/installDictionary';
 import { LibraryContext } from '../context/libraryContext';
 import useDictionaryStates from '../hooks/useDictionaryStates';
@@ -15,8 +15,12 @@ export default function dictionary() {
 
     async function handleGetDict() {
         await convertDictionary(states, library, 'kobo', 'test');
-        console.log(states.dicts);
     }
+
+    useEffect(() => {
+        console.log(states.dicts);
+        console.log('dicts changed');
+    }, [states.dicts]);
 
     async function handleInstall() {
         await installDictionary((await states).status);
