@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Fuse from 'fuse.js';
 import SearchBarDropdown from '../SearchBarDropdown';
-import booksList from '../../content/booksList.json';
+import booksList from '../../data/booksList.json';
 
 const options = {
     keys: ['title'],
