@@ -4,6 +4,7 @@
 import ResultsCard from '../components/ResultsCard';
 import NavBar from '../components/NavBar';
 import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index';
+// import data from '../data/booksList.json';
 
 export default function Results() {
     return (
@@ -19,11 +20,6 @@ export default function Results() {
             <div />
             <div className="w-11/12 flex justify-center items-center">
                 <div className="flex w-11/12 max-w-6xl justify-evenly items-center py-16 flex-wrap">
-                    <ResultsCard />
-                    <ResultsCard />
-                    <ResultsCard />
-                    <ResultsCard />
-                    <ResultsCard />
                     <ResultsCard />
                 </div>
             </div>
