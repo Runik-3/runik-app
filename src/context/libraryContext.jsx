@@ -1,10 +1,10 @@
 import { createContext, useState } from 'react';
 
-export const LibraryContext = createContext({});
+export const LibraryContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const LibraryProvider = ({ children }) => {
-    const [library, setLibrary] = useState(['test']);
+    const [library, setLibrary] = useState([]);
 
     function addReference(dict) {
         setLibrary([...library, dict]);
@@ -16,7 +16,7 @@ export const LibraryProvider = ({ children }) => {
 
     return (
         <LibraryContext.Provider
-            value={{ library, addReference, removeReference }}
+            value={[library, addReference, removeReference]}
         >
             {children}
         </LibraryContext.Provider>

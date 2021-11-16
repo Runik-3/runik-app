@@ -58,7 +58,7 @@ export default function dictionary() {
         <div>
             <form>
                 <span>Upload .xdxf file:</span>
-                <input name="dictionary" id="xdxf" type="file" />
+                <input game="dictionary" id="xdxf" type="file" />
                 <button
                     type="submit"
                     className="mr-6 p-2 border-2 border-solid border-black"

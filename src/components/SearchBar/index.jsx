@@ -22,7 +22,6 @@ const SearchBar = ({ visibility }) => {
 
     function filterSearch(string) {
         setLiveResults(fuse.search(string));
-        console.log(liveResults);
     }
 
     useEffect(() => {
