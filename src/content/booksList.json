@@ -1,0 +1,61 @@
+[
+    {
+        "url": "https://iceandfire.fandom.com/",
+        "title": "A Song of Ice and Fire",
+        "author": "George R. R. Martin",
+        "description":
+            "A Song of Ice and Fire is a series of epic fantasy novels written by American novelist and screenwriter George R.R. Martin. He began writing the series in 1991 and the first volume was published in 1996. Originally envisaged as a trilogy, there are now five published novels in the series with two more planned. There are also two novellas which act as prequels to the novels, with several more planned, and three other novellas consisting of excerpts from the main novels.",
+        "thumbnail":
+            "http://image.tmdb.org/t/p/w342/s1FhMAr91WL8D5DeHOcuBELtiHJ.jpghttps://static.wikia.nocookie.net/iceandfire/images/8/87/Ser_Jaime_Lannister_by_Magali_Villeneuve.jpg/revision/latest/scale-to-width-down/570?cb=20151206110724",
+        "category": ""
+    },
+    {
+        "url": "https://malazan.fandom.com/",
+        "title": "Malazan Book of the Fallen",
+        "author": "Stephen Erikson",
+        "description":
+            "The Malazan Book of the Fallen [Ma-laa-zan][1] is an epic fantasy series written by Canadian author Steven Erikson. The series depicts a period of turmoil in the history of the Malazan Empire and the other nations that share its world, such as Lether.",
+        "thumbnail":
+            "https://external-preview.redd.it/_LufXon99SKtBdIswlTSFR9R-gboSB8XEeLc2a81mPA.jpg?auto=webp&s=7cac5102e088cc1e42f812850fd59df6cc68f81c",
+        "category": ""
+    },
+    {
+        "url": "https://dune.fandom.com/",
+        "title": "Dune",
+        "author": "Frank Herbert",
+        "description":
+            "The story of Dune begins with Paul Atreides, a young man born into a great destiny beyond his understanding, and he must travel to the most dangerous planet in the universe to ensure the future of his family and his people.",
+        "thumbnail":
+            "https://c4.wallpaperflare.com/wallpaper/774/956/12/arrakis-science-fiction-paul-atreides-dune-series-digital-art-hd-wallpaper-thumb.jpg",
+        "category": ""
+    },
+    {
+        "url": "https://kingkiller.fandom.com/",
+        "title": "Kingkiller",
+        "author": "Patrick Rothfuss",
+        "description":
+            "Kingkiller Wiki is a collaborative project to create the most definitive, accurate, and accessible encyclopedia and reference for everything related to The Kingkiller Chronicle series.",
+        "thumbnail":
+            "https://static.wikia.nocookie.net/nameofthewind/images/2/24/Kkcslider.jpg/revision/latest/scale-to-width-down/670?cb=20161129221828",
+        "category": ""
+    },
+    {
+        "url": "https://stormlightarchive.fandom.com/",
+        "title": "Stormlight Archive",
+        "author": "Brandom Sanderson",
+        "description": "Stormlight Archive Wiki | Fandom",
+        "thumbnail":
+            "https://static.wikia.nocookie.net/stormlightarchive/images/b/b0/Slider_Roshar.jpg/revision/latest/scale-to-width-down/670?cb=20130613210202",
+        "category": ""
+    },
+    {
+        "url": "https://darktower.fandom.com/",
+        "title": "The Dark Tower",
+        "author": "Stephen King",
+        "description":
+            "The Dark Tower is a series of eight books and one short story written by American author Stephen King.",
+        "thumbnail":
+            "https://static.wikia.nocookie.net/darktower/images/a/af/Dark_Tower_Comics.png/revision/latest/scale-to-width-down/670?cb=20170524153400",
+        "category": ""
+    }
+]

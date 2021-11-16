@@ -1,10 +1,38 @@
 /* eslint-disable no-undef */
 // eslint-disable-next-line react/prop-types
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import Fuse from 'fuse.js';
 import SearchBarDropdown from '../SearchBarDropdown';
+
+// const booksList = JSON.parse(bookData);
+console.log(booksList);
+const fuse = new Fuse(booksList);
+const options = {
+    keys: ['title', 'description'],
+};
 
 // eslint-disable-next-line react/prop-types
 const SearchBar = ({ visibility }) => {
+    const [searchString, setSearchString] = useState('');
+    const [liveResults, setLiveResults] = useState([]);
+
+    function handleSearchInput(e) {
+        setSearchString(e.target.value);
+    }
+
+    function filterSearch(string) {
+        console.log(string);
+        // const filteredSearch = fuse.search(string, options);
+        console.log(filteredSearch);
+    }
+
+    useEffect(() => {
+        if (searchString !== '') {
+            filterSearch(searchString);
+        }
+    }, [searchString]);
+
     return (
         <div className="w-full">
             <div
@@ -14,8 +42,9 @@ const SearchBar = ({ visibility }) => {
                 {/* Work in progress prop ^ */}
                 <input
                     type="text"
-                    placeholder="Search"
+                    placeholder="Search dictionaries..."
                     className="w-full h-12 border-0 text-xl font-spartan text-gray-500 focus:ring-0 focus:border-gray-700"
+                    onChange={(e) => handleSearchInput(e)}
                 />
                 <Link href="results">
                     <button
@@ -41,7 +70,11 @@ const SearchBar = ({ visibility }) => {
                 </Link>
             </div>
             <div>
-                <SearchBarDropdown barVisibility={visibility} />
+                <SearchBarDropdown
+                    barVisibility={visibility}
+                    dropdownVisibility={searchString ? 'block' : 'hidden'}
+                    liveResults={liveResults}
+                />
             </div>
         </div>
     );

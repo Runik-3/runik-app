@@ -26,6 +26,7 @@
     "babel-jest": "^27.3.1",
     "dotenv": "^10.0.0",
     "framer-motion": "^4.1.17",
+    "fuse.js": "^6.4.6",
     "next": "^12.0.2",
     "next-sitemap": "^1.6.192",
     "react": "17.0.2",
