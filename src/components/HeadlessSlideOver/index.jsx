@@ -14,7 +14,7 @@ import LibraryCard from '../LibraryCard';
 export default function HeadlessSlideOver({ open, setOpen, children }) {
     const [library, removeReference] = useContext(LibraryContext);
     const [cards, setCards] = useState([]);
-    const [targetDevice, setTargetDevice] = useState('kindle');
+    const [targetDevice, setTargetDevice] = useState('kobo');
 
     useEffect(() => {
         if (library.length > 0) {
