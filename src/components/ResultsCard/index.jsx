@@ -1,10 +1,18 @@
 import Link from 'next/link';
 import AddButton from '../Icons/AddButton';
+import data from '../../content/booksList.json';
+
+const books = data.title;
 
 export default function ResultsCard() {
+    test();
     return (
         <Link href="details">
             <div>
+                {books.map((s) => (
+                    // eslint-disable-next-line react/jsx-key
+                    <li>{s}</li>
+                ))}
                 <div className="flex max-w-xs w-full bg-white shadow-md rounded-lg overflow-hidden mx-auto max-h-full m-4">
                     <div className="overflow-hidden rounded-xl relative transform hover:-translate-y-2 transition ease-in-out duration-500 shadow-lg hover:shadow-2xl movie-item text-white movie-card">
                         <div className="absolute inset-0 z-10 transition duration-300 ease-in-out bg-gradient-to-t from-runik-neutral-dark via-runik-neutral-dark to-transparent" />
