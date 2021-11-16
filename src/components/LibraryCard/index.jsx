@@ -1,12 +1,12 @@
 import AddButton from '../Icons/AddButton';
 
-// eslint-disable-next-line react/prop-types
-const LibraryCard = (/* {onClick,titleName } */) => {
+export default function LibraryCard(props) {
+    const { title, thumbnail } = { props };
     return (
         <div className=" h-screen ">
             <div className="overflow-hidden flex p-3 pb-8 pt-2 shadow-lg rounded-lg w-80 h-20 bg-gradient-to-r from-runik-neutral-dark to-transparent justify-between background-image:">
                 <div className="text-lg text-left align-text-top text-white font-bold font-spartan ">
-                    Harry Potter
+                    {title}
                 </div>
                 <button
                     type="button"
@@ -14,14 +14,12 @@ const LibraryCard = (/* {onClick,titleName } */) => {
                 >
                     <AddButton />
                 </button>
-                {/* <img
+                <img
                     className="absolute transform w-full -translate-y-4"
-                    src="http://image.tmdb.org/t/p/w342/s1FhMAr91WL8D5DeHOcuBELtiHJ.jpg"
+                    src={thumbnail}
                     alt="dictionaryImage"
-                /> */}
+                />
             </div>
         </div>
     );
-};
-
-export default LibraryCard;
+}

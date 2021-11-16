@@ -69,24 +69,7 @@ export default function HeadlessSlideOver({ open, setOpen, children }) {
                                     </div>
                                     <Divider />
                                     <div className="flex flex-col w-library-children-width mt-4 text-3xl text-runik-neutral-med">
-                                        <h2>
-                                            Select Your <br /> Device
-                                        </h2>
                                         <form className="mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-10">
-                                            <input
-                                                type="radio"
-                                                value="Kobo"
-                                                name="device"
-                                                className="mr-2"
-                                            />
-                                            Kobo <br />
-                                            <input
-                                                type="radio"
-                                                value="Kindle"
-                                                name="device"
-                                                className="mr-2"
-                                            />
-                                            Kindle <br />
                                             <div className="w-4/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
                                                 <input
                                                     type="submit"
