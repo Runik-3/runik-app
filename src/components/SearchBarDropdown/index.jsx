@@ -13,8 +13,15 @@ export default function SearchBarDropdown({
             }`}
         >
             <ul>
-                <SearchDropdownItem title="A Song of Ice and Fire" />
-                <SearchDropdownItem title="A Song of Ice and Fire" />
+                {liveResults.map((result) => {
+                    return (
+                        <SearchDropdownItem
+                            key={result.item.url}
+                            title={result.item.title}
+                            url={result.item.url}
+                        />
+                    );
+                })}
             </ul>
         </div>
     );
