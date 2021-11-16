@@ -7,7 +7,7 @@ import SearchBarDropdown from '../SearchBarDropdown';
 import booksList from '../../data/booksList.json';
 
 const options = {
-    keys: ['title'],
+    keys: ['title', 'author'],
 };
 const fuse = new Fuse(booksList, options);
 
