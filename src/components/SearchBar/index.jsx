@@ -4,13 +4,12 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Fuse from 'fuse.js';
 import SearchBarDropdown from '../SearchBarDropdown';
+import booksList from '../../content/booksList.json';
 
-// const booksList = JSON.parse(bookData);
-console.log(booksList);
-const fuse = new Fuse(booksList);
 const options = {
-    keys: ['title', 'description'],
+    keys: ['title'],
 };
+const fuse = new Fuse(booksList, options);
 
 // eslint-disable-next-line react/prop-types
 const SearchBar = ({ visibility }) => {
@@ -22,9 +21,8 @@ const SearchBar = ({ visibility }) => {
     }
 
     function filterSearch(string) {
-        console.log(string);
-        // const filteredSearch = fuse.search(string, options);
-        console.log(filteredSearch);
+        setLiveResults(fuse.search(string));
+        console.log(liveResults);
     }
 
     useEffect(() => {
