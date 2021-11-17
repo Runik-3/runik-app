@@ -3,15 +3,11 @@
 // import { add } from 'winston';
 // import AddButton from '../Icons/AddButton';
 import { useContext, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import PlusCircle from '../Icons/PlusCircle';
 import { LibraryContext } from '../../context/libraryContext';
 import booksList from '../../data/booksList.json';
 
-export default function ResultsCard() {
-    const router = useRouter();
-    // console.log(router.query);
-
+export default function ResultsCard({ results }) {
     function trim(text, count) {
         return text.slice(0, count) + (text.length > count ? '...' : '');
     }
