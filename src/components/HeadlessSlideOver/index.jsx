@@ -81,7 +81,7 @@ export default function HeadlessSlideOver({ open, setOpen, children }) {
                                         {library.map((libRef) => {
                                             return (
                                                 <LibraryCard
-                                                    key={libRef.url}
+                                                    key={libRef[0].url}
                                                     libRef={libRef[0]}
                                                 />
                                             );
@@ -96,8 +96,8 @@ export default function HeadlessSlideOver({ open, setOpen, children }) {
                                                     tabIndex="0"
                                                     className={
                                                         targetDevice === 'kobo'
-                                                            ? 'kobo w-2/4 bg-runik-neutral-dark text-white py-3 px-6 rounded-l-xl cursor-pointer border-2 border-runik-neutral-dark'
-                                                            : 'kindle w-2/4 py-3 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-l-xl'
+                                                            ? 'kobo w-2/4 bg-runik-neutral-dark text-white py-2 px-6 rounded-l-xl cursor-pointer border-2 border-runik-neutral-dark'
+                                                            : 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-l-xl'
                                                     }
                                                     onClick={() =>
                                                         setTargetDevice('kobo')
@@ -110,8 +110,8 @@ export default function HeadlessSlideOver({ open, setOpen, children }) {
                                                     className={
                                                         targetDevice ===
                                                         'kindle'
-                                                            ? 'kindle w-2/4 py-3 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-r-xl bg-runik-neutral-dark text-white'
-                                                            : 'kindle w-2/4 py-3 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-r-xl'
+                                                            ? 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-r-xl bg-runik-neutral-dark text-white'
+                                                            : 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-r-xl'
                                                     }
                                                     onClick={() =>
                                                         setTargetDevice(
