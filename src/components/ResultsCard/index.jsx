@@ -23,6 +23,7 @@ export default function ResultsCard({ libRef }) {
             return book.url === result.url;
         });
 
+        // eslint-disable-next-line array-callback-return
         library.map((ref) => {
             if (ref[0].url === bookToAdd[0].url) {
                 duplicate = true;

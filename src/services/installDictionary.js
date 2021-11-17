@@ -27,9 +27,12 @@ export default async function installDictionaries(dictionaries) {
 
         dictionaries.forEach(async (dict) => {
             try {
-                const file = await dir.getFileHandle(`test.zip`, {
-                    create: true,
-                });
+                const file = await dir.getFileHandle(
+                    `dicthtml-${dict.name}.zip`,
+                    {
+                        create: true,
+                    }
+                );
                 const stream = await file.createWritable().catch((err) => {
                     throw new Error(err);
                 });
