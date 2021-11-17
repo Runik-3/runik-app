@@ -6,7 +6,7 @@ import MinusCircle from '../Icons/MinusCircle';
 
 // eslint-disable-next-line react/prop-types
 const LibraryCard = ({ libRef }) => {
-    const [, , removeReference] = useContext(LibraryContext);
+    const [library, , removeReference] = useContext(LibraryContext);
     function removeCard(url) {
         removeReference(url);
     }
@@ -17,7 +17,7 @@ const LibraryCard = ({ libRef }) => {
                 <div className="text-lg text-left align-text-top text-white font-bold font-spartan ">
                     {libRef.title}
                 </div>
-                <MinusCircle onclick={() => removeCard()} />
+                <MinusCircle onclick={() => removeCard(libRef.url)} />
                 {/* <img
                     className="absolute transform w-full -translate-y-4"
                     src={libRef.thumbnail}

@@ -11,7 +11,7 @@ export const LibraryProvider = ({ children }) => {
     }
 
     function removeReference(url) {
-        setLibrary(library.filter((dict) => dict.url !== url));
+        setLibrary(library.filter((dict) => dict[0].url !== url));
     }
 
     return (

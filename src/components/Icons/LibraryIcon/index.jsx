@@ -1,8 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useContext } from 'react';
+import { LibraryContext } from '../../../context/libraryContext';
 
 // eslint-disable-next-line react/prop-types
 function LibraryIcon({ children, className, ...props }) {
+    const [library] = useContext(LibraryContext);
+
     return (
         <button type="button" {...props}>
             <svg
@@ -27,6 +30,17 @@ function LibraryIcon({ children, className, ...props }) {
                     strokeLinejoin="round"
                 />
             </svg>
+            <div
+                className={
+                    library.length === 0
+                        ? 'hidden'
+                        : 'flex justify-center transform -translate-y-14'
+                }
+            >
+                <p className="bg-black rounded-full w-6 text-base text-white">
+                    {library.length}
+                </p>
+            </div>
         </button>
     );
 }
