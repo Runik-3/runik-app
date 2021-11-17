@@ -33,7 +33,6 @@ export default function HeadlessSlideOver({ open, setOpen }) {
         const rawDicts = await handleLibraryRefs(library).catch((err) => {
             throw new Error(err);
         });
-        console.log(rawDicts);
         states.setStatus('Words list generated');
         states.setDicts(rawDicts);
     }
@@ -54,7 +53,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 const convertedDict = convertDictionary(
                     dict,
                     targetDevice,
-                    'gameofthrones'
+                    dict.name
                 );
                 converted.push(convertedDict);
             }
@@ -62,6 +61,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 throw new Error(err);
             });
             states.setConvertedDicts(converted);
+            console.log(converted);
             states.setStatus(
                 'Dictionaries converted and ready to be installed'
             );
