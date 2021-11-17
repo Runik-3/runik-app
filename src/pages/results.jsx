@@ -20,9 +20,10 @@ export default function Results() {
     }
 
     useEffect(() => {
-        filterSearch(router.query.query);
-        console.log(liveResults);
-    }, []);
+        if (!router.isReady) return;
+        const { query } = router.query;
+        filterSearch(query);
+    }, [router.isReady]);
 
     return (
         <div className="flex justify-center w-full flex-col items-start ml-14">
@@ -37,7 +38,9 @@ export default function Results() {
             <div />
             <div className="w-11/12 flex justify-center items-center">
                 <div className="flex w-11/12 max-w-6xl justify-evenly items-center py-16 flex-wrap">
-                    <ResultsCard props={liveResults} />
+                    {liveResults.map((libRef) => {
+                        return <ResultsCard key={libRef.url} libRef={libRef} />;
+                    })}
                 </div>
             </div>
             <div className="flex bg-gradient-to-t from-gray-400 h-3/5 w-full" />
