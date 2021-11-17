@@ -14,7 +14,7 @@ export default function Details() {
                 <LibraryIcon />
             </div>
             <div className="pt-8">
-                <ArrowBackIcon />
+                <ArrowBackIcon href="/results" />
             </div>
             <div className="flex w-11/12 items-start pb-16 pt-6">
                 <DetailsCard

@@ -6,7 +6,7 @@ export default function About() {
     return (
         <div className="flex flex-col min-h-full h-screen">
             <div className="pl-8 pt-8 pb-8">
-                <ArrowBackIcon />
+                <ArrowBackIcon href="/" />
             </div>
             <div className="flex text-center flex-col">
                 <div className="pb-12 flex justify-evenly">
