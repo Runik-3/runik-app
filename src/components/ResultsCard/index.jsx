@@ -3,7 +3,7 @@
 // import Link from 'next/link';
 // import { add } from 'winston';
 // import AddButton from '../Icons/AddButton';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import PlusCircle from '../Icons/PlusCircle';
 import { LibraryContext } from '../../context/libraryContext';
 import booksList from '../../data/booksList.json';
@@ -22,6 +22,7 @@ export default function ResultsCard({ libRef }) {
             return book.url === result.url;
         });
 
+        // eslint-disable-next-line array-callback-return
         library.map((ref) => {
             if (ref[0].url === bookToAdd[0].url) {
                 duplicate = true;
