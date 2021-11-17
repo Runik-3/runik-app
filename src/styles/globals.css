@@ -9,4 +9,5 @@
 
 body {
     min-width: 320px;
+    background: linear-gradient( 0deg, #9ca3af,#fff 15%  ) ;
 }
