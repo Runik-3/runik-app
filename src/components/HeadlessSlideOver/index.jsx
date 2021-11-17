@@ -21,22 +21,27 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
     const [targetDevice, setTargetDevice] = useState('kobo');
     const [modalActive, setModalActive] = useState(false);
+    const [isThinking, setIsThinking] = useState(true);
     // 6 states necessary for dictionary generation and conversion
     const states = useDictionaryStates();
 
     // DICTIONARY LOGIC
     async function handleGetDict() {
-        setModalActive(true);
-        states.setStatus(
-            library.length === 1
-                ? `Generating words list for ${library.length} dictionary...`
-                : `Generating words list for ${library.length} dictionaries...`
-        );
-        const rawDicts = await handleLibraryRefs(library).catch((err) => {
-            throw new Error(err);
-        });
-        states.setStatus('Words list generated');
-        states.setDicts(rawDicts);
+        if (library.length > 0) {
+            setModalActive(true);
+            setIsThinking(true);
+            states.setStatus(
+                library.length === 1
+                    ? `Generating words list for ${library.length} dictionary...`
+                    : `Generating words list for ${library.length} dictionaries...`
+            );
+            const rawDicts = await handleLibraryRefs(library).catch((err) => {
+                throw new Error(err);
+            });
+
+            states.setStatus('Words list generated');
+            states.setDicts(rawDicts);
+        }
     }
 
     async function handleInstall() {
@@ -63,7 +68,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 throw new Error(err);
             });
             states.setConvertedDicts(converted);
-            console.log(converted);
+            setIsThinking(false);
             states.setStatus(
                 'Dictionaries converted and ready to be installed!'
             );
@@ -72,7 +77,15 @@ export default function HeadlessSlideOver({ open, setOpen }) {
 
     return (
         <div>
-            {modalActive ? <InstallModal /> : ''}
+            {modalActive ? (
+                <InstallModal
+                    handleInstall={() => handleInstall()}
+                    status={states.status}
+                    isThinking={isThinking}
+                />
+            ) : (
+                ''
+            )}
             <Transition.Root show={open} as={Fragment}>
                 <Dialog
                     as="div"
