@@ -1,18 +1,44 @@
 /* eslint-disable react/jsx-key */
 // import Link from 'next/link';
-import AddButton from '../Icons/AddButton';
-import books from '../../data/booksList.json';
+// import { add } from 'winston';
+// import AddButton from '../Icons/AddButton';
+import { useContext, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import PlusCircle from '../Icons/PlusCircle';
+import { LibraryContext } from '../../context/libraryContext';
+import booksList from '../../data/booksList.json';
 
 export default function ResultsCard() {
+    const router = useRouter();
+    // console.log(router.query);
+
     function trim(text, count) {
         return text.slice(0, count) + (text.length > count ? '...' : '');
+    }
+
+    const [library, addReference] = useContext(LibraryContext);
+
+    function addToLibrary() {
+        let duplicate;
+        const bookToAdd = booksList.filter((book) => {
+            return book.url === url;
+        });
+
+        console.log(library);
+        library.map((ref) => {
+            if (ref[0].url === bookToAdd[0].url) {
+                duplicate = true;
+            }
+        });
+        if (!duplicate) {
+            addReference(bookToAdd);
+        }
     }
 
     return (
         // <Link href="details">
         <div className="flex flex-row flex-wrap">
-            {books.map((book) => {
+            {booksList.map((book) => {
                 // eslint-disable-next-line no-undef
                 const [
                     url,
@@ -39,7 +65,10 @@ export default function ResultsCard() {
                                         type="button"
                                         className="hover:bg-runik-primary-light rounded-full"
                                     >
-                                        <PlusCircle url={url} />
+                                        <PlusCircle
+                                            url={url}
+                                            onclick={() => addToLibrary()}
+                                        />
                                     </button>
                                 </div>
                                 <div className="poster__info align-self-end w-full h-80">
