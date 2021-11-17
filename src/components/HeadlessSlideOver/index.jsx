@@ -11,9 +11,9 @@ import Divider from '../Icons/Divider';
 import { LibraryContext } from '../../context/libraryContext';
 import LibraryCard from '../LibraryCard';
 
-export default function HeadlessSlideOver({ open, setOpen, children }) {
-    const [library, removeReference] = useContext(LibraryContext);
-    const [cards, setCards] = useState([]);
+export default function HeadlessSlideOver({ open, setOpen }) {
+    const [library] = useContext(LibraryContext);
+    const [, setCards] = useState([]);
     const [targetDevice, setTargetDevice] = useState('kobo');
 
     useEffect(() => {
