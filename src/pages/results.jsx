@@ -26,7 +26,7 @@ export default function Results() {
     }, [router.isReady]);
 
     return (
-        <div className="flex justify-center w-full flex-col items-start ml-14">
+        <div className="flex justify-center w-full min-h-screen flex-col items-start ml-14">
             {/* The NavBar has replaced the original standalone comps, the sizing and fitting is off and needs to be adjusted accordingly, the props attached to NavBar are for the icons that need to switch visibility depending on page */}
             <div className="flex py-5 w-11/12 max-w-8xl justify-start items-start">
                 <NavBar aDisplay="hidden" rDisplay="flex" />
