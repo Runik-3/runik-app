@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -10,17 +11,62 @@ import LibraryOpenIcon from '../Icons/LibraryOpenIcon';
 import Divider from '../Icons/Divider';
 import { LibraryContext } from '../../context/libraryContext';
 import LibraryCard from '../LibraryCard';
+import useDictionaryStates from '../../hooks/useDictionaryStates';
+import handleLibraryRefs from '../../services/handleLibraryRefs';
+import installDictionaries from '../../services/installDictionary';
+import convertDictionary from '../../services/convertDictionary';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
     const [, setCards] = useState([]);
     const [targetDevice, setTargetDevice] = useState('kobo');
+    // 6 states necessary for dictionary generation and conversion
+    const states = useDictionaryStates();
 
-    useEffect(() => {
-        if (library.length > 0) {
-            setCards(library);
+    // DICTIONARY LOGIC
+    async function handleGetDict() {
+        states.setStatus(
+            library.length === 1
+                ? `Generating words list for ${library.length} dictionary...`
+                : `Generating words list for ${library.length} dictionaries...`
+        );
+        const rawDicts = await handleLibraryRefs(library).catch((err) => {
+            throw new Error(err);
+        });
+        console.log(rawDicts);
+        states.setStatus('Words list generated');
+        states.setDicts(rawDicts);
+    }
+
+    async function handleInstall() {
+        await installDictionaries(states.convertedDicts).catch((err) => {
+            throw new Error(err);
+        });
+        states.setStatus('Dictionaries installed!');
+    }
+
+    useEffect(async () => {
+        if (states.dicts.length > 0) {
+            let converted = [];
+            states.setStatus('Converting dictionaries...');
+            for (let i = 0; i < states.dicts.length; i++) {
+                const dict = states.dicts[i];
+                const convertedDict = convertDictionary(
+                    dict,
+                    targetDevice,
+                    'gameofthrones'
+                );
+                converted.push(convertedDict);
+            }
+            converted = await Promise.all(converted).catch((err) => {
+                throw new Error(err);
+            });
+            states.setConvertedDicts(converted);
+            states.setStatus(
+                'Dictionaries converted and ready to be installed'
+            );
         }
-    }, [library]);
+    }, [states.dicts]);
 
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -128,6 +174,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                     type="button"
                                                     value="Install"
                                                     className="font-semibold cursor-pointer bg-transparent"
+                                                    onClick={() => {
+                                                        handleGetDict();
+                                                    }}
                                                 />
                                             </div>
                                         </div>

@@ -8,7 +8,7 @@ import useDictionaryStates from '../hooks/useDictionaryStates';
 
 export default function dictionary() {
     // necessary states to be passed to various functions
-    const { library } = useContext(LibraryContext);
+    const [library] = useContext(LibraryContext);
     const states = useDictionaryStates();
 
     async function handleGetDict() {

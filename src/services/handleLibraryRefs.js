@@ -1,4 +1,5 @@
 import fetchDictionary from './fetchDictionary';
+import getTitleFromUrl from './getTitleFromUrl';
 
 /* eslint-disable no-plusplus */
 export default async function handleLibraryRefs(library) {
@@ -6,12 +7,11 @@ export default async function handleLibraryRefs(library) {
     if (library.length > 0) {
         const dictsArr = [];
         for (let i = 0; i < library.length; i++) {
-            // parse url and name out of libRef
-            // eslint-disable-next-line no-unused-vars
-            const libRef = library[i];
+            const libRef = library[i][0];
+            const dictTitle = getTitleFromUrl(libRef.url);
             const dict = fetchDictionary(
-                'https://runik-generator.herokuapp.com/api/dictionary/gameofthrones?lang=en&capacity=100',
-                'test'
+                `https://dev.runik.app/api/dictionary/${dictTitle}?lang=en&capacity=50`,
+                dictTitle
             );
             dictsArr.push(dict);
         }
