@@ -13,14 +13,16 @@ export default function SearchBarDropdown({
             }`}
         >
             <ul>
-                {liveResults.map((result) => {
-                    return (
-                        <SearchDropdownItem
-                            key={result.item.url}
-                            title={result.item.title}
-                            url={result.item.url}
-                        />
-                    );
+                {liveResults.map((result, i) => {
+                    if (i < 5) {
+                        return (
+                            <SearchDropdownItem
+                                key={result.item.url}
+                                title={result.item.title}
+                                url={result.item.url}
+                            />
+                        );
+                    }
                 })}
             </ul>
         </div>

@@ -15,7 +15,5 @@ export default function useDictionaryStates() {
         setConvertedDicts, // sets dict converted from raw dict
         status,
         setStatus, // sets progress/status
-        targetDevice,
-        setTargetDevice, // sets device target toggle
     };
 }

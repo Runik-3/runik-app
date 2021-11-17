@@ -2,7 +2,7 @@
 // import Link from 'next/link';
 import AddButton from '../Icons/AddButton';
 import books from '../../data/booksList.json';
-import LibraryCard from '../LibraryCard';
+import PlusCircle from '../Icons/PlusCircle';
 
 export default function ResultsCard() {
     function trim(text, count) {
@@ -15,14 +15,14 @@ export default function ResultsCard() {
             {books.map((book) => {
                 // eslint-disable-next-line no-undef
                 const [
-                    // url,
+                    url,
                     title,
                     // author,
                     description,
                     thumbnail,
                     // category,
                 ] = [
-                    // book.url,
+                    book.url,
                     book.title,
                     // book.author,
                     book.description,
@@ -38,11 +38,8 @@ export default function ResultsCard() {
                                     <button
                                         type="button"
                                         className="hover:bg-runik-primary-light rounded-full"
-                                        onClick={() =>
-                                            LibraryCard(title, thumbnail)
-                                        }
                                     >
-                                        <AddButton />
+                                        <PlusCircle url={url} />
                                     </button>
                                 </div>
                                 <div className="poster__info align-self-end w-full h-80">
