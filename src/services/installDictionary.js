@@ -1,4 +1,5 @@
-export default async function installDictionary(dictionaries) {
+/* eslint-disable no-restricted-syntax */
+export default async function installDictionaries(dictionaries) {
     // modal explaining steps?
     let dir = await window.showDirectoryPicker().catch((error) => {
         throw new Error(error);
@@ -11,23 +12,30 @@ export default async function installDictionary(dictionaries) {
     if (dir.name.toLowerCase().includes('kobo')) {
         // perform KOBO conversion
         // nest through kobo file system and target dictionary dir
-
         dir = await dir.getDirectoryHandle('.kobo').catch((error) => {
             throw new Error(error);
         });
 
-        dir = await dir.getDirectoryHandle('custom-dict').catch(async () => {
-            dir = await dir.getDirectoryHandle('dict').catch((err) => {
-                throw new Error(err);
-            });
-        });
+        // iterate over directories in .kobo, point to appropriate dict location
+        for await (const [, handle] of dir.entries()) {
+            if (handle.name === 'custom-dict') {
+                dir = handle;
+            } else if (handle.name === 'dict') {
+                dir = handle;
+            }
+        }
 
         dictionaries.forEach(async (dict) => {
             try {
-                const file = await dir.getFileHandle(`test.zip`, {
-                    create: true,
+                const file = await dir.getFileHandle(
+                    `dicthtml-${dict.name}.zip`,
+                    {
+                        create: true,
+                    }
+                );
+                const stream = await file.createWritable().catch((err) => {
+                    throw new Error(err);
                 });
-                const stream = await file.createWritable();
                 await stream.write({ type: 'write', data: dict }); // throw error here if doesn't write
                 await stream.close();
             } catch (error) {

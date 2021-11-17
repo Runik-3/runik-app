@@ -1,57 +1,64 @@
-import { useEffect, useState } from 'react';
-import convertDictionary from '../services/convertDictionary';
+/* eslint-disable no-plusplus */
+import { useContext, useEffect } from 'react';
 import installDictionary from '../services/installDictionary';
-import fetchDictionary from '../services/fetchDictionary';
+import { LibraryContext } from '../context/libraryContext';
+import convertDictionary from '../services/convertDictionary';
+import handleLibraryRefs from '../services/handleLibraryRefs';
+import useDictionaryStates from '../hooks/useDictionaryStates';
 
 export default function dictionary() {
-    // should wrap this entire thing up in hook after
-    // it all works and return array of converted
-    // files to be installed
-    const convertedDicts = [];
-    const [files, setFiles] = useState([]);
-    const [status, setStatus] = useState('');
+    // necessary states to be passed to various functions
+    const [library] = useContext(LibraryContext);
+    const states = useDictionaryStates();
 
     async function handleGetDict() {
-        const dict = await fetchDictionary(
-            'http://ec2-18-144-45-206.us-west-1.compute.amazonaws.com:8000/api/dictionary/gameofthrones?lang=en&capacity=1000'
+        states.setStatus(
+            library.length === 1
+                ? `Generating words list for ${library.length} dictionary...`
+                : `Generating words list for ${library.length} dictionaries...`
         );
-        setFiles([...files, dict]);
+        const rawDicts = await handleLibraryRefs(library).catch((err) => {
+            throw new Error(err);
+        });
+        states.setStatus('Words list generated');
+        states.setDicts(rawDicts);
     }
 
-    function handleConvert(event) {
-        event.preventDefault();
-        const file = event.target.dictionary.files[0];
-        setFiles([...files, file]);
-    }
-
-    async function handleInstall(event) {
-        event.preventDefault();
-        await installDictionary(convertedDicts);
+    async function handleInstall() {
+        await installDictionary(states.convertedDicts).catch((err) => {
+            throw new Error(err);
+        });
+        states.setStatus('Dictionaries installed!');
     }
 
     useEffect(async () => {
-        if (files.length > 0) {
-            // if files is empty, don't convert
-            setStatus('Converting...');
-            const convertedDict = await convertDictionary(
-                'kobo',
-                'xdxf',
-                'test',
-                files
-            ).catch((error) => {
-                throw new Error(error);
+        if (states.dicts.length > 0) {
+            let converted = [];
+            states.setStatus('Converting dictionaries...');
+            for (let i = 0; i < states.dicts.length; i++) {
+                const dict = states.dicts[i];
+                const convertedDict = convertDictionary(
+                    dict,
+                    'kobo',
+                    'gameofthrones'
+                );
+                converted.push(convertedDict);
+            }
+            converted = await Promise.all(converted).catch((err) => {
+                throw new Error(err);
             });
-            convertedDicts.push(convertedDict);
-            setStatus('Dictionary converted... files ready to be installed');
-            // document.querySelector('.install-btn').style.display = 'block';
+            states.setConvertedDicts(converted);
+            states.setStatus(
+                'Dictionaries converted and ready to be installed'
+            );
         }
-    }, [files]);
+    }, [states.dicts]);
 
     return (
         <div>
-            <form onSubmit={(e) => handleConvert(e)}>
+            <form>
                 <span>Upload .xdxf file:</span>
-                <input name="dictionary" id="xdxf" type="file" />
+                <input game="dictionary" id="xdxf" type="file" />
                 <button
                     type="submit"
                     className="mr-6 p-2 border-2 border-solid border-black"
@@ -73,7 +80,7 @@ export default function dictionary() {
             >
                 Install Dictionary
             </button>
-            {status}
+            <p>{states.status}</p>
         </div>
     );
 }

@@ -1,16 +1,19 @@
+/* eslint-disable no-plusplus */
+
 import convertBlobToFile from './convertBlobToFile';
 
+// takes in library of refs and returns converted
+// dictionaries for the correct target device
 export default async function convertDictionary(
+    inputFile,
     targetDevice,
-    inputFormat,
     dictionaryName,
-    inputFiles // add iteration over array in future, to install multiple dicts
+    inputFormat = 'xdxf'
 ) {
-    console.log(inputFiles[0]);
     // live conversion api test environment
-    const baseUrl = 'https://runik-conversion-api.herokuapp.com/';
+    const baseUrl = 'https://dev.runik.app/';
     // api/<target_device>/<input_format>/<dictionary_title>
-    const endpoints = `api/${targetDevice}/${inputFormat}/${dictionaryName}`;
+    const endpoints = `api/${targetDevice.toLowerCase()}/${inputFormat}/${dictionaryName}`;
     const url = baseUrl + endpoints;
 
     const convertedDict = await fetch(url, {
@@ -19,11 +22,12 @@ export default async function convertDictionary(
         headers: {
             'Content-Type': 'application/xml',
         },
-        body: inputFiles[0],
-    }).catch((err) => console.log(err));
+        body: inputFile,
+    }).catch((err) => {
+        throw new Error(err);
+    });
     const content = await convertedDict.blob();
-    const dictFile = convertBlobToFile(content, 'test.zip', 'zip');
-    console.log(dictFile);
+    const convertedFile = convertBlobToFile(content, inputFile.name, 'zip');
 
-    return content;
+    return convertedFile;
 }
