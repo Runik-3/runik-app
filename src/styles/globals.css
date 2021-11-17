@@ -9,6 +9,7 @@
 
 body {
     min-width: 320px;
+<<<<<<< HEAD
 }
 
 .loader {
@@ -27,3 +28,7 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+=======
+    background: linear-gradient( 0deg, #9ca3af,#fff 15%  ) ;
+}
+>>>>>>> feature/query

@@ -15,6 +15,7 @@ export default function SearchDropdownItem({ title, url }) {
             return book.url === url;
         });
 
+        // eslint-disable-next-line array-callback-return
         library.map((ref) => {
             if (ref[0].url === bookToAdd[0].url) {
                 duplicate = true;
