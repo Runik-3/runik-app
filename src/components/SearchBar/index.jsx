@@ -43,7 +43,12 @@ const SearchBar = ({ visibility }) => {
                     className="w-full h-12 border-0 text-xl font-spartan text-gray-500 focus:ring-0 focus:border-gray-700"
                     onChange={(e) => handleSearchInput(e)}
                 />
-                <Link href="results">
+                <Link
+                    href={{
+                        pathname: '/results',
+                        query: { query: searchString },
+                    }}
+                >
                     <button
                         type="submit"
                         className="scale-75 transform -translate-y-1"
