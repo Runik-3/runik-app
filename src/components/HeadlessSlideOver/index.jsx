@@ -13,12 +13,12 @@ import { LibraryContext } from '../../context/libraryContext';
 import LibraryCard from '../LibraryCard';
 import useDictionaryStates from '../../hooks/useDictionaryStates';
 import handleLibraryRefs from '../../services/handleLibraryRefs';
-import installDictionaries from '../../services/installDictionary';
+// import installDictionaries from '../../services/installDictionary';
 import convertDictionary from '../../services/convertDictionary';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
-    const [, setCards] = useState([]);
+    // const [, setCards] = useState([]);
     const [targetDevice, setTargetDevice] = useState('kobo');
     // 6 states necessary for dictionary generation and conversion
     const states = useDictionaryStates();
@@ -37,12 +37,12 @@ export default function HeadlessSlideOver({ open, setOpen }) {
         states.setDicts(rawDicts);
     }
 
-    async function handleInstall() {
-        await installDictionaries(states.convertedDicts).catch((err) => {
-            throw new Error(err);
-        });
-        states.setStatus('Dictionaries installed!');
-    }
+    // async function handleInstall() {
+    //     await installDictionaries(states.convertedDicts).catch((err) => {
+    //         throw new Error(err);
+    //     });
+    //     states.setStatus('Dictionaries installed!');
+    // }
 
     useEffect(async () => {
         if (states.dicts.length > 0) {
@@ -61,7 +61,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 throw new Error(err);
             });
             states.setConvertedDicts(converted);
-            console.log(converted);
+            // console.log(converted);
             states.setStatus(
                 'Dictionaries converted and ready to be installed'
             );
@@ -137,6 +137,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                     <div className="flex flex-col w-library-children-width mt-4 text-2xl text-runik-neutral-med">
                                         <h2>Select Your Device</h2>
                                         <div className="flex-col items-center w-4/5 mx-auto mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-12">
+                                            {states.status}
                                             <div className="w-full flex">
                                                 <div
                                                     tabIndex="0"

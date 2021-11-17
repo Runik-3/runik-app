@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useContext } from 'react';
-import booksList from '../../../data/booksList.json';
-import { LibraryContext } from '../../../context/libraryContext';
+import React from 'react';
 
 export default function PlusCircle({ url, onclick }) {
     return (
