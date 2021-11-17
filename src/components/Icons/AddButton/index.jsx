@@ -2,7 +2,7 @@
 import React from 'react';
 
 // eslint-disable-next-line react/prop-types
-function AddButton({ props /* , onClick, addToIcon, addToColor */ }) {
+function AddButton({ props }) {
     return (
         <svg
             width={40}

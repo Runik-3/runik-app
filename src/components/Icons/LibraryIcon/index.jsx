@@ -1,10 +1,23 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { LibraryContext } from '../../../context/libraryContext';
 
 // eslint-disable-next-line react/prop-types
 function LibraryIcon({ children, className, ...props }) {
+    const [library] = useContext(LibraryContext);
+    const [bouncy, setBouncy] = useState(false);
+
+    useEffect(() => {
+        if (library.length > 0) {
+            setBouncy(true);
+            setTimeout(() => {
+                setBouncy(false);
+            }, 2500);
+        }
+    }, [library]);
+
     return (
-        <button type="button" {...props}>
+        <button className="flex" type="button" {...props}>
             <svg
                 width={66}
                 height={66}
@@ -27,6 +40,15 @@ function LibraryIcon({ children, className, ...props }) {
                     strokeLinejoin="round"
                 />
             </svg>
+            <div
+                className={`${library.length === 0 ? 'hidden' : ''} ${
+                    bouncy ? 'animate-bounce' : ''
+                } absolute justify-center transform`}
+            >
+                <div className="bg-black rounded-full w-6 text-base text-white">
+                    {library.length}
+                </div>
+            </div>
         </button>
     );
 }

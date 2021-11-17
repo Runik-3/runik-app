@@ -12,7 +12,7 @@ export default function Home() {
                     rDisplay="hidden"
                 />
             </div>
-            <div className="flex flex-col items-center justify-between h-4/5 w-11/12 max-w-5xl mx-auto pt-20">
+            <div className="flex flex-col items-center justify-around h-4/5 w-11/12 max-w-5xl mx-auto pt-20">
                 <div>
                     <MainLogo />
                 </div>
