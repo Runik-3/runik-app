@@ -1,5 +1,6 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react/prop-types */
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import PlusCircle from '../Icons/PlusCircle';
 import { LibraryContext } from '../../context/libraryContext';
 import booksList from '../../data/booksList.json';
