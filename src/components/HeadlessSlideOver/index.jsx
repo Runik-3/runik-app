@@ -26,6 +26,8 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     const states = useDictionaryStates();
 
     // DICTIONARY LOGIC
+    // takes in dictionary references from library
+    // returns xdxf words list
     async function handleGetDict() {
         if (library.length > 0) {
             setModalActive(true);
@@ -36,6 +38,8 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     : `Generating words list for ${library.length} dictionaries...`
             );
             const rawDicts = await handleLibraryRefs(library).catch((err) => {
+                // states.setStatus(err);
+                console.log(library);
                 throw new Error(err);
             });
 
@@ -45,11 +49,14 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     }
 
     async function handleInstall() {
-        console.log(states.convertedDicts);
-        await installDictionaries(states.convertedDicts).catch((err) => {
-            throw new Error(err);
-        });
-        states.setStatus('Dictionaries installed!');
+        if ('showOpenFilePicker' in window) {
+            await installDictionaries(states.convertedDicts).catch((err) => {
+                throw new Error(err);
+            });
+            states.setStatus('Dictionaries installed!');
+        } else {
+            console.log('no support');
+        }
     }
 
     useEffect(async () => {
