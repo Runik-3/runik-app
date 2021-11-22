@@ -5,7 +5,7 @@ export default async function fetchDictionary(
     fileName,
     fileType = 'xdxf'
 ) {
-    const dict = await fetch(queryString).catch((err) => {
+    const dict = await fetch(queryString, { mode: 'cors' }).catch((err) => {
         throw new Error(err);
     });
     const dictContent = await dict.blob();
