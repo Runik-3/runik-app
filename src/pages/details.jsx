@@ -1,20 +1,18 @@
 import DetailsCard from '../components/DetailsCard';
-import LibraryIcon from '../components/Icons/LibraryIcon';
-import RunikIcon from '../components/Icons/RunikIcon';
-import SearchBar from '../components/SearchBar';
-import ResultsCard from '../components/ResultsCard';
+import NavBar from '../components/NavBar';
+// import ResultsCard from '../components/ResultsCard';
 import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index';
 
 export default function Details() {
     return (
-        <div className="flex justify-center w-full max-w-8xl  flex-col items-start ml-14">
-            <div className="flex py-5 w-11/12 max-w-8xl justify-center items-center">
-                <RunikIcon />
-                <SearchBar />
-                <LibraryIcon />
+        <div className="flex w-full min-h-screen flex-col items-start pl-14">
+            {/* The NavBar has replaced the original standalone comps, the sizing and fitting is off and needs to be adjusted accordingly, the props attached to NavBar are for the icons that need to switch visibility depending on page */}
+            <div className="flex py-5 w-11/12 max-w-8xl justify-start items-start">
+                <NavBar aDisplay="hidden" rDisplay="flex" />
             </div>
-            <div className="pt-8">
-                <ArrowBackIcon />
+            {/* this is new and needs to be here so user can go back to search page from results page, please make it fit correctly within the page */}
+            <div className="pt-8 flex justify-start items-start max-w-full w-11/12">
+                <ArrowBackIcon path="/" />
             </div>
             <div className="flex w-11/12 items-start pb-16 pt-6">
                 <DetailsCard
@@ -23,14 +21,12 @@ export default function Details() {
                     img="http://baconmockup.com/300/400"
                 />
             </div>
-            <div className="font-spartan font-medium text-2xl pt-16">
-                You Might Also Like...
-            </div>
-            <div className="flex flex-wrap justify-between items-center w-11/12 max-w-5xl ">
-                <ResultsCard />
-                <ResultsCard />
-                <ResultsCard />
-            </div>
+            {/* <div className="font-spartan font-medium text-2xl pt-16">
+                    You Might Also Like...
+                </div>
+                <div className="flex flex-wrap justify-between items-center w-11/12 max-w-5xl ">
+                    <ResultsCard />
+                </div> */}
         </div>
     );
 }
