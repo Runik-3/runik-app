@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
-// import Link from 'next/link';
+import Link from 'next/link';
 // import { add } from 'winston';
 // import AddButton from '../Icons/AddButton';
 import { useContext } from 'react';
@@ -35,7 +35,6 @@ export default function ResultsCard({ libRef }) {
     }
 
     return (
-        // <Link href="details">
         <div className="flex flex-row flex-wrap">
             <div className="flex max-w-xs w-full bg-white shadow-md rounded-lg overflow-hidden mx-auto max-h-full m-4">
                 <div className="overflow-hidden rounded-xl relative transform hover:-translate-y-2 transition ease-in-out duration-500 shadow-lg hover:shadow-2xl movie-item text-white movie-card">
@@ -52,26 +51,32 @@ export default function ResultsCard({ libRef }) {
                                 />
                             </button>
                         </div>
-                        <div className="poster__info align-self-end w-full h-80">
-                            <div className="h-32 m-6" />
-                            <div className="space-y-6 detail_info">
-                                <div className="flex flex-col space-y-2 inner">
-                                    <h3
-                                        className="text-3xl font-bold text-white"
-                                        data-unsp-sanitized="clean"
-                                    >
-                                        {result.title}
-                                    </h3>
-                                </div>
-                                <div className="flex flex-col overview">
-                                    <div className="flex flex-col" />
+                        <Link
+                            href={{
+                                pathname: '/details',
+                            }}
+                        >
+                            <div className="poster__info align-self-end w-full h-80">
+                                <div className="h-32 m-6" />
+                                <div className="space-y-6 detail_info">
+                                    <div className="flex flex-col space-y-2 inner">
+                                        <h3
+                                            className="text-3xl font-bold text-white"
+                                            data-unsp-sanitized="clean"
+                                        >
+                                            {result.title}
+                                        </h3>
+                                    </div>
+                                    <div className="flex flex-col overview">
+                                        <div className="flex flex-col" />
 
-                                    <p className="text-sm text-gray-100">
-                                        {trim(result.description, 100)}
-                                    </p>
+                                        <p className="text-sm text-gray-100">
+                                            {trim(result.description, 100)}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                     <img
                         className="absolute inset-0 transform w-full -translate-y-4"
