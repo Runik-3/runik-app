@@ -1,7 +1,9 @@
+/* eslint-disable import/no-cycle */
 import DetailsCard from '../components/DetailsCard';
 import NavBar from '../components/NavBar';
 // import ResultsCard from '../components/ResultsCard';
 import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index';
+// import ResultsCard from '../components/ResultsCard';
 
 export default function Details() {
     return (
@@ -22,11 +24,11 @@ export default function Details() {
                 />
             </div>
             {/* <div className="font-spartan font-medium text-2xl pt-16">
-                    You Might Also Like...
-                </div>
-                <div className="flex flex-wrap justify-between items-center w-11/12 max-w-5xl ">
-                    <ResultsCard />
-                </div> */}
+                You Might Also Like...
+            </div>
+            <div className="flex flex-wrap justify-between items-center w-11/12 max-w-5xl ">
+                <ResultsCard />
+            </div> */}
         </div>
     );
 }

@@ -9,7 +9,7 @@ const Button = ({ size, text, onclick }) => {
             } px-14 border-2 border-runik-neutral-dark rounded-xl font-spartan font-semibold`}
             onClick={onclick}
         >
-            {text}
+            Add to Library
         </button>
     );
 };

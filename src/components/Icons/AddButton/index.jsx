@@ -2,14 +2,14 @@
 import React from 'react';
 
 // eslint-disable-next-line react/prop-types
-function AddButton({ props }) {
+export default function AddButton({ url, onclick }) {
     return (
         <svg
             width={40}
             height={40}
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            {...props}
+            onClick={() => onclick(url)}
         >
             <circle cx={20} cy={20} r={18.5} stroke="#F6F6F6" strokeWidth={3} />
             <path
@@ -20,5 +20,3 @@ function AddButton({ props }) {
         </svg>
     );
 }
-
-export default AddButton;
