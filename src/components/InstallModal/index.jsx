@@ -49,7 +49,7 @@ export default function InstallModal({
                             height="60"
                             viewBox="0 0 24 24"
                             fill="none"
-                            stroke="green"
+                            stroke="MediumSeaGreen"
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
