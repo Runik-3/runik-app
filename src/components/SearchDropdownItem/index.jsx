@@ -1,6 +1,7 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable react/prop-types */
 import { useContext } from 'react';
+import Link from 'next/link';
 import PlusCircle from '../Icons/PlusCircle';
 import { LibraryContext } from '../../context/libraryContext';
 import booksList from '../../data/booksList.json';
@@ -28,7 +29,13 @@ export default function SearchDropdownItem({ title, url }) {
 
     return (
         <li className="flex justify-between text-xl py-4 border-b-2 last:border-0 cursor-pointer">
-            {title}
+            <Link
+                href={{
+                    pathname: '/details',
+                }}
+            >
+                {title}
+            </Link>
             <PlusCircle url={url} onclick={() => addToLibrary()} />
         </li>
     );
