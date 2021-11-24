@@ -1,8 +1,29 @@
-import React from 'react';
-import Button from '../Button/index';
+import { React, useContext } from 'react';
+import Button from '../Button';
+import { LibraryContext } from '../../context/libraryContext';
+import booksList from '../../data/booksList.json';
 
 // eslint-disable-next-line react/prop-types
 const DetailsCard = ({ img, headerTitle, description }) => {
+    const [library, addReference] = useContext(LibraryContext);
+
+    function addToLibrary() {
+        let duplicate;
+        const bookToAdd = booksList.filter((book) => {
+            return book.url === 'https://harrypotter.fandom.com/';
+        });
+
+        // eslint-disable-next-line array-callback-return
+        library.map((ref) => {
+            if (ref[0].url === bookToAdd[0].url) {
+                duplicate = true;
+            }
+        });
+        if (!duplicate) {
+            addReference(bookToAdd);
+        }
+    }
+
     return (
         // direction-row
         <div className="flex text-runik-neutral-dark h-full ">
@@ -17,9 +38,11 @@ const DetailsCard = ({ img, headerTitle, description }) => {
                 <h3 className="pb-3 text-4xl">{headerTitle}</h3>
                 <p className="">{description}</p>
                 <div className="flex w-full h-full justify-end items-end">
-                    <div>
-                        <Button text="Add to Library" />
-                    </div>
+                    <div>{/* <Button text="Add to Library" /> */}</div>
+                    <Button
+                        url="https://harrypotter.fandom.com/"
+                        onclick={() => addToLibrary()}
+                    />
                 </div>
             </div>
         </div>

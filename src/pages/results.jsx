@@ -26,7 +26,7 @@ export default function Results() {
     }, [router.isReady]);
 
     return (
-        <div className="flex justify-center w-full min-h-screen flex-col items-start ml-14">
+        <div className="flex justify-center w-full min-h-screen flex-col items-start pl-14">
             {/* The NavBar has replaced the original standalone comps, the sizing and fitting is off and needs to be adjusted accordingly, the props attached to NavBar are for the icons that need to switch visibility depending on page */}
             <div className="flex py-5 w-11/12 max-w-8xl justify-start items-start">
                 <NavBar aDisplay="hidden" rDisplay="flex" />
@@ -35,7 +35,6 @@ export default function Results() {
             <div className="pt-8 flex justify-start items-start max-w-full w-11/12">
                 <ArrowBackIcon path="/" />
             </div>
-            <div />
             <div className="w-11/12 flex justify-center items-center">
                 <div className="flex w-11/12 max-w-6xl justify-evenly items-center py-16 flex-wrap">
                     {liveResults.map((libRef) => {
