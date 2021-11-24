@@ -22,12 +22,12 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     const [targetDevice, setTargetDevice] = useState('kobo');
     const [modalActive, setModalActive] = useState(false);
     const [isThinking, setIsThinking] = useState(true);
+    const [error, setError] = useState('');
     // 6 states necessary for dictionary generation and conversion
     const states = useDictionaryStates();
 
     // DICTIONARY LOGIC
-    // takes in dictionary references from library
-    // returns xdxf words list
+    // IN dict refs OUT xdxf words
     async function handleGetDict() {
         if (library.length > 0) {
             setModalActive(true);
@@ -38,8 +38,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     : `Generating words list for ${library.length} dictionaries...`
             );
             const rawDicts = await handleLibraryRefs(library).catch((err) => {
-                // states.setStatus(err);
-                console.log(library);
+                setError('There was an issue generating a words list');
                 throw new Error(err);
             });
 
@@ -55,7 +54,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             });
             states.setStatus('Dictionaries installed!');
         } else {
-            console.log('no support');
+            setError(
+                'Your browser is not supported, please use a chromium-based browser.'
+            );
         }
     }
 
@@ -70,10 +71,18 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     targetDevice,
                     dict.name
                 );
+
                 converted.push(convertedDict);
             }
             converted = await Promise.all(converted).catch((err) => {
                 throw new Error(err);
+            });
+
+            // loop through converted dicts to find any errors
+            converted.forEach((dict) => {
+                if (dict.error) {
+                    setError(dict.error);
+                }
             });
             states.setConvertedDicts(converted);
             setIsThinking(false);
@@ -83,12 +92,25 @@ export default function HeadlessSlideOver({ open, setOpen }) {
         }
     }, [states.dicts]);
 
+    // when modal flow is cancelled, set everything back to default state
+    useEffect(() => {
+        if (modalActive === false) {
+            states.setStatus('');
+            setIsThinking(false);
+            states.setDicts([]);
+            states.setConvertedDicts([]);
+            setError(false);
+        }
+    }, [modalActive]);
+
     return (
         <div>
             {modalActive ? (
                 <InstallModal
                     handleInstall={() => handleInstall()}
+                    setModalActive={() => setModalActive(false)}
                     status={states.status}
+                    error={error}
                     isThinking={isThinking}
                 />
             ) : (
