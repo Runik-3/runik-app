@@ -38,8 +38,8 @@ const DetailsCard = ({ img, headerTitle, description }) => {
                 <h3 className="pb-3 text-4xl">{headerTitle}</h3>
                 <p className="">{description}</p>
                 <div className="flex w-full h-full justify-end items-end">
-                    <div>{/* <Button text="Add to Library" /> */}</div>
                     <Button
+                        text="Add to Library"
                         url="https://harrypotter.fandom.com/"
                         onclick={() => addToLibrary()}
                     />
