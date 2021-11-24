@@ -65,7 +65,7 @@ export default function InstallModal({
                             status === 'Dictionaries installed!' ? 'hidden' : ''
                         }`}
                     >
-                        <Button text="Install" onclick={handleInstall} />
+                        <Button text="Add to Device" onclick={handleInstall} />
                     </div>
                 </div>
             </div>
