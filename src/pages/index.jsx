@@ -1,6 +1,7 @@
 import MainLogo from '../components/MainLogo';
 import NavBar from '../components/NavBar';
 import SearchBar from '../components/SearchBar';
+import Footer from '../components/Footer';
 
 export default function Home() {
     return (
@@ -20,6 +21,7 @@ export default function Home() {
                     <SearchBar />
                 </div>
             </div>
+            <Footer />
             <div className=" flex bg-gradient-to-t from-gray-400 h-3/5" />
             {/* #9ca3af */}
         </div>

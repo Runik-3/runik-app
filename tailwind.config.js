@@ -23,6 +23,7 @@ module.exports = {
                 'runik-neutral-light': '#f6f6f6',
                 'runik-neutral-med': '#808080',
                 'runik-neutral-dark': '#323232',
+                'runik-neutral-gray': '#c4c4c4',
             },
             spacing: {
                 'library-icon-top': '18px',
