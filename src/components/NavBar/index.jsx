@@ -9,7 +9,12 @@ import SearchBar from '../SearchBar';
 import RunikIcon from '../Icons/RunikIcon';
 // eslint-disable-next-line import/no-unresolved
 
-export default function NavBar({ visibility, aDisplay, rDisplay }) {
+export default function NavBar({
+    visibility,
+    aDisplay,
+    rDisplay,
+    SearchHeight,
+}) {
     const [isOpen, setIsOpen] = useState(false);
     const [open, setOpen] = useState(false);
     const handleOnClose = () => setIsOpen(false);
@@ -23,7 +28,10 @@ export default function NavBar({ visibility, aDisplay, rDisplay }) {
                 {/* Having this icon in the NavBar comp makes the MainLogo comp disapear from the Search page, needs to be adjusted so that doesnt happen */}
                 <RunikIcon rDisplay={rDisplay} />
                 {/* */}
-                <SearchBar visibility={visibility} />
+                <SearchBar
+                    visibility={visibility}
+                    SearchHeight={SearchHeight}
+                />
                 <LibraryButton onClick={() => setOpen(true)} />
                 <HeadlessSlideOver open={open} setOpen={setOpen}>
                     {/* <div className="flex flex-col">
