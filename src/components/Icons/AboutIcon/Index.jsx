@@ -7,7 +7,7 @@ const AboutIcon = ({ aDisplay }) => {
     return (
         <Link href="about">
             <div
-                className={`hover:opacity-60 transition-ease-in-out duration-500 ${aDisplay}`}
+                className={`hover:opacity-60 transition-ease-in-out duration-500 p-3 ${aDisplay}`}
             >
                 <svg
                     width={32}
