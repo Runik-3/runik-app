@@ -10,7 +10,7 @@ export default async function handleLibraryRefs(library) {
             const libRef = library[i][0];
             const dictTitle = getTitleFromUrl(libRef.url);
             const dict = fetchDictionary(
-                `https://dev.runik.app/api/dictionary/${dictTitle}?lang=en&capacity=50`,
+                `https://dev.runik.app/api/dictionary/${dictTitle}?lang=en`,
                 dictTitle
             );
             dictsArr.push(dict);
