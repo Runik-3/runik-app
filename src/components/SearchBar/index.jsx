@@ -7,9 +7,29 @@ import SearchBarDropdown from '../SearchBarDropdown';
 import booksList from '../../data/booksList.json';
 
 const options = {
-    keys: ['title', 'author'],
+    keys: [{ name: 'title', weight: 2 }, 'author'],
+    distance: 100,
+    threshold: 0.2,
+    shouldSort: true,
 };
+
 const fuse = new Fuse(booksList, options);
+
+const singleFuse = new Fuse(booksList, {
+    keys: [{ name: 'title', weight: 2 }, 'author'],
+    distance: 0,
+    treshold: 0,
+    shouldSort: true,
+    minMatchCharLength: 1,
+});
+
+const doubleFuse = new Fuse(booksList, {
+    keys: [{ name: 'title', weight: 2 }, 'author'],
+    distance: 50,
+    treshold: 0.1,
+    shouldSort: true,
+    minMatchCharLength: 2,
+});
 
 // eslint-disable-next-line react/prop-types
 const SearchBar = ({ visibility, SearchHeight }) => {
@@ -21,7 +41,13 @@ const SearchBar = ({ visibility, SearchHeight }) => {
     }
 
     function filterSearch(string) {
-        setLiveResults(fuse.search(string));
+        if (string.length === 1) {
+            setLiveResults(singleFuse.search(string));
+        } else if (string.length === 2) {
+            setLiveResults(doubleFuse.search(string));
+        } else {
+            setLiveResults(fuse.search(string));
+        }
     }
 
     useEffect(() => {
@@ -75,6 +101,7 @@ const SearchBar = ({ visibility, SearchHeight }) => {
                     barVisibility={visibility}
                     dropdownVisibility={searchString ? 'block' : 'hidden'}
                     liveResults={liveResults}
+                    search={searchString}
                 />
             </div>
         </div>
