@@ -7,6 +7,7 @@ export default function SearchBarDropdown({
     barVisibility,
     dropdownVisibility,
     liveResults,
+    search,
 }) {
     return (
         <div
@@ -21,7 +22,9 @@ export default function SearchBarDropdown({
                             <SearchDropdownItem
                                 key={result.item.url}
                                 title={result.item.title}
+                                author={result.item.author}
                                 url={result.item.url}
+                                search={search}
                             />
                         );
                     }
