@@ -3,11 +3,12 @@ import DetailsCard from '../components/DetailsCard';
 import NavBar from '../components/NavBar';
 // import ResultsCard from '../components/ResultsCard';
 import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index';
+import Footer from '../components/Footer';
 // import ResultsCard from '../components/ResultsCard';
 
 export default function Details() {
     return (
-        <div className="flex w-full min-h-screen flex-col items-start pl-14">
+        <div className="flex w-full min-h-screen flex-col items-start pl-14 bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             {/* The NavBar has replaced the original standalone comps, the sizing and fitting is off and needs to be adjusted accordingly, the props attached to NavBar are for the icons that need to switch visibility depending on page */}
             <div className="flex py-5 w-11/12 max-w-8xl justify-start items-start">
                 <NavBar aDisplay="hidden" rDisplay="flex" />
@@ -29,6 +30,7 @@ export default function Details() {
             <div className="flex flex-wrap justify-between items-center w-11/12 max-w-5xl ">
                 <ResultsCard />
             </div> */}
+            <Footer />
         </div>
     );
 }
