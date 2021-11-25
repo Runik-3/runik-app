@@ -6,8 +6,8 @@ const MainLogo = () => {
     return (
         <div>
             <svg
-                width="364"
-                height="150"
+                width="240"
+                height="100"
                 viewBox="0 0 364 150"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
