@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable array-callback-return */
 /* eslint-disable react/prop-types */
 import { useContext } from 'react';
@@ -27,6 +28,22 @@ export default function SearchDropdownItem({ title, author, url, search }) {
         }
     }
 
+    const checkTitle = () => {
+        const result = title.replace(
+            new RegExp(search, 'gi'),
+            (str) => `<strong>${str}</strong>`
+        );
+        return result;
+    };
+
+    const checkAuthor = () => {
+        const result = author.replace(
+            new RegExp(search, 'gi'),
+            (str) => `<strong>${str}</strong>`
+        );
+        return result;
+    };
+
     function toRender() {
         return (
             <div>
@@ -36,9 +53,11 @@ export default function SearchDropdownItem({ title, author, url, search }) {
                             pathname: '/details',
                         }}
                     >
-                        <div>
-                            {title} by {author}
-                        </div>
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: `${checkTitle()} by ${checkAuthor()}`,
+                            }}
+                        />
                     </Link>
                     <PlusCircle url={url} onclick={() => addToLibrary()} />
                 </li>

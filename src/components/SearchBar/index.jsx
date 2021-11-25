@@ -9,7 +9,7 @@ import booksList from '../../data/booksList.json';
 const options = {
     keys: [{ name: 'title', weight: 2 }, 'author'],
     distance: 100,
-    threshold: 0.1,
+    threshold: 0.2,
     shouldSort: true,
 };
 
@@ -18,27 +18,17 @@ const fuse = new Fuse(booksList, options);
 const singleFuse = new Fuse(booksList, {
     keys: [{ name: 'title', weight: 2 }, 'author'],
     distance: 0,
-    location: 0,
     treshold: 0,
     shouldSort: true,
+    minMatchCharLength: 1,
 });
 
 const doubleFuse = new Fuse(booksList, {
     keys: [{ name: 'title', weight: 2 }, 'author'],
-    location: 0,
-    distance: 0,
-    treshold: 0.0,
+    distance: 50,
+    treshold: 0.1,
     shouldSort: true,
     minMatchCharLength: 2,
-});
-
-const tripleFuse = new Fuse(booksList, {
-    keys: [{ name: 'title', weight: 2 }, 'author'],
-    location: 0,
-    distance: 10,
-    treshold: 0.0,
-    shouldSort: true,
-    minMatchCharLength: 3,
 });
 
 // eslint-disable-next-line react/prop-types
@@ -55,8 +45,6 @@ const SearchBar = ({ visibility }) => {
             setLiveResults(singleFuse.search(string));
         } else if (string.length === 2) {
             setLiveResults(doubleFuse.search(string));
-        } else if (string.length === 3) {
-            setLiveResults(tripleFuse.search(string));
         } else {
             setLiveResults(fuse.search(string));
         }
