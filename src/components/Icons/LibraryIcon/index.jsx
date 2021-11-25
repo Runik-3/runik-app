@@ -17,7 +17,7 @@ function LibraryIcon({ children, className, ...props }) {
     }, [library]);
 
     return (
-        <button className="flex" type="button" {...props}>
+        <button className="flex p-3" type="button" {...props}>
             <svg
                 width={32}
                 height={32}

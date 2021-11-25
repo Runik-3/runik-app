@@ -10,7 +10,7 @@ export default function SearchBarDropdown({
 }) {
     return (
         <div
-            className={`${dropdownVisibility} relative top-0 w-2/3 mx-auto bg-white rounded-b-2xl px-8 py-4 ${
+            className={`${dropdownVisibility} relative top-0 w-4/5 mx-auto bg-white rounded-b-2xl px-8 py-4 ${
                 barVisibility === 'invisible' ? 'hidden' : 'block'
             }`}
         >

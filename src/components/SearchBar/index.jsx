@@ -12,7 +12,7 @@ const options = {
 const fuse = new Fuse(booksList, options);
 
 // eslint-disable-next-line react/prop-types
-const SearchBar = ({ visibility }) => {
+const SearchBar = ({ visibility, SearchHeight }) => {
     const [searchString, setSearchString] = useState('');
     const [liveResults, setLiveResults] = useState([]);
 
@@ -34,13 +34,13 @@ const SearchBar = ({ visibility }) => {
         <div className="w-full">
             <div
                 /* Work in progress */
-                className={`w-2/3 mx-auto max-w-5xl flex border-b-2 border-l-0 border-r-0 border-t-0 border-runik-neutral-dark h-2/3 ${visibility}`}
+                className={`w-4/5 mx-auto min-w-max flex border border-[#BABABA] rounded-lg ${visibility}`}
             >
                 {/* Work in progress prop ^ */}
                 <input
                     type="text"
-                    placeholder="Search dictionaries..."
-                    className="w-full h-12 border-0 text-xl font-spartan text-gray-500 focus:ring-0 focus:border-gray-700"
+                    placeholder="Search a book to begin..."
+                    className={`w-full ${SearchHeight} border-0 rounded-lg text-xl font-spartan bg-transparent text-gray-700 focus:ring-0 focus:border-gray-700`}
                     onChange={(e) => handleSearchInput(e)}
                 />
                 <Link
