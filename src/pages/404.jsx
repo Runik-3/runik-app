@@ -1,9 +1,10 @@
 import MainLogo from '../components/MainLogo';
 import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index';
+import Footer from '../components/Footer';
 
 export default function PageNotFound() {
     return (
-        <div className="flex flex-col min-h-full h-screen">
+        <div className="flex flex-col h-full w-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <div className="pl-8 pt-8 pb-8">
                 <ArrowBackIcon path="/" />
             </div>
@@ -21,7 +22,7 @@ export default function PageNotFound() {
                     </p>
                 </div>
             </div>
-            <div className="flex justify-center" />
+            <Footer />
         </div>
     );
 }

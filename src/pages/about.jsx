@@ -1,10 +1,11 @@
 import MainLogo from '../components/MainLogo';
 import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index';
 import Avatar from '../components/Avatar';
+import Footer from '../components/Footer';
 
 export default function About() {
     return (
-        <div className="flex flex-col min-h-full h-screen">
+        <div className="flex flex-col h-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <div className="pl-8 pt-8 pb-8">
                 <ArrowBackIcon path="/" />
             </div>
@@ -32,6 +33,7 @@ export default function About() {
                     <Avatar />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

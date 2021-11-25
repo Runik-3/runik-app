@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 export default function Home() {
     return (
-        <div className="flex flex-col min-h-full h-screen">
+        <div className="flex flex-col min-h-full h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <div className="w-11/12 flex items-center justify-center ml-14 py-5">
                 <NavBar
                     visibility="invisible"
@@ -22,8 +22,6 @@ export default function Home() {
                 </div>
             </div>
             <Footer />
-            <div className=" flex bg-gradient-to-t from-gray-400 h-3/5" />
-            {/* #9ca3af */}
         </div>
     );
 }

@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 const Footer = () => {
     return (
-        <div className="w-full flex justify-between p-3 border-runik-neutral-gray border-t text-lg font-normal">
-            <div className="flex flex-row justify-evenly text-runik-neutral-gray">
+        <div className="w-full flex justify-between p-3 border-runik-neutral-gray border-t text-lg font-normal text-runik-neutral-med">
+            <div className="flex flex-row justify-evenly ">
                 <Link href="/">
                     <p className="pr-5 pl-5">Home</p>
                 </Link>
@@ -15,7 +15,7 @@ const Footer = () => {
                     <p className="pr-5 pl-5">Support</p>
                 </Link>
             </div>
-            <div className="text-runik-neutral-gray">
+            <div>
                 <p className="pr-5 pl-5">Runik 2021</p>
             </div>
         </div>
