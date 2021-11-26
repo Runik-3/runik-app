@@ -32,7 +32,9 @@ export default function Results() {
                 <NavBar aDisplay="hidden" rDisplay="flex" />
             </div>
             {/* this is new and needs to be here so user can go back to search page from results page, please make it fit correctly within the page */}
-            <div className="border-b border-[#C4C4C4]"> {/* YOURE HERE MATTEO */}
+            <div className="border-b border-[#C4C4C4]">
+                {' '}
+                {/* YOURE HERE MATTEO */}
                 <p className="font-spartan font-semibold text-2xl ">Results</p>
             </div>
             <div className="w-11/12 flex justify-center items-center">
