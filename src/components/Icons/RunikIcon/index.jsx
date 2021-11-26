@@ -7,7 +7,7 @@ const RunikIcon = ({ rDisplay }) => {
     return (
         <Link href="/">
             <div
-                className={`hover:opacity-60 transition-ease-in-out duration-500 ${rDisplay}`}
+                className={`hover:opacity-60 transition-ease-in-out duration-500 p-3 ${rDisplay}`}
             >
                 <svg
                     width={15}
