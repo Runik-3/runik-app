@@ -11,6 +11,10 @@ body {
     background: linear-gradient(0deg, #9ca3af, #fff 15%);
 }
 
+.border-1 {
+    border-width: 1px;
+}
+
 .loader {
     border-top-color: #323232;
     -webkit-animation: spinner 1.5s linear infinite;
@@ -34,4 +38,3 @@ body {
         transform: rotate(360deg);
     }
 }
-
