@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/prop-types */
 import { useContext } from 'react';
@@ -13,7 +14,7 @@ const LibraryCard = ({ libRef }) => {
     }
 
     function handleChange(e) {
-        console.log(e.currentTarget.value);
+        libRef.convertLang = e.currentTarget.value;
     }
 
     return (
