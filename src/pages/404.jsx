@@ -12,7 +12,7 @@ export default function PageNotFound() {
                 <div className="pb-12 flex justify-evenly pt-28">
                     <MainLogo />
                 </div>
-                <div className="text-3xl font-spartan font-semibold pb-2">
+                <div className="text-3xl font-spartan font-semibold pb-3">
                     Whoops!
                 </div>
                 <div className="text-lg font-spartan pb-5">
