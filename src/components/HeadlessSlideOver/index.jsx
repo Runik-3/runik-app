@@ -55,7 +55,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             states.setStatus('Dictionaries installed!');
         } else {
             setError(
-                'Your browser is not supported, please use a chromium-based browser.'
+                'This feature is not supported on your browser, please use a chromium-based browser.'
             );
         }
     }
@@ -78,7 +78,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 throw new Error(err);
             });
 
-            // loop through converted dicts to find any errors
+            // loop through converted dicts to find error key
             converted.forEach((dict) => {
                 if (dict.error) {
                     setError(dict.error);
