@@ -12,7 +12,7 @@ export default function MinusCircle({ onclick }) {
             strokeWidth={2}
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="prefix__feather prefix__feather-minus-circle hover:scale-110 transition-all cursor-pointer"
+            className="prefix__feather prefix__feather-minus-circle hover:scale-110 hover:fill-current text-red-500 transition-all cursor-pointer"
             onClick={onclick}
         >
             <circle cx={12} cy={12} r={10} />

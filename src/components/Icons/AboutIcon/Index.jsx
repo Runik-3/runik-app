@@ -7,21 +7,18 @@ const AboutIcon = ({ aDisplay }) => {
     return (
         <Link href="about">
             <div
-                className={`hover:opacity-60 transition-ease-in-out duration-500 ${aDisplay}`}
+                className={`hover:opacity-60 transition-ease-in-out duration-500 p-3 ${aDisplay}`}
             >
                 <svg
-                    width={48}
-                    height={48}
+                    width={32}
+                    height={32}
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    /* work in progress hover feature, wanna run it by design lead */
-                    // className="hover:fill-current text-runik-primary-light"
-                    // {...props}
                 >
                     <path
-                        d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4 4 12.954 4 24s8.954 20 20 20zM24 33.6V20.8M24 15.467h.02"
+                        d="M16 29.333c7.364 0 13.333-5.97 13.333-13.333 0-7.364-5.97-13.334-13.333-13.334C8.636 2.666 2.667 8.636 2.667 16S8.637 29.333 16 29.333zM16 21.333V16M16 10.666h.013"
                         stroke="#000"
-                        strokeWidth={4}
+                        strokeWidth={2.667}
                         strokeLinecap="round"
                         strokeLinejoin="round"
                     />

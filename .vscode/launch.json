@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "pwa-chrome",
+            "name": "http://console.log(dictTitle);",
+            "request": "launch",
+            "url": "http://console.log(dictTitle);"
+        }
+    ]
+}

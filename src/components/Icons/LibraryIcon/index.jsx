@@ -17,25 +17,25 @@ function LibraryIcon({ children, className, ...props }) {
     }, [library]);
 
     return (
-        <button className="flex" type="button" {...props}>
+        <button className="flex p-3" type="button" {...props}>
             <svg
-                width={66}
-                height={66}
+                width={32}
+                height={32}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 {...props}
             >
                 <path
-                    d="M11 53.625a6.875 6.875 0 016.875-6.875H55"
+                    d="M5.333 26a3.333 3.333 0 013.334-3.334h18"
                     stroke="#000"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                 />
                 <path
-                    d="M17.875 5.5H55v55H17.875A6.875 6.875 0 0111 53.625v-41.25A6.875 6.875 0 0117.875 5.5v0z"
+                    d="M8.667 2.667h18v26.666h-18A3.333 3.333 0 015.333 26V6a3.333 3.333 0 013.334-3.333v0z"
                     stroke="#000"
-                    strokeWidth={4}
+                    strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
                 />
