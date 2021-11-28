@@ -33,7 +33,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
         if (library.length > 0) {
             setModalActive(true);
 
-            const response = await existsInDb().catch((err) => {
+            const response = await existsInDb('test', 'en').catch((err) => {
                 throw new Error(err);
             });
             console.log(response);
