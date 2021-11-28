@@ -7,7 +7,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useContext, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import mongoose from 'mongoose';
 import LibraryOpenIcon from '../Icons/LibraryOpenIcon';
 import Divider from '../Icons/Divider';
 import { LibraryContext } from '../../context/libraryContext';
