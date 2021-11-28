@@ -7,7 +7,7 @@ export default function PageNotFound() {
     const router = useRouter();
 
     return (
-        <div className="flex flex-col h-full w-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
+        <div className="flex flex-col justify-between h-screen w-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <div className="flex text-center flex-col justify-center items-center">
                 <div className="pb-12 flex justify-evenly pt-28">
                     <MainLogo />
