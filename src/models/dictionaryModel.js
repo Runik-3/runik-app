@@ -3,18 +3,10 @@ import mongoose, { Schema } from 'mongoose';
 
 const dictionarySchema = new Schema({
     name: String,
-    kobo: [
-        {
-            language: String,
-            url: String,
-        },
-    ],
-    xdxf: [
-        {
-            language: String,
-            url: String,
-        },
-    ],
+    dictionaries: {
+        kobo: [''],
+        xdxf: [''],
+    },
 });
 
 const Dictionary =
