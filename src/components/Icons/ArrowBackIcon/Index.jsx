@@ -6,7 +6,7 @@ import Link from 'next/link';
 const ArrowBackIcon = ({ path }) => {
     return (
         <Link href={`${path}`}>
-            <div className="hover:opacity-60 transition-ease-in-out duration-500 ">
+            <div className="hover:opacity-60 cursor-pointer transition-ease-in-out duration-500 pr-3">
                 <svg
                     width={54}
                     height={38}
