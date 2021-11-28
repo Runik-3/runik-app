@@ -167,7 +167,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                             </button>
                                         </div>
                                     </Transition.Child>
-                                    <div className="h-full flex flex-col justify-center items-center bg-runik-neutral-light pt-library-children overflow-y-scroll">
+                                    <div className="h-full flex flex-col justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll">
                                         <Divider />
                                         <div className="w-library-children-width mt-4 text-3xl text-runik-neutral-med">
                                             <h1>Library</h1>
