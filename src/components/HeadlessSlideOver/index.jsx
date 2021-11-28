@@ -7,6 +7,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useContext, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import mongoose from 'mongoose';
 import LibraryOpenIcon from '../Icons/LibraryOpenIcon';
 import Divider from '../Icons/Divider';
 import { LibraryContext } from '../../context/libraryContext';
@@ -16,6 +17,7 @@ import handleLibraryRefs from '../../services/handleLibraryRefs';
 import installDictionaries from '../../services/installDictionary';
 import convertDictionary from '../../services/convertDictionary';
 import InstallModal from '../InstallModal';
+import { existsInDb } from '../../services/databaseController';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
@@ -31,6 +33,12 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     async function handleGetDict() {
         if (library.length > 0) {
             setModalActive(true);
+
+            const response = await existsInDb().catch((err) => {
+                throw new Error(err);
+            });
+            console.log(response);
+
             setIsThinking(true);
             states.setStatus(
                 library.length === 1
