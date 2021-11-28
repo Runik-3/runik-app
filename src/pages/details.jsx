@@ -8,16 +8,19 @@ import Footer from '../components/Footer';
 
 export default function Details() {
     return (
-        <div className="flex w-full min-h-screen flex-col items-start pl-14 bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
-            {/* The NavBar has replaced the original standalone comps, the sizing and fitting is off and needs to be adjusted accordingly, the props attached to NavBar are for the icons that need to switch visibility depending on page */}
-            <div className="flex py-5 w-11/12 max-w-8xl justify-start items-start">
+        <div className="flex flex-col items-center w-full min-h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
+            <div className="flex pb-5 w-full max-w-8xl justify-start items-start">
                 <NavBar aDisplay="hidden" rDisplay="flex" />
             </div>
-            {/* this is new and needs to be here so user can go back to search page from results page, please make it fit correctly within the page */}
-            <div className="pt-8 flex justify-start items-start max-w-full w-11/12">
-                <ArrowBackIcon path="/" />
+            <div className="flex flex-col justify-end h-32 w-[73%] max-w-6xl border-b border-[#C4C4C4]">
+                <div className="flex flex-row items-end w-auto pb-0.5">
+                    <ArrowBackIcon path="/" />
+                    <p className="font-spartan font-semibold text-2xl">
+                        Details
+                    </p>
+                </div>
             </div>
-            <div className="flex w-11/12 items-start pb-16 pt-6">
+            <div className="flex w-11/12 max-w-6xl justify-center items-center py-9">
                 <DetailsCard
                     headerTitle="Harry Potter"
                     description="Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights Petrificus Totalus. So thirsty, deluminator."

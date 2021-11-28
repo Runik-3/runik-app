@@ -51,7 +51,7 @@ export default function Results() {
             <div className="flex pb-5 w-full max-w-8xl justify-start items-start">
                 <NavBar aDisplay="hidden" rDisplay="flex" />
             </div>
-            <div className="flex flex-col justify-end h-32 w-[73%] max-w-6xl border-b border-[#C4C4C4]">
+            <div className="flex flex-col justify-end h-32 w-[73%] pb-0.5 max-w-6xl border-b border-[#C4C4C4]">
                 <p className="font-spartan font-semibold text-2xl">Results</p>
             </div>
             <div className="w-11/12 flex justify-center items-center">
