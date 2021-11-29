@@ -37,6 +37,7 @@ const DetailsCard = ({ url, title, author, description, thumbnail }) => {
             <div className="flex font-spartan">
                 <div className="flex flex-col justify-between h-1/3">
                     <h3 className=" text-4xl">{title}</h3>
+                    <h4 className=" text-3xl">{author}</h4>
                     <p className="">{description}</p>
                 </div>
                 <div className="flex h-full justify-end items-end">
