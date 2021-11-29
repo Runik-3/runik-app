@@ -156,8 +156,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                         leaveFrom="opacity-100"
                                         leaveTo="opacity-0"
                                     >
-                                        <div className="absolute top-library-icon-top left-library-icon-right transform translate-x-10">
+                                        <div className="absolute top-library-icon-top z-30 left-library-icon-right transform translate-x-10">
                                             <button
+                                                id="close"
                                                 onClick={() => setOpen(false)}
                                             >
                                                 <span className="sr-only">
@@ -167,7 +168,10 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                             </button>
                                         </div>
                                     </Transition.Child>
-                                    <div className="h-full flex flex-col justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll">
+                                    <div
+                                        id="library"
+                                        className="h-full flex flex-col top-0 right-0 z-20 absolute w-full justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll"
+                                    >
                                         <Divider />
                                         <div className="w-library-children-width mt-4 text-3xl text-runik-neutral-med">
                                             <h1>Library</h1>
