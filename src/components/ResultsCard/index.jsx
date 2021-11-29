@@ -35,7 +35,7 @@ export default function ResultsCard({ libRef }) {
     }
 
     return (
-        <div className="flex flex-row flex-wrap">
+        <div id="resultsCards" className="flex flex-row flex-wrap relative z-0">
             <div className="flex max-w-xs w-full bg-white rounded-lg overflow-hidden mx-auto max-h-full m-4 transform hover:-translate-y-2 transition ease-in-out duration-500 shadow-lg hover:shadow-2xl">
                 <div className="overflow-hidden rounded-xl relative movie-item text-white movie-card">
                     <div className="absolute inset-0 top-24 z-10 transition duration-300 ease-in-out bg-gradient-to-t from-black via-runik-neutral-dark to-transparent h-96" />
