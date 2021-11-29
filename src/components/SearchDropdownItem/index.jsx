@@ -7,7 +7,14 @@ import PlusCircle from '../Icons/PlusCircle';
 import { LibraryContext } from '../../context/libraryContext';
 import booksList from '../../data/booksList.json';
 
-export default function SearchDropdownItem({ title, author, url, search }) {
+export default function SearchDropdownItem({
+    title,
+    author,
+    url,
+    description,
+    thumbnail,
+    search,
+}) {
     // can run check to see if url is in library - isntead of +
     const [library, addReference] = useContext(LibraryContext);
 
@@ -33,7 +40,8 @@ export default function SearchDropdownItem({ title, author, url, search }) {
             new RegExp(search, 'gi'),
             (str) => `<strong>${str}</strong>`
         );
-        return result;
+        const count = 40;
+        return result.slice(0, count) + (result.length > count ? '...' : '');
     };
 
     const checkAuthor = () => {
@@ -41,7 +49,8 @@ export default function SearchDropdownItem({ title, author, url, search }) {
             new RegExp(search, 'gi'),
             (str) => `<strong>${str}</strong>`
         );
-        return result;
+        const count = 35;
+        return result.slice(0, count) + (result.length > count ? '...' : '');
     };
 
     function toRender() {
@@ -57,6 +66,13 @@ export default function SearchDropdownItem({ title, author, url, search }) {
                 <Link
                     href={{
                         pathname: '/details',
+                        query: {
+                            url: `${url}`,
+                            title: `${title}`,
+                            author: `${author}`,
+                            description: `${description}`,
+                            thumbnail: `${thumbnail}`,
+                        },
                     }}
                 >
                     <div

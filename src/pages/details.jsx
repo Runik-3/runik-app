@@ -1,12 +1,14 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/no-cycle */
+import { useRouter } from 'next/router';
 import DetailsCard from '../components/DetailsCard';
 import NavBar from '../components/NavBar';
-// import ResultsCard from '../components/ResultsCard';
 import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index';
 import Footer from '../components/Footer';
-// import ResultsCard from '../components/ResultsCard';
 
 export default function Details() {
+    const router = useRouter();
+    const result = router.query;
     return (
         <div className="flex flex-col items-center relative z-0 overflow-visible w-full min-h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <div className="flex pb-5 w-full max-w-8xl justify-start items-start">
@@ -22,9 +24,11 @@ export default function Details() {
             </div>
             <div className="flex w-11/12 max-w-6xl justify-center items-center py-9">
                 <DetailsCard
-                    headerTitle="Harry Potter"
-                    description="Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights Petrificus Totalus. So thirsty, deluminator."
-                    img="http://baconmockup.com/300/400"
+                    url={result.url}
+                    title={result.title}
+                    author={result.author}
+                    description={result.description}
+                    thumbnail={result.thumbnail}
                 />
             </div>
             {/* <div className="font-spartan font-medium text-2xl pt-16">

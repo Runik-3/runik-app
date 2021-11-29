@@ -19,6 +19,7 @@ export default function SearchBarDropdown({
                     author=""
                     url=""
                     search=""
+                    thumbnail=""
                 />
             );
         }
@@ -33,7 +34,9 @@ export default function SearchBarDropdown({
                                 author={
                                     result.item.author ? result.item.author : ''
                                 }
+                                description={result.item.description}
                                 url={result.item.url}
+                                thumbnail={result.item.thumbnail}
                                 search={search}
                             />
                         );
