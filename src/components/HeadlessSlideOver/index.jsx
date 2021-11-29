@@ -237,14 +237,14 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                         Kindle
                                                     </div>
                                                 </div>
-                                                <button
+                                                {/* <button
                                                     type="button"
                                                     onClick={() =>
                                                         checkLibraryAgainstDb()
                                                     }
                                                 >
                                                     de
-                                                </button>
+                                                </button> */}
                                                 <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
                                                     <input
                                                         type="button"

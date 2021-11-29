@@ -10,7 +10,6 @@ export default async function handleLibraryRefs(library) {
         for (let i = 0; i < library.length; i++) {
             const libRef = library[i][0];
             const dictTitle = getTitleFromUrl(libRef.url);
-            console.log(dictTitle);
             if (libRef.convertLang === undefined) {
                 libRef.convertLang = 'en';
             }
