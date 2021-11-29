@@ -100,6 +100,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 'Dictionaries converted and ready to be installed!'
             );
         }
+        return () => {
+            states.setDicts(...states.dicts);
+        };
     }, [states.dicts]);
 
     // when modal flow is cancelled, set everything back to default state
