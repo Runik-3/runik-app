@@ -40,7 +40,8 @@ export default function SearchDropdownItem({
             new RegExp(search, 'gi'),
             (str) => `<strong>${str}</strong>`
         );
-        return result;
+        const count = 40;
+        return result.slice(0, count) + (result.length > count ? '...' : '');
     };
 
     const checkAuthor = () => {
@@ -48,7 +49,8 @@ export default function SearchDropdownItem({
             new RegExp(search, 'gi'),
             (str) => `<strong>${str}</strong>`
         );
-        return result;
+        const count = 35;
+        return result.slice(0, count) + (result.length > count ? '...' : '');
     };
 
     function toRender() {
