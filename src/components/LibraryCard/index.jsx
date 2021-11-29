@@ -32,7 +32,7 @@ const LibraryCard = ({ libRef }) => {
                     {libRef.languages.length !== 0 ? (
                         <select
                             onClick={(e) => handleChange(e)}
-                            className="bg-transparent text-white font-bold pr-8 border-1 border-white rounded-md p-0.5 pl-1"
+                            className="mt-1 bg-transparent text-white font-bold pr-8 border-1 border-white rounded-md p-0.5 pl-1"
                             name="languages"
                             id="languages"
                         >
@@ -41,7 +41,7 @@ const LibraryCard = ({ libRef }) => {
                                 value="en"
                                 className="bg-black text-white font-bold"
                             >
-                                en
+                                english
                             </option>
                             {libRef.languages.map((lang, i) => {
                                 return (
@@ -50,13 +50,15 @@ const LibraryCard = ({ libRef }) => {
                                         className="bg-black text-white font-bold"
                                         value={lang.lang}
                                     >
-                                        {lang.lang}
+                                        {lang.autonym}
                                     </option>
                                 );
                             })}
                         </select>
                     ) : (
-                        <p className="text-gray-300 font-bold pl-1.5">en</p>
+                        <p className="mt-1 text-gray-400 font-bold w-min border-1 border-gray-400 rounded-md py-0.5 px-1.5">
+                            english
+                        </p>
                     )}
                 </div>
                 {/* <img
