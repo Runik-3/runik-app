@@ -27,6 +27,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     // 6 states necessary for dictionary generation and conversion
     const states = useDictionaryStates();
 
+    // eslint-disable-next-line no-unused-vars
     async function checkLibraryAgainstDb(name, targetFormat, lang) {
         const response = await findDict(name, targetFormat, lang).catch(
             (err) => {
