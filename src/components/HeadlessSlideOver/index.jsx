@@ -169,7 +169,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                     </Transition.Child>
                                     <div className="h-full flex flex-col justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll">
                                         <Divider />
-                                        <div className="w-library-children-width mt-4 text-3xl text-runik-neutral-med">
+                                        <div className="w-library-children-width mt-4 text-2xl text-runik-neutral-med">
                                             <h1>Library</h1>
                                         </div>
                                         <div className="mt-6 relative flex-1">
@@ -182,45 +182,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                 );
                                             })}
                                         </div>
-                                        <Divider />
-                                        <div className="flex flex-col w-library-children-width mt-4 text-2xl text-runik-neutral-med">
-                                            <h2>Select Your Device</h2>
-                                            <div className="flex-col items-center w-4/5 mx-auto mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-12">
-                                                <div className="w-full flex">
-                                                    <div
-                                                        tabIndex="0"
-                                                        className={
-                                                            targetDevice ===
-                                                            'kobo'
-                                                                ? 'kobo w-2/4 bg-runik-neutral-dark text-white py-2 px-6 rounded-l-xl cursor-pointer border-2 border-runik-neutral-dark'
-                                                                : 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-l-xl'
-                                                        }
-                                                        onClick={() =>
-                                                            setTargetDevice(
-                                                                'kobo'
-                                                            )
-                                                        }
-                                                    >
-                                                        Kobo
-                                                    </div>
-                                                    <div
-                                                        tabIndex="0"
-                                                        className={
-                                                            targetDevice ===
-                                                            'kindle'
-                                                                ? 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-r-xl bg-runik-neutral-dark text-white'
-                                                                : 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-r-xl'
-                                                        }
-                                                        onClick={() =>
-                                                            setTargetDevice(
-                                                                'kindle'
-                                                            )
-                                                        }
-                                                    >
-                                                        Kindle
-                                                    </div>
-                                                </div>
 
+                                        <div className="flex flex-col w-library-children-width mt-4 text-2xl text-runik-neutral-med">
+                                            <div className="flex-col items-center w-4/5 mx-auto mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-12">
                                                 <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
                                                     <input
                                                         type="button"
