@@ -16,7 +16,7 @@ import handleLibraryRefs from '../../services/handleLibraryRefs';
 import installDictionaries from '../../services/installDictionary';
 import convertDictionary from '../../services/convertDictionary';
 import InstallModal from '../InstallModal';
-import { existsInDb } from '../../services/databaseController';
+import { findDict } from '../../services/databaseController';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
@@ -27,17 +27,20 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     // 6 states necessary for dictionary generation and conversion
     const states = useDictionaryStates();
 
+    async function checkLibraryAgainstDb(name, targetFormat, lang) {
+        const response = await findDict(name, targetFormat, lang).catch(
+            (err) => {
+                throw new Error(err);
+            }
+        );
+        const { data } = await response.json();
+        console.log(data[0].dictionaries); // data array
+    }
     // DICTIONARY LOGIC
     // IN dict refs OUT xdxf words
     async function handleGetDict() {
         if (library.length > 0) {
             setModalActive(true);
-
-            const response = await existsInDb('test', 'en').catch((err) => {
-                throw new Error(err);
-            });
-            console.log(response);
-
             setIsThinking(true);
             states.setStatus(
                 library.length === 1
@@ -227,6 +230,16 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                         Kindle
                                                     </div>
                                                 </div>
+                                                <button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        checkLibraryAgainstDb(
+                                                            'kingkiller'
+                                                        )
+                                                    }
+                                                >
+                                                    dbGet
+                                                </button>
 
                                                 <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
                                                     <input

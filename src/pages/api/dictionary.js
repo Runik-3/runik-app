@@ -14,7 +14,6 @@ export default async function handler(req, res) {
         case 'GET':
             const dict = await Dictionary.find({
                 name: name,
-                dictionaries: { targetFormat: [{ lang: lang }] },
             }).catch(() => {
                 res.status(404).json({
                     success: false,
