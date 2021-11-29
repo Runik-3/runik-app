@@ -2,9 +2,9 @@
 import React from 'react';
 
 // eslint-disable-next-line react/prop-types
-const MainLogo = () => {
+const MainLogo = ({ hidden }) => {
     return (
-        <div className=" h-40 justify-between flex flex-col">
+        <div className=" h-40 justify-center flex flex-col items-center">
             <div>
                 <svg
                     width="240"
@@ -35,9 +35,12 @@ const MainLogo = () => {
                     </defs>
                 </svg>
             </div>
-            <div className="text-center font-spartan from-runik-neutral-dark text-base font-medium">
-                <p>Custom dictionaries for your</p>
-                <p>favourite fictional worlds.</p>
+            <div
+                className={` text-center font-spartan from-runik-neutral-dark text-base font-medium flex pt-6 ${
+                    hidden === 'hidden' ? 'hidden' : 'visible'
+                }`}
+            >
+                <p>Custom dictionaries for your favourite fictional worlds.</p>
             </div>
         </div>
     );
