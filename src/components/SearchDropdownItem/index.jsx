@@ -7,7 +7,14 @@ import PlusCircle from '../Icons/PlusCircle';
 import { LibraryContext } from '../../context/libraryContext';
 import booksList from '../../data/booksList.json';
 
-export default function SearchDropdownItem({ title, author, url, search }) {
+export default function SearchDropdownItem({
+    title,
+    author,
+    url,
+    description,
+    thumbnail,
+    search,
+}) {
     // can run check to see if url is in library - isntead of +
     const [library, addReference] = useContext(LibraryContext);
 
@@ -57,6 +64,13 @@ export default function SearchDropdownItem({ title, author, url, search }) {
                 <Link
                     href={{
                         pathname: '/details',
+                        query: {
+                            url: `${url}`,
+                            title: `${title}`,
+                            author: `${author}`,
+                            description: `${description}`,
+                            thumbnail: `${thumbnail}`,
+                        },
                     }}
                 >
                     <div
