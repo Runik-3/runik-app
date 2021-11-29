@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 /* eslint-disable react/prop-types */
@@ -21,9 +22,11 @@ export default function SearchBarDropdown({
                     if (i < 5) {
                         return (
                             <SearchDropdownItem
-                                key={result.item.url}
+                                key={result.item.url + i}
                                 title={result.item.title}
-                                author={result.item.author}
+                                author={
+                                    result.item.author ? result.item.author : ''
+                                }
                                 url={result.item.url}
                                 search={search}
                             />

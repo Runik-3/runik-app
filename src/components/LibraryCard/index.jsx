@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-param-reassign */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/prop-types */
@@ -42,14 +43,14 @@ const LibraryCard = ({ libRef }) => {
                             >
                                 en
                             </option>
-                            {libRef.languages.map((lang) => {
+                            {libRef.languages.map((lang, i) => {
                                 return (
                                     <option
-                                        key={lang}
+                                        key={lang.lang + i}
                                         className="bg-black text-white font-bold"
-                                        value={lang}
+                                        value={lang.lang}
                                     >
-                                        {lang}
+                                        {lang.lang}
                                     </option>
                                 );
                             })}

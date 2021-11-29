@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import fetchDictionary from './fetchDictionary';
 import getTitleFromUrl from './getTitleFromUrl';
 
@@ -8,7 +9,7 @@ export default async function handleLibraryRefs(library) {
         const dictsArr = [];
         for (let i = 0; i < library.length; i++) {
             const libRef = library[i][0];
-            const dictTitle = getTitleFromUrl(libRef.url);
+            const dictTitle = libRef.title;
             if (libRef.convertLang === undefined) {
                 libRef.convertLang = 'en';
             }

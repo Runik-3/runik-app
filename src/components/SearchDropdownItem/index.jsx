@@ -54,9 +54,15 @@ export default function SearchDropdownItem({ title, author, url, search }) {
                         }}
                     >
                         <div
-                            dangerouslySetInnerHTML={{
-                                __html: `${checkTitle()} by ${checkAuthor()}`,
-                            }}
+                            dangerouslySetInnerHTML={
+                                author
+                                    ? {
+                                          __html: `${checkTitle()} by ${checkAuthor()}`,
+                                      }
+                                    : {
+                                          __html: `${checkTitle()}`,
+                                      }
+                            }
                         />
                     </Link>
                     <PlusCircle url={url} onclick={() => addToLibrary()} />

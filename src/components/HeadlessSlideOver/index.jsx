@@ -16,6 +16,7 @@ import handleLibraryRefs from '../../services/handleLibraryRefs';
 import installDictionaries from '../../services/installDictionary';
 import convertDictionary from '../../services/convertDictionary';
 import InstallModal from '../InstallModal';
+import { findDict } from '../../services/databaseController';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
@@ -26,6 +27,16 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     // 6 states necessary for dictionary generation and conversion
     const states = useDictionaryStates();
 
+    // eslint-disable-next-line no-unused-vars
+    async function checkLibraryAgainstDb(name, targetFormat, lang) {
+        const response = await findDict(name, targetFormat, lang).catch(
+            (err) => {
+                throw new Error(err);
+            }
+        );
+        const { data } = await response.json();
+        console.log(data[0].dictionaries); // data array
+    }
     // DICTIONARY LOGIC
     // IN dict refs OUT xdxf words
     async function handleGetDict() {
@@ -90,6 +101,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 'Dictionaries converted and ready to be installed!'
             );
         }
+        return () => {
+            states.setDicts(...states.dicts);
+        };
     }, [states.dicts]);
 
     // when modal flow is cancelled, set everything back to default state
@@ -224,7 +238,6 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                         Kindle
                                                     </div>
                                                 </div>
-
                                                 <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
                                                     <input
                                                         type="button"
