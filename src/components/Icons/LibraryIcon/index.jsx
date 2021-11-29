@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { LibraryContext } from '../../../context/libraryContext';
 
 // eslint-disable-next-line react/prop-types
-function LibraryIcon({ children, className, ...props }) {
+function LibraryIcon({ children, className }) {
     const [library] = useContext(LibraryContext);
     const [bouncy, setBouncy] = useState(false);
 
@@ -17,13 +17,12 @@ function LibraryIcon({ children, className, ...props }) {
     }, [library]);
 
     return (
-        <button className="flex p-3" type="button" {...props}>
+        <button className="flex p-3" type="button">
             <svg
                 width={32}
                 height={32}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                {...props}
             >
                 <path
                     d="M5.333 26a3.333 3.333 0 013.334-3.334h18"
