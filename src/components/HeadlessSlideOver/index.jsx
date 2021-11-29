@@ -17,7 +17,7 @@ import installDictionaries from '../../services/installDictionary';
 import convertDictionary from '../../services/convertDictionary';
 import InstallModal from '../InstallModal';
 import { findDict } from '../../services/databaseController';
-import getS3Url from '../../services/getS3Url';
+import { getS3Url } from '../../services/s3Service';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
