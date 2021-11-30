@@ -30,13 +30,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     // 6 states necessary for dictionary generation and conversion
     const states = useDictionaryStates();
 
-    // USER FLOW
-    function triggerModalStart() {
-        setModalStep('options');
-    }
-
     // eslint-disable-next-line no-unused-vars
     async function checkLibraryAgainstDb(name, targetFormat, lang) {
+        let existsInDb;
         const response = await findDict(name, targetFormat, lang).catch(
             (err) => {
                 throw new Error(err);
@@ -46,7 +42,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             throw new Error(err);
         });
         const storedDicts = data[0].dictionaries[targetFormat]; // data array
-        // storedDicts.foreach((format) => {});
+        storedDicts.foreach((format) => {});
 
         // console.log(await getS3UploadUrl());
     }
@@ -72,16 +68,14 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     }
 
     async function handleInstall() {
-        if ('showOpenFilePicker' in window) {
-            await installDictionaries(states.convertedDicts).catch((err) => {
-                throw new Error(err);
-            });
-            states.setStatus('Dictionaries installed!');
-        } else {
-            setError(
-                'This feature is not supported on your browser, please use a chromium-based browser.'
-            );
-        }
+        await installDictionaries(states.convertedDicts).catch((err) => {
+            throw new Error(err);
+        });
+        states.setStatus('Dictionaries installed!');
+
+        setError(
+            'This feature is not supported on your browser, please use a chromium-based browser.'
+        );
     }
 
     useEffect(async () => {
@@ -110,8 +104,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             });
             states.setConvertedDicts(converted);
             setIsThinking(false);
+            setModalStep('install');
             states.setStatus(
-                'Dictionaries converted and ready to be installed!'
+                'Dictionaries converted and ready to be installed! Make sure your e-reader is connected to your computer.'
             );
         }
         return () => {
@@ -129,6 +124,29 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             setError(false);
         }
     }, [modalStep]);
+    useEffect(() => {
+        if (error) {
+            setModalStep('error');
+        }
+    }, [error]);
+
+    // USER FLOW
+    function triggerModalStart() {
+        setModalStep('options');
+    }
+
+    async function handleDeviceInstall(device) {
+        setTargetDevice(device);
+        if ('showOpenFilePicker' in window) {
+            await handleGetDict();
+        } else {
+            setError(
+                'This feature is not supported on your browser, please use a chromium-based browser.'
+            );
+        }
+    }
+
+    function handleFileDownload(format) {}
 
     return (
         <div>
@@ -137,7 +155,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     handleInstall={() => handleInstall()}
                     setModalStep={() => setModalStep(null)}
                     modalStep={modalStep}
-                    handleGetDict={() => handleGetDict()}
+                    handleDeviceInstall={handleDeviceInstall}
                     setTargetDevice={setTargetDevice}
                     targetDevice={targetDevice}
                     status={states.status}

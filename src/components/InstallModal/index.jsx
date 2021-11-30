@@ -6,7 +6,7 @@ export default function InstallModal({
     handleInstall,
     setModalStep,
     modalStep,
-    handleGetDict,
+    handleDeviceInstall,
     setTargetDevice,
     targetDevice,
     status,
@@ -50,7 +50,7 @@ export default function InstallModal({
                     <button
                         type="button"
                         className="p-3 mt-6 border-2 rounded-lg border-black text-xl"
-                        onClick={handleGetDict}
+                        onClick={() => handleDeviceInstall('kobo')}
                     >
                         Install Directly to Kobo e-reader
                     </button>
@@ -96,20 +96,19 @@ export default function InstallModal({
                         <Spinner />
                     </div>
                     <p className="text-center my-8">{status}</p>
-                    <div className="absolute bottom-8">
+                    <div className="absolute flex w-1/2 justify-around bottom-8">
                         <button
                             type="button"
                             onClick={setModalStep}
-                            className="font-spartan p-2 bg-red-400 border-red-400 border-2 rounded-lg text-gray-200 cursor-pointer hover:text-white hover:bg-red-500"
+                            className="font-spartan p-2 bg-red-400 border-red-400 border-2 rounded-lg text-gray-200 cursor-pointer hover:text-white hover:bg-red-500 hover:border-red-500"
                         >
                             Cancel
                         </button>
                         <button
                             type="button"
-                            onClick=""
-                            className="font-spartan p-2 rounded-lg border-2 border-gray-800 text-gray-800 cursor-pointer hover:text-black hover:border-black"
+                            className="font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400 cursor-pointerw"
                         >
-                            Cancel
+                            Add to Device
                         </button>
                     </div>
                 </div>
@@ -146,6 +145,36 @@ export default function InstallModal({
                         }`}
                     >
                         <Button text="Add to Device" onclick={handleInstall} />
+                    </div>
+                </div>
+
+                {/* step4: install */}
+                <div
+                    className={`${
+                        modalStep === 'install' && !error ? 'flex' : 'hidden'
+                    } flex-col justify-center items-center h-full w-full`}
+                >
+                    <img
+                        className="mb-8"
+                        src="/icons/e-reader.svg"
+                        alt="e-reader icon"
+                    />
+                    <p className="mb-20 w-4/6 text-lg text-center">{status}</p>
+                    <div className="absolute flex w-1/2 justify-around bottom-8">
+                        <button
+                            type="button"
+                            onClick={setModalStep}
+                            className="font-spartan p-2 bg-red-400 border-red-400 border-2 rounded-lg text-gray-200 cursor-pointer hover:text-white hover:bg-red-500 hover:border-red-500"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="button"
+                            className="font-spartan p-2 rounded-lg border-2 border-runik-neutral-dark text-runik-neutral-dark cursor-pointer hover:border-black hover:text-black "
+                            onClick={handleInstall}
+                        >
+                            Add to Device
+                        </button>
                     </div>
                 </div>
             </div>
