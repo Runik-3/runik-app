@@ -59,7 +59,7 @@ const SearchBar = ({ visibility, SearchHeight }) => {
     return (
         <div
             id="navigation"
-            className="w-full z-20 overflow-visible h-search-bar-height"
+            className="w-full z-20 overflow-visible h-search-bar-height "
         >
             <div
                 /* Work in progress */
@@ -80,7 +80,7 @@ const SearchBar = ({ visibility, SearchHeight }) => {
                 >
                     <button
                         type="submit"
-                        className="scale-75 transform -translate-y-1"
+                        className="scale-75 transform -translate-y-1 hover:opacity-60 cursor-pointer transition-ease-in-out duration-500"
                     >
                         <svg
                             width={32}

@@ -18,7 +18,10 @@ function LibraryIcon({ children, className }) {
     }, [library]);
 
     return (
-        <button className="flex p-3" type="button">
+        <button
+            className="flex p-3 hover:opacity-60 cursor-pointer transition-ease-in-out duration-500"
+            type="button"
+        >
             <svg
                 width={32}
                 height={32}
