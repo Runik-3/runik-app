@@ -46,7 +46,9 @@ export default function Details() {
             <div className="flex flex-wrap justify-between items-center w-11/12 max-w-5xl ">
                 <ResultsCard />
             </div> */}
-            <Footer />
+            <div className="w-full absolute bottom-0">
+                <Footer />
+            </div>
         </div>
     );
 }
