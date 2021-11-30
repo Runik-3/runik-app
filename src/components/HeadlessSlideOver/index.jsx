@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-plusplus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
@@ -17,7 +18,7 @@ import installDictionaries from '../../services/installDictionary';
 import convertDictionary from '../../services/convertDictionary';
 import InstallModal from '../InstallModal';
 import { findDict } from '../../services/databaseController';
-import { getS3Url } from '../../services/s3Service';
+import { getS3UploadUrl } from '../../services/s3Service';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
@@ -35,10 +36,13 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 throw new Error(err);
             }
         );
-        const { data } = await response.json();
-        console.log(data[0].dictionaries); // data array
+        const { data } = await response.json().catch((err) => {
+            throw new Error(err);
+        });
+        const storedDicts = data[0].dictionaries[targetFormat]; // data array
+        storedDicts.foreach((format) => {});
 
-        console.log(await getS3Url());
+        // console.log(await getS3UploadUrl());
     }
     // DICTIONARY LOGIC
     // IN dict refs OUT xdxf words
@@ -237,14 +241,18 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                         Kindle
                                                     </div>
                                                 </div>
-                                                {/* <button
+                                                <button
                                                     type="button"
                                                     onClick={() =>
-                                                        checkLibraryAgainstDb()
+                                                        checkLibraryAgainstDb(
+                                                            'malazan',
+                                                            'kobo',
+                                                            'en'
+                                                        )
                                                     }
                                                 >
                                                     de
-                                                </button> */}
+                                                </button>
                                                 <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
                                                     <input
                                                         type="button"

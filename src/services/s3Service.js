@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-export async function getS3Url() {
+export async function getS3UploadUrl() {
     const data = await fetch('/api/s3UrlService').catch((err) => {
         throw new Error(err);
     });
@@ -7,4 +7,12 @@ export async function getS3Url() {
     return dataJSON.url;
 }
 
-// export async function
+export async function uploadFileToS3(file, url) {
+    await fetch(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'multipart/form-data',
+        },
+        body: file,
+    });
+}
