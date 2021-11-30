@@ -54,6 +54,9 @@ export default function ResultsCard({ libRef }) {
                         <Link
                             href={{
                                 pathname: '/details',
+                                query: {
+                                    url: `${result.url}`,
+                                },
                             }}
                         >
                             <div className="poster__info align-self-end w-full h-80">
