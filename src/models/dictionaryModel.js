@@ -1,4 +1,5 @@
 /* eslint-disable dot-notation */
+// eslint-disable-next-line import/no-unresolved
 import mongoose, { Schema } from 'mongoose';
 
 const dictionarySchema = new Schema({

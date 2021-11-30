@@ -238,7 +238,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                         Kindle
                                                     </div>
                                                 </div>
-                                                <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
+                                                <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto border-runik-neutral-dark border-2 py-2 rounded cursor-pointer transition-all hover:scale-105 hover:shadow-lg hover:bg-runik-primary-med hover:border-runik-primary-med">
                                                     <input
                                                         type="button"
                                                         value="Install"
