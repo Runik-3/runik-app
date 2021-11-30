@@ -11,8 +11,8 @@ export default async function convertDictionary(
     inputFormat = 'xdxf'
 ) {
     // live conversion api test environment
-    const baseUrl = 'https://dev.runik.app/';
-    // const baseUrl = 'http://localhost:8000/';
+    // const baseUrl = 'https://dev.runik.app/';
+    const baseUrl = 'http://localhost:8000/';
 
     const endpoints = `api/${targetDevice.toLowerCase()}/${inputFormat}/${dictionaryName}`;
     const url = baseUrl + endpoints;

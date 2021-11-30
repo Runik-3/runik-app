@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-plusplus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -23,11 +24,16 @@ import { getS3UploadUrl } from '../../services/s3Service';
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
     const [targetDevice, setTargetDevice] = useState('kobo');
-    const [modalActive, setModalActive] = useState(false);
+    const [modalStep, setModalStep] = useState();
     const [isThinking, setIsThinking] = useState(true);
     const [error, setError] = useState('');
     // 6 states necessary for dictionary generation and conversion
     const states = useDictionaryStates();
+
+    // USER FLOW
+    function triggerModalStart() {
+        setModalStep('options');
+    }
 
     // eslint-disable-next-line no-unused-vars
     async function checkLibraryAgainstDb(name, targetFormat, lang) {
@@ -40,7 +46,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             throw new Error(err);
         });
         const storedDicts = data[0].dictionaries[targetFormat]; // data array
-        storedDicts.foreach((format) => {});
+        // storedDicts.foreach((format) => {});
 
         // console.log(await getS3UploadUrl());
     }
@@ -48,7 +54,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     // IN dict refs OUT xdxf words
     async function handleGetDict() {
         if (library.length > 0) {
-            setModalActive(true);
+            setModalStep('generating');
             setIsThinking(true);
             states.setStatus(
                 library.length === 1
@@ -115,21 +121,25 @@ export default function HeadlessSlideOver({ open, setOpen }) {
 
     // when modal flow is cancelled, set everything back to default state
     useEffect(() => {
-        if (modalActive === false) {
+        if (!modalStep) {
             states.setStatus('');
             setIsThinking(false);
             states.setDicts([]);
             states.setConvertedDicts([]);
             setError(false);
         }
-    }, [modalActive]);
+    }, [modalStep]);
 
     return (
         <div>
-            {modalActive ? (
+            {modalStep ? (
                 <InstallModal
                     handleInstall={() => handleInstall()}
-                    setModalActive={() => setModalActive(false)}
+                    setModalStep={() => setModalStep(null)}
+                    modalStep={modalStep}
+                    handleGetDict={() => handleGetDict()}
+                    setTargetDevice={setTargetDevice}
+                    targetDevice={targetDevice}
                     status={states.status}
                     error={error}
                     isThinking={isThinking}
@@ -207,7 +217,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                         <div className="flex flex-col w-library-children-width mt-4 text-2xl text-runik-neutral-med">
                                             <h2>Select Your Device</h2>
                                             <div className="flex-col items-center w-4/5 mx-auto mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-12">
-                                                <div className="w-full flex">
+                                                {/* <div className="w-full flex">
                                                     <div
                                                         tabIndex="0"
                                                         className={
@@ -240,7 +250,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                     >
                                                         Kindle
                                                     </div>
-                                                </div>
+                                                </div> */}
                                                 <button
                                                     type="button"
                                                     onClick={() =>
@@ -257,9 +267,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                     <input
                                                         type="button"
                                                         value="Install"
-                                                        className="font-semibold cursor-pointer bg-transparent"
+                                                        className="font-semibold cursor-pointer bg-transparent w-full h-full"
                                                         onClick={() => {
-                                                            handleGetDict();
+                                                            triggerModalStart();
                                                         }}
                                                     />
                                                 </div>
