@@ -1,14 +1,23 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/no-cycle */
+import { useRouter } from 'next/router';
 import DetailsCard from '../components/DetailsCard';
 import NavBar from '../components/NavBar';
-// import ResultsCard from '../components/ResultsCard';
 import ArrowBackIcon from '../components/Icons/ArrowBackIcon/Index';
 import Footer from '../components/Footer';
-// import ResultsCard from '../components/ResultsCard';
+import booksList from '../data/booksList.json';
 
 export default function Details() {
+    const router = useRouter();
+    const result = router.query;
+
+    const book = booksList.filter((checkBook) => {
+        return checkBook.url === result.url;
+    });
+    const { url, title, author, description, thumbnail, category, languages } =
+        book[0] || {};
     return (
-        <div className="flex flex-col items-center w-full min-h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
+        <div className="flex flex-col items-center relative z-0 overflow-visible w-full min-h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <div className="flex pb-5 w-full max-w-8xl justify-start items-start">
                 <NavBar aDisplay="hidden" rDisplay="flex" />
             </div>
@@ -22,9 +31,13 @@ export default function Details() {
             </div>
             <div className="flex w-11/12 max-w-6xl justify-center items-center py-9">
                 <DetailsCard
-                    headerTitle="Harry Potter"
-                    description="Toad-like smile Flourish and Blotts he knew I’d come back Quidditch World Cup. Fat Lady baubles banana fritters fairy lights Petrificus Totalus. So thirsty, deluminator."
-                    img="http://baconmockup.com/300/400"
+                    url={url}
+                    title={title}
+                    author={author}
+                    description={description}
+                    thumbnail={thumbnail}
+                    category={category}
+                    languages={languages}
                 />
             </div>
             {/* <div className="font-spartan font-medium text-2xl pt-16">

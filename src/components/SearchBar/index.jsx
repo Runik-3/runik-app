@@ -57,10 +57,15 @@ const SearchBar = ({ visibility, SearchHeight }) => {
     }, [searchString]);
 
     return (
-        <div className="w-full">
+        <div
+            id="navigation"
+            className="w-full z-20 overflow-visible h-search-bar-height"
+        >
             <div
                 /* Work in progress */
                 className={`w-4/5 mx-auto min-w-max flex border border-[#BABABA] rounded-lg bg-[#f6f6f6] ${visibility}`}
+
+
             >
                 {/* Work in progress prop ^ */}
                 <input

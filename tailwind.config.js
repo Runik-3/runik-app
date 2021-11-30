@@ -39,6 +39,7 @@ module.exports = {
             },
             height: {
                 'library-icon-height': '66px',
+                'search-bar-height': '60px',
             },
             outline: {
                 dark: '2px solid #323232',
