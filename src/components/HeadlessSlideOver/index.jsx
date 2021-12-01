@@ -18,7 +18,10 @@ import handleLibraryRefs from '../../services/handleLibraryRefs';
 import installDictionaries from '../../services/installDictionary';
 import convertDictionary from '../../services/convertDictionary';
 import InstallModal from '../InstallModal';
-import { findDict } from '../../services/databaseController';
+import {
+    findDict,
+    checkLibraryAgainstDb,
+} from '../../services/databaseController';
 import { getS3UploadUrl } from '../../services/s3Service';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
@@ -31,24 +34,11 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     const states = useDictionaryStates();
 
     // eslint-disable-next-line no-unused-vars
-    async function checkLibraryAgainstDb(name, targetFormat, lang) {
-        let existsInDb;
-        const response = await findDict(name, targetFormat, lang).catch(
-            (err) => {
-                throw new Error(err);
-            }
-        );
-        const { data } = await response.json().catch((err) => {
-            throw new Error(err);
-        });
-        const storedDicts = data[0].dictionaries[targetFormat]; // data array
-        storedDicts.foreach((format) => {});
 
-        // console.log(await getS3UploadUrl());
-    }
     // DICTIONARY LOGIC
     // IN dict refs OUT xdxf words
     async function handleGetDict() {
+        const splitLibrary = await checkLibraryAgainstDb(library, targetDevice);
         if (library.length > 0) {
             setModalStep('generating');
             setIsThinking(true);

@@ -5,7 +5,7 @@ import dbConnect from './db';
 import Dictionary from '../../models/dictionaryModel';
 
 export default async function handler(req, res) {
-    const { name, targetFormat, lang, url } = req.query;
+    const { title, targetFormat, lang, url } = req.query;
     const { method } = req;
 
     await dbConnect();
@@ -13,19 +13,20 @@ export default async function handler(req, res) {
     switch (method) {
         case 'GET':
             const dict = await Dictionary.find({
-                name: name,
+                name: title,
             }).catch(() => {
                 res.status(404).json({
                     success: false,
                     msg: 'unable to find dictionary',
                 });
             });
+            console.log(title);
             res.status(200).json({ success: true, data: dict });
             break;
 
         case 'POST':
             const createDict = new Dictionary();
-            createDict.name = name;
+            createDict.title = title;
             createDict.dictionaries[targetFormat] = [{ lang, url: 'tset' }];
 
             const entry = await Dictionary.create(createDict);
