@@ -25,6 +25,8 @@ module.exports = {
                 'runik-neutral-dark': '#323232',
                 'runik-neutral-gray': '#c4c4c4',
                 'runik-background-blue': '#EDF0F5',
+                'runik-library-light': '#EEF6FF',
+                'runik-library-dark': '#D1D9E6',
             },
             spacing: {
                 'library-icon-top': '18px',
@@ -37,6 +39,7 @@ module.exports = {
             },
             height: {
                 'library-icon-height': '66px',
+                'search-bar-height': '60px',
             },
             outline: {
                 dark: '2px solid #323232',
