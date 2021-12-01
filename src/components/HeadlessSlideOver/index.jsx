@@ -249,7 +249,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                 >
                                                     de
                                                 </button> */}
-                                                <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
+                                                <div className="w-5/5 mt-6 text-center px-14 py-4 border-2 border-runik-neutral-dark rounded-xl text-lg font-spartan font-semibold transition-all hover:scale-105 hover:shadow-lg hover:bg-runik-primary-med hover:border-runik-primary-med cursor-pointer">
                                                     <input
                                                         type="button"
                                                         value="Install"
