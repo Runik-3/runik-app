@@ -59,7 +59,7 @@ const SearchBar = ({ visibility, SearchHeight }) => {
     return (
         <div
             id="navigation"
-            className="w-full z-20 h-search-bar-height bg-runik-neutral-light "
+            className="w-full z-0 h-search-bar-height bg-runik-neutral-light "
         >
             <div
                 /* Work in progress */
@@ -87,7 +87,7 @@ const SearchBar = ({ visibility, SearchHeight }) => {
                             height={32}
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-full pl-2 pt-1 z-index"
+                            className="w-full pl-2 pt-1"
                         >
                             <path
                                 d="M14.667 25.333c5.89 0 10.666-4.775 10.666-10.666S20.558 4 14.667 4 4 8.776 4 14.667c0 5.89 4.776 10.666 10.667 10.666zM28 28l-5.8-5.8"
