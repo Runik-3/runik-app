@@ -9,7 +9,7 @@ export default function PageNotFound() {
     return (
         <div className="flex flex-col h-full w-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <div className="flex text-center flex-col justify-center items-center">
-                <div className="pb-12 flex justify-evenly pt-28">
+                <div className="pb-12 flex justify-evenly pt-16">
                     <MainLogo />
                 </div>
                 <div className="text-3xl font-spartan font-semibold pb-3">
@@ -21,7 +21,7 @@ export default function PageNotFound() {
                 <div className="text-lg font-spartan text-runik-neutral-gray pb-24">
                     Error Code 404
                 </div>
-                <div className="pb-44">
+                <div className="pb-24">
                     <Button
                         size="md"
                         text="Take me back"
