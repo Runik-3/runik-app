@@ -31,7 +31,12 @@ export async function checkLibraryAgainstDb(library, target) {
     });
     const data = await results;
     data.forEach(async (result) => {
-        console.log(await result.json());
+        const jsonObj = await result.json();
+        const targetFormatStore = jsonObj.data.dictionaries[target];
+        for (let i = 0; i < library.length; i++) {
+            const libRef = library[i][0];
+            console.log(libRef.convertLang);
+        }
     });
     // console.log(data);
     // const response = await findDict(title, targetFormat, lang).catch((err) => {

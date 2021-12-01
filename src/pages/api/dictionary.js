@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
     switch (method) {
         case 'GET':
-            const dict = await Dictionary.find({
+            const dict = await Dictionary.findOne({
                 name: title,
             }).catch(() => {
                 res.status(404).json({
@@ -20,7 +20,6 @@ export default async function handler(req, res) {
                     msg: 'unable to find dictionary',
                 });
             });
-            console.log(title);
             res.status(200).json({ success: true, data: dict });
             break;
 
