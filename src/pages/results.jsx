@@ -47,8 +47,8 @@ export default function Results() {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center w-full min-h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
-            <div className="flex pb-5 w-full max-w-8xl justify-start items-start">
+        <div className="flex flex-col relative z-0 overflow-visible justify-center items-center w-full min-h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
+            <div className="flex sticky top-0 z-40 pb-5 w-full max-w-8xl justify-start items-start">
                 <NavBar aDisplay="hidden" rDisplay="flex" />
             </div>
             <div className="flex flex-col justify-end h-32 w-[73%] pb-0.5 max-w-6xl border-b border-[#C4C4C4]">

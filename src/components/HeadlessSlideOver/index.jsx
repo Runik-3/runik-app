@@ -17,6 +17,7 @@ import installDictionaries from '../../services/installDictionary';
 import convertDictionary from '../../services/convertDictionary';
 import InstallModal from '../InstallModal';
 import { findDict } from '../../services/databaseController';
+import { getS3Url } from '../../services/s3Service';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
@@ -36,6 +37,8 @@ export default function HeadlessSlideOver({ open, setOpen }) {
         );
         const { data } = await response.json();
         console.log(data[0].dictionaries); // data array
+
+        console.log(await getS3Url());
     }
     // DICTIONARY LOGIC
     // IN dict refs OUT xdxf words
@@ -170,8 +173,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                         leaveFrom="opacity-100"
                                         leaveTo="opacity-0"
                                     >
-                                        <div className="absolute top-library-icon-top left-library-icon-right transform translate-x-10">
+                                        <div className="absolute top-library-icon-top z-30 left-library-icon-right transform translate-x-10">
                                             <button
+                                                id="close"
                                                 onClick={() => setOpen(false)}
                                             >
                                                 <span className="sr-only">
@@ -181,7 +185,10 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                             </button>
                                         </div>
                                     </Transition.Child>
-                                    <div className="h-full flex flex-col justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll">
+                                    <div
+                                        id="library"
+                                        className="h-full flex flex-col top-0 right-0 z-20 absolute w-full justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll"
+                                    >
                                         <Divider />
                                         <div className="w-library-children-width mt-4 text-3xl text-runik-neutral-med">
                                             <h1>Library</h1>
@@ -234,7 +241,15 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                         Kindle
                                                     </div>
                                                 </div>
-                                                <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
+                                                {/* <button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        checkLibraryAgainstDb()
+                                                    }
+                                                >
+                                                    de
+                                                </button> */}
+                                                <div className="w-5/5 mt-6 text-center px-14 py-4 border-2 border-runik-neutral-dark rounded-xl text-lg font-spartan font-semibold transition-all hover:scale-105 hover:shadow-lg hover:bg-runik-primary-med hover:border-runik-primary-med cursor-pointer">
                                                     <input
                                                         type="button"
                                                         value="Install"
