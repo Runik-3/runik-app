@@ -57,12 +57,9 @@ const SearchBar = ({ visibility, SearchHeight }) => {
     }, [searchString]);
 
     return (
-        <div
-            id="navigation"
-            className="w-full h-search-bar-height bg-runik-neutral-light "
-        >
+        <div id="navigation" className="w-full h-search-bar-height  ">
             <div
-                className={`w-4/6 mt-2 mx-auto min-w-max flex border border-[#BABABA] rounded-lg ${visibility}`}
+                className={`w-4/6 mt-2 mx-auto min-w-max flex border border-[#BABABA] rounded-lg bg-runik-neutral-light ${visibility}`}
             >
                 <input
                     type="text"
@@ -78,14 +75,14 @@ const SearchBar = ({ visibility, SearchHeight }) => {
                 >
                     <button
                         type="submit"
-                        className="scale-75 transform -translate-y-1 hover:opacity-60 cursor-pointer transition-ease-in-out duration-500"
+                        className="scale-75 transform hover:opacity-60 cursor-pointer transition-ease-in-out duration-500 pb-2 pr-4 pt-2"
                     >
                         <svg
                             width={32}
                             height={32}
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-full pl-2 pt-1"
+                            className="w-full"
                         >
                             <path
                                 d="M14.667 25.333c5.89 0 10.666-4.775 10.666-10.666S20.558 4 14.667 4 4 8.776 4 14.667c0 5.89 4.776 10.666 10.667 10.666zM28 28l-5.8-5.8"
