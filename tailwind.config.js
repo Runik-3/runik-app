@@ -36,10 +36,13 @@ module.exports = {
             width: {
                 'library-icon-width': '66px',
                 'library-children-width': '280px',
+                'details-image-width': '257px',
+                'content-width': '900px',
             },
             height: {
                 'library-icon-height': '66px',
                 'search-bar-height': '60px',
+                'details-image-height': '427px',
             },
             outline: {
                 dark: '2px solid #323232',

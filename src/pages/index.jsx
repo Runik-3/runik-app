@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 export default function Home() {
     return (
-        <div className="flex flex-col justify-between h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
+        <div className="flex flex-col relative z-0 overflow-visible justify-between h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <div className="flex justify-center">
                 <NavBar
                     visibility="invisible"

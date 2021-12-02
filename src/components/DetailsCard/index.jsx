@@ -24,29 +24,30 @@ const DetailsCard = ({ url, title, author, description, thumbnail }) => {
         }
     }
 
+    function trim(text) {
+        const count = 2500;
+        return text.slice(0, count) + (text.length > count ? '...' : '');
+    }
+
     return (
         // direction-row
-        <div className="flex w-11/12 2xl:w-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue text-runik-neutral-dark">
-            <div className="flex h-full w-full shadow-lg rounded-xl mr-4">
+        <div className="flex bg-gradient-to-b from-runik-neutral-light to-runik-background-blue text-runik-neutral-dark pt-10">
+            <div className="flex flex-col items-center rounded-xl">
+                <Button
+                    text="Add to Library"
+                    url={url}
+                    onclick={() => addToLibrary()}
+                />
                 <img
                     src={thumbnail}
                     alt="Placeholder"
-                    className="w-full h-full rounded-xl"
+                    className="rounded-xl shadow-lg mt-6 w-details-image-width h-details-image-height"
                 />
             </div>
-            <div className="flex font-spartan">
-                <div className="flex flex-col justify-between h-1/3">
-                    <h3 className=" text-4xl">{title}</h3>
-                    <h4 className=" text-3xl">{author}</h4>
-                    <p className="">{description}</p>
-                </div>
-                <div className="flex h-full justify-end items-end">
-                    <Button
-                        text="Add to Library"
-                        url={url}
-                        onclick={() => addToLibrary()}
-                    />
-                </div>
+            <div className="flex-col font-spartan ml-10 w-content-width">
+                <h3 className="text-3xl">{title}</h3>
+                <h4 className="text-2xl mb-10">{author}</h4>
+                <p className="">{trim(description, 100)}</p>
             </div>
         </div>
     );
