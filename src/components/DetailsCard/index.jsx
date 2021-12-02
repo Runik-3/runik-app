@@ -4,13 +4,13 @@ import { LibraryContext } from '../../context/libraryContext';
 import booksList from '../../data/booksList.json';
 
 // eslint-disable-next-line react/prop-types
-const DetailsCard = ({ img, headerTitle, description }) => {
+const DetailsCard = ({ url, title, author, description, thumbnail }) => {
     const [library, addReference] = useContext(LibraryContext);
 
     function addToLibrary() {
         let duplicate;
         const bookToAdd = booksList.filter((book) => {
-            return book.url === 'https://harrypotter.fandom.com/';
+            return book.url === url;
         });
 
         // eslint-disable-next-line array-callback-return
@@ -24,26 +24,33 @@ const DetailsCard = ({ img, headerTitle, description }) => {
         }
     }
 
+    function trim(text) {
+        if (text === undefined) {
+            return text;
+        }
+        const count = 2500;
+        return text.slice(0, count) + (text.length > count ? '...' : '');
+    }
+
     return (
         // direction-row
-        <div className="flex text-runik-neutral-dark h-full ">
-            <div className="overflow-hidden flex shadow-lg rounded-xl w-80 h-full mr-4">
+        <div className="flex bg-gradient-to-b from-runik-neutral-light to-runik-background-blue text-runik-neutral-dark pt-10">
+            <div className="flex flex-col items-center rounded-xl">
+                <Button
+                    text="Add to Library"
+                    url={url}
+                    onclick={() => addToLibrary()}
+                />
                 <img
-                    src={img}
+                    src={thumbnail}
                     alt="Placeholder"
-                    className="min-w-full rounded-xl"
+                    className="rounded-xl shadow-lg mt-6 w-details-image-width h-details-image-height"
                 />
             </div>
-            <div className="flex flex-col font-spartan w-5/12">
-                <h3 className="pb-3 text-4xl">{headerTitle}</h3>
-                <p className="">{description}</p>
-                <div className="flex w-full h-full justify-end items-end">
-                    <Button
-                        text="Add to Library"
-                        url="https://harrypotter.fandom.com/"
-                        onclick={() => addToLibrary()}
-                    />
-                </div>
+            <div className="flex-col font-spartan ml-10 w-content-width">
+                <h3 className="text-3xl">{title}</h3>
+                <h4 className="text-2xl mb-10">{author}</h4>
+                <p className="">{trim(description)}</p>
             </div>
         </div>
     );

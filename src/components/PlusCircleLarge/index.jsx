@@ -17,11 +17,11 @@ export default function PlusCircleLarge({ url, onclick }) {
                 r={15}
                 fill="url(#prefix__paint0_linear_1250_1077)"
                 fillOpacity={0.7}
-                stroke="#F6F6F6"
+                stroke="black"
                 strokeWidth={2}
             />
             <path
-                stroke="#fff"
+                stroke="black"
                 strokeWidth={2}
                 strokeLinecap="round"
                 d="M16 9v14M23 16H9"

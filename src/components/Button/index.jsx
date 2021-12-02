@@ -6,7 +6,7 @@ const Button = ({ size, text, onclick }) => {
             type="button"
             className={`flex ${
                 size === 'md' ? 'py-6' : 'py-4'
-            } px-14 border-2 border-runik-neutral-dark rounded-xl font-spartan font-semibold`}
+            } px-14 border-2 border-runik-neutral-dark rounded-xl text-lg font-spartan font-semibold transition-all hover:scale-105 hover:shadow-lg hover:bg-runik-primary-med hover:border-runik-primary-med`}
             onClick={onclick}
         >
             {text}
