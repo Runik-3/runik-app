@@ -20,6 +20,7 @@ import convertDictionary from '../../services/convertDictionary';
 import InstallModal from '../InstallModal';
 import {
     findDict,
+    libraryDictsInDb,
     checkLibraryAgainstDb,
 } from '../../services/databaseController';
 import { getS3UploadUrl } from '../../services/s3Service';
@@ -38,7 +39,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     // DICTIONARY LOGIC
     // IN dict refs OUT xdxf words
     async function handleGetDict() {
-        const splitLibrary = await checkLibraryAgainstDb(library, targetDevice);
+        const inDb = await libraryDictsInDb(library, targetDevice);
+        await checkLibraryAgainstDb(library, inDb); // appends s3Url to libref of existing db ojects
+
         if (library.length > 0) {
             setModalStep('generating');
             setIsThinking(true);
@@ -62,10 +65,6 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             throw new Error(err);
         });
         states.setStatus('Dictionaries installed!');
-
-        setError(
-            'This feature is not supported on your browser, please use a chromium-based browser.'
-        );
     }
 
     useEffect(async () => {

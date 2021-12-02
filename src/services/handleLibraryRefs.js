@@ -13,11 +13,13 @@ export default async function handleLibraryRefs(library) {
             if (libRef.convertLang === undefined) {
                 libRef.convertLang = 'en';
             }
-            const dict = fetchDictionary(
-                `https://dev.runik.app/api/dictionary/${dictTitle}?lang=${libRef.convertLang}&capacity=50`,
-                dictTitle
-            );
-            dictsArr.push(dict);
+            if (!libRef.s3Url) {
+                const dict = fetchDictionary(
+                    `https://dev.runik.app/api/dictionary/${dictTitle}?lang=${libRef.convertLang}&capacity=50`,
+                    dictTitle
+                );
+                dictsArr.push(dict);
+            }
         }
         dicts = await Promise.all(dictsArr);
     }

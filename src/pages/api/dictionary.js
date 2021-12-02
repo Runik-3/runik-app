@@ -3,9 +3,10 @@
 /* eslint-disable no-case-declarations */
 import dbConnect from './db';
 import Dictionary from '../../models/dictionaryModel';
+import getTitleFromUrl from '../../services/getTitleFromUrl';
 
 export default async function handler(req, res) {
-    const { title, targetFormat, lang, url } = req.query;
+    const { url, targetFormat, lang, s3Url } = req.query;
     const { method } = req;
 
     await dbConnect();
@@ -13,19 +14,24 @@ export default async function handler(req, res) {
     switch (method) {
         case 'GET':
             const dict = await Dictionary.findOne({
-                name: title,
-            }).catch(() => {
+                url: url,
+            }).catch((err) => {
+                throw new Error(err);
+            });
+            if (dict) {
+                console.log(dict);
+                res.status(200).json({ success: true, data: dict });
+            } else {
                 res.status(404).json({
                     success: false,
                     msg: 'unable to find dictionary',
                 });
-            });
-            res.status(200).json({ success: true, data: dict });
+            }
             break;
 
         case 'POST':
             const createDict = new Dictionary();
-            createDict.title = title;
+            createDict.title = getTitleFromUrl(url);
             createDict.dictionaries[targetFormat] = [{ lang, url: 'tset' }];
 
             const entry = await Dictionary.create(createDict);
