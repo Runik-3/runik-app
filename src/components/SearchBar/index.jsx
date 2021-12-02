@@ -59,13 +59,11 @@ const SearchBar = ({ visibility, SearchHeight }) => {
     return (
         <div
             id="navigation"
-            className="w-full z-0 h-search-bar-height bg-runik-neutral-light "
+            className="w-full h-search-bar-height bg-runik-neutral-light "
         >
             <div
-                /* Work in progress */
                 className={`w-4/6 mt-2 mx-auto min-w-max flex border border-[#BABABA] rounded-lg ${visibility}`}
             >
-                {/* Work in progress prop ^ */}
                 <input
                     type="text"
                     placeholder="Search a book to begin..."
