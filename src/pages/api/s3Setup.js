@@ -17,12 +17,14 @@ const s3 = new aws.S3({
 });
 
 export default async function generateS3Url() {
-    const rawBytes = randomBytes(16);
-    const fileName = rawBytes.toString('hex');
+    const rawBytes = await randomBytes(16);
+    const fileName = `${rawBytes.toString('hex')}.zip`;
+    console.log();
 
     const params = {
         Bucket: bucketName,
         Key: fileName,
+        ContentType: 'application/zip',
         Expires: 60,
     };
 

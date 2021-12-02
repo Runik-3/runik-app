@@ -91,10 +91,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     setError(dict.error);
                 }
             });
-
             console.log(converted);
             // add dicts not already in db to db
-            uploadCollectionToS3(converted, library);
+            await uploadCollectionToS3(converted, library, targetDevice);
 
             states.setConvertedDicts(converted);
             setIsThinking(false);
