@@ -25,6 +25,9 @@ const DetailsCard = ({ url, title, author, description, thumbnail }) => {
     }
 
     function trim(text) {
+        if (text === undefined) {
+            return text;
+        }
         const count = 2500;
         return text.slice(0, count) + (text.length > count ? '...' : '');
     }
@@ -47,7 +50,7 @@ const DetailsCard = ({ url, title, author, description, thumbnail }) => {
             <div className="flex-col font-spartan ml-10 w-content-width">
                 <h3 className="text-3xl">{title}</h3>
                 <h4 className="text-2xl mb-10">{author}</h4>
-                <p className="">{trim(description, 100)}</p>
+                <p className="">{trim(description)}</p>
             </div>
         </div>
     );
