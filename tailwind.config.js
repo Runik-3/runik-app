@@ -47,6 +47,36 @@ module.exports = {
             outline: {
                 dark: '2px solid #323232',
             },
+            zIndex: {
+                '-50': '-50',
+                '-40': '-40',
+                '-30': '-30',
+                '-20': '-20',
+                '-10': '-10',
+                0: 0,
+                10: 10,
+                20: 20,
+                30: 30,
+                40: 40,
+                50: 50,
+                25: 25,
+                75: 75,
+                100: 100,
+                auto: 'auto',
+            },
+            screens: {
+                phone: '360px',
+                // => @media (min-width: 360px) { ... }
+
+                tablet: '640px',
+                // => @media (min-width: 640px) { ... }
+
+                laptop: '1024px',
+                // => @media (min-width: 1024px) { ... }
+
+                desktop: '1280px',
+                // => @media (min-width: 1280px) { ... }
+            },
         },
     },
     variants: {
