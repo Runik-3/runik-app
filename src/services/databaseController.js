@@ -44,6 +44,7 @@ export async function libraryDictsInDb(library, target) {
             }
         })
     );
+
     return inDb;
 }
 
@@ -52,10 +53,14 @@ export async function checkLibraryAgainstDb(library, inDb) {
         const libRef = library[i][0];
         const dictName = getTitleFromUrl(libRef.url);
         const dbObject = inDb[dictName];
-        if (dbObject && dbObject[libRef.convertLang]) {
+        if (dbObject) {
+            if (!libRef.convertLang) {
+                libRef.convertLang = 'en';
+            }
             const s3Url = dbObject[libRef.convertLang];
             libRef.s3Url = s3Url;
         }
+        console.log(dbObject[libRef.convertLang]);
     }
 }
 

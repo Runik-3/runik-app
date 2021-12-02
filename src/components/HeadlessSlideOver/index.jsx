@@ -40,7 +40,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     // IN dict refs OUT xdxf words
     async function handleGetDict() {
         const inDb = await libraryDictsInDb(library, targetDevice);
-        await checkLibraryAgainstDb(library, inDb); // appends s3Url to libref of existing db ojects
+        checkLibraryAgainstDb(library, inDb); // appends s3Url to libref of existing db ojects
 
         if (library.length > 0) {
             setModalStep('generating');
@@ -91,6 +91,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     setError(dict.error);
                 }
             });
+            // add dicts not already in db to db
+            // if ()
+
             states.setConvertedDicts(converted);
             setIsThinking(false);
             setModalStep('install');
