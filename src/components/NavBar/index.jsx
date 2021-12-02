@@ -22,7 +22,7 @@ export default function NavBar({
     usePreventScroll({ isDisabled: !isOpen });
 
     return (
-        <OverlayProvider className="w-full flex items-end sticky top-0 z-50">
+        <OverlayProvider className="w-full flex items-end sticky top-0 z-50 bg-runik-neutral-light">
             <div className="flex flex-row items-center w-full max-w-full shadow-md pb-0.5">
                 <AboutIcon aDisplay={aDisplay} />
                 {/* Having this icon in the NavBar comp makes the MainLogo comp disapear from the Search page, needs to be adjusted so that doesnt happen */}

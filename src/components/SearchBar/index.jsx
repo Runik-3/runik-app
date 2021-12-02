@@ -57,9 +57,9 @@ const SearchBar = ({ visibility, SearchHeight }) => {
     }, [searchString]);
 
     return (
-        <div id="navigation" className="w-full h-search-bar-height  ">
+        <div id="navigation" className="w-full h-search-bar-height">
             <div
-                className={`w-4/6 mt-2 mx-auto min-w-max flex border border-[#BABABA] rounded-lg bg-runik-neutral-light ${visibility}`}
+                className={`w-4/6 mt-2 mx-auto min-w-max flex border border-[#BABABA] rounded-lg ${visibility} bg-runik-neutral-light`}
             >
                 <input
                     type="text"
