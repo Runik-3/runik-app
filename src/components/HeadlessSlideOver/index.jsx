@@ -23,7 +23,7 @@ import {
     libraryDictsInDb,
     checkLibraryAgainstDb,
 } from '../../services/databaseController';
-import { getS3UploadUrl } from '../../services/s3Service';
+import { getS3UploadUrl, uploadCollectionToS3 } from '../../services/s3Service';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
@@ -91,8 +91,10 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     setError(dict.error);
                 }
             });
+
+            console.log(converted);
             // add dicts not already in db to db
-            // if ()
+            uploadCollectionToS3(converted, library);
 
             states.setConvertedDicts(converted);
             setIsThinking(false);
@@ -261,18 +263,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                         Kindle
                                                     </div>
                                                 </div> */}
-                                                <button
-                                                    type="button"
-                                                    onClick={() =>
-                                                        checkLibraryAgainstDb(
-                                                            'malazan',
-                                                            'kobo',
-                                                            'en'
-                                                        )
-                                                    }
-                                                >
-                                                    de
-                                                </button>
+
                                                 <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
                                                     <input
                                                         type="button"

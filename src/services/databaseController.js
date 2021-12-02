@@ -60,7 +60,6 @@ export async function checkLibraryAgainstDb(library, inDb) {
             const s3Url = dbObject[libRef.convertLang];
             libRef.s3Url = s3Url;
         }
-        console.log(dbObject[libRef.convertLang]);
     }
 }
 

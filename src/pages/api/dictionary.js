@@ -19,7 +19,6 @@ export default async function handler(req, res) {
                 throw new Error(err);
             });
             if (dict) {
-                console.log(dict);
                 res.status(200).json({ success: true, data: dict });
             } else {
                 res.status(404).json({
