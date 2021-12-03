@@ -34,24 +34,37 @@ const DetailsCard = ({ url, title, author, description, thumbnail }) => {
 
     return (
         // direction-row
-        <div className="flex flex-col w-5/6 text-runik-neutral-dark pt-10">
-            <div>
-                <h3 className="text-4xl font-bold mt-6">{title}</h3>
-                <h4 className="text-2xl">{author}</h4>
+        <div className="flex flex-col w-11/12 sm:w-5/6 xl:w-9/12 text-runik-neutral-dark pt-8">
+            <div className="flex justify-between items-center">
+                <div>
+                    <h3 className="text-4xl font-bold mt-6 sm:mt-0">{title}</h3>
+                    <h4 className="text-2xl">{author}</h4>
+                </div>
+                <div className="hidden sm:flex justify-center my-12 mr-0">
+                    <Button
+                        text="Add to Library"
+                        url={url}
+                        onclick={() => addToLibrary()}
+                    />
+                </div>
             </div>
-            <img
-                src={thumbnail}
-                alt="Placeholder"
-                className="rounded-xl shadow-lg mt-6 max-w-xs items-center"
-            />
 
-            <div className="my-12 mr-0 w-full ">
-                <Button
-                    text="Add to Library"
-                    url={url}
-                    onclick={() => addToLibrary()}
-                />
-                <p className="">{trim(description)}</p>
+            <div className="sm:flex ">
+                <div className="w-full flex justify-center sm:block sm:w-3/6 sm:mr-20 md:w-2/6">
+                    <img
+                        src={thumbnail}
+                        alt="Placeholder"
+                        className="rounded-xl shadow-lg mt-6 sm:w-full"
+                    />
+                </div>
+                <div className="flex sm:hidden justify-center my-12 mr-0">
+                    <Button
+                        text="Add to Library"
+                        url={url}
+                        onclick={() => addToLibrary()}
+                    />
+                </div>
+                <p className="w-full mb-24 text-lg">{trim(description)}</p>
             </div>
         </div>
     );
