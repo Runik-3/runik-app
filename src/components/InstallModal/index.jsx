@@ -6,9 +6,11 @@ export default function InstallModal({
     handleInstall,
     setModalStep,
     modalStep,
+    handleFileDownload,
+    downloads,
     handleDeviceInstall,
-    setTargetDevice,
-    targetDevice,
+    setTargetFormat,
+    targetFormat,
     status,
     error,
     isThinking,
@@ -58,30 +60,34 @@ export default function InstallModal({
                     <div className="flex w-40 justify-between mt-2">
                         <button
                             className={`${
-                                targetDevice === 'kobo'
+                                targetFormat === 'kobo'
                                     ? 'bg-gray-800 text-white'
                                     : ''
                             } border-2 border-gray-800 px-3 py-1 rounded`}
                             type="button"
-                            onClick={() => setTargetDevice('kobo')}
+                            onClick={() => setTargetFormat('kobo')}
                         >
                             kobo
                         </button>
                         <button
                             className={`${
-                                targetDevice === 'xdxf'
+                                targetFormat === 'xdxf'
                                     ? 'bg-gray-800 text-white'
                                     : ''
                             } border-2 border-gray-800 px-3 py-1 rounded`}
                             type="button"
-                            onClick={() => setTargetDevice('xdxf')}
+                            onClick={() => setTargetFormat('xdxf')}
                         >
                             xdxf
                         </button>
                     </div>
-                    <button type="button" className="text-lg mt-4 underline">
+                    <button
+                        type="button"
+                        className="text-lg mt-4 underline"
+                        onClick={() => handleFileDownload(targetFormat)}
+                    >
                         Download dictionaries as{' '}
-                        <span className="font-bold">{targetDevice}</span> files
+                        <span className="font-bold">{targetFormat}</span> files
                         →
                     </button>
                 </div>
@@ -165,7 +171,7 @@ export default function InstallModal({
                         src="/icons/e-reader.svg"
                         alt="e-reader icon"
                     />
-                    <p className="mb-20 w-4/6 text-lg text-center">{status}</p>
+                    <p className="mb-20 w-4/5 text-lg text-center">{status}</p>
                     <div className="absolute flex w-1/2 justify-around bottom-8">
                         <button
                             type="button"
@@ -214,6 +220,55 @@ export default function InstallModal({
                             className="font-spartan p-2 bg-transparent border-runik-neutral-dark border-2 rounded-lg text-runik-neutral-dark cursor-pointer hover:text-black hover:bg-blackhover:border-black"
                         >
                             Done!
+                        </button>
+                    </div>
+                </div>
+
+                {/* step x: download */}
+                <div
+                    className={`${
+                        modalStep === 'download' && !error ? 'flex' : 'hidden'
+                    } flex-col justify-start items-center h-full w-full`}
+                >
+                    <p className="mb-6 font-bold w-4/5 text-lg text-center">
+                        {status}
+                    </p>
+                    <div className="w-3/5 flex-start h-3/6 mb-18 overflow-scroll">
+                        {downloads.map((download) => {
+                            if (targetFormat === 'kobo') {
+                                return (
+                                    <div className="flex my-2 border-2 border-runik-neutral-gray rounded p-1 w-full justify-between text-lg">
+                                        <p>{download.name}</p>
+                                        <a
+                                            href={download.url}
+                                            download={`dicthtml-${download.name}.zip`}
+                                        >
+                                            <img
+                                                src="/icons/download.svg"
+                                                alt="download button"
+                                            />
+                                        </a>
+                                    </div>
+                                );
+                            }
+                            return '';
+                        })}
+                    </div>
+
+                    <div className="absolute flex w-1/2 justify-around bottom-8">
+                        <button
+                            type="button"
+                            onClick={setModalStep}
+                            className="font-spartan p-2 bg-red-400 border-red-400 border-2 rounded-lg text-gray-200 cursor-pointer hover:text-white hover:bg-red-500 hover:border-red-500"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="button"
+                            className="font-spartan p-2 rounded-lg border-2 border-runik-neutral-dark text-runik-neutral-dark cursor-pointer hover:border-black hover:text-black "
+                            onClick={handleInstall}
+                        >
+                            Add to Device
                         </button>
                     </div>
                 </div>

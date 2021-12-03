@@ -29,10 +29,11 @@ import {
     pullDictsFromS3,
     uploadCollectionToS3,
 } from '../../services/s3Service';
+import getTitleFromUrl from '../../services/getTitleFromUrl';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
-    const [targetDevice, setTargetDevice] = useState('kobo');
+    const [targetFormat, setTargetFormat] = useState('kobo');
     const [modalStep, setModalStep] = useState();
     const [isThinking, setIsThinking] = useState(true);
     const [error, setError] = useState('');
@@ -48,7 +49,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
         states.setStatus('Checking for dictionaries in database...');
         setIsThinking(true);
 
-        const inDb = await libraryDictsInDb(library, targetDevice);
+        const inDb = await libraryDictsInDb(library, targetFormat);
         checkLibraryAgainstDb(library, inDb); // appends s3Url to libref of existing db ojects
 
         if (library.length > 0) {
@@ -72,7 +73,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     }
 
     async function handleInstall() {
-        const dbDicts = await pullDictsFromS3(library, targetDevice);
+        const dbDicts = await pullDictsFromS3(library, targetFormat);
         let { convertedDicts } = states;
         convertedDicts = convertedDicts.concat(dbDicts);
         await installDictionaries(convertedDicts).catch((err) => {
@@ -80,6 +81,31 @@ export default function HeadlessSlideOver({ open, setOpen }) {
         });
         setModalStep('installed');
         states.setStatus('Dictionaries installed!');
+    }
+
+    async function handleDownload(dbUploadArr) {
+        if (targetFormat !== 'xdxf') {
+            const downloads = [];
+            if (dbUploadArr) {
+                dbUploadArr.forEach((upload) => {
+                    downloads.push({
+                        name: upload.file.name,
+                        url: upload.publicUrl,
+                    });
+                });
+            }
+            if (library.length > 0) {
+                library.forEach((libRef) => {
+                    if (libRef[0].s3Url) {
+                        downloads.push({
+                            name: getTitleFromUrl(libRef[0].url),
+                            url: libRef[0].s3Url,
+                        });
+                    }
+                });
+            }
+            states.setDownloads(downloads);
+        }
     }
 
     useEffect(async () => {
@@ -90,7 +116,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 const dict = states.dicts[i];
                 const convertedDict = convertDictionary(
                     dict,
-                    targetDevice,
+                    targetFormat,
                     dict.name
                 );
 
@@ -110,17 +136,28 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             const dbUploadArr = await uploadCollectionToS3(
                 converted,
                 library,
-                targetDevice
+                targetFormat
             );
             // add dict file to db using public s3url
             await addS3RefsToDb(dbUploadArr);
 
             states.setConvertedDicts(converted);
             setIsThinking(false);
-            setModalStep('install');
-            states.setStatus(
-                'Dictionaries converted and ready to be installed! Make sure your e-reader is connected to your computer.'
-            );
+            if (states.installFlow) {
+                setModalStep('install');
+            } else {
+                await handleDownload(dbUploadArr);
+                setModalStep('download');
+            }
+            if (states.installFlow) {
+                states.setStatus(
+                    'Dictionaries converted and ready to be installed! Make sure your e-reader is connected to your computer.'
+                );
+            } else {
+                states.setStatus(
+                    'Dictionaries converted and ready to be downloaded'
+                );
+            }
         }
         return () => {
             states.setDicts(...states.dicts);
@@ -145,11 +182,15 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     }, [error]);
 
     useEffect(() => {
-        if (states.inDb) {
+        if (states.inDb && states.installFlow) {
             setModalStep('install');
             states.setStatus(
-                'Dictionaries in database! Make sure your e-reader is connected to your computer'
+                'Dictionaries found in database! Make sure your e-reader is connected to your computer'
             );
+        } else if (states.inDb && !states.installFlow) {
+            handleDownload();
+            states.setStatus('Dictionaries found in database!');
+            setModalStep('download');
         }
     }, [states.inDb]);
 
@@ -159,7 +200,8 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     }
 
     async function handleDeviceInstall(device) {
-        setTargetDevice(device);
+        states.setInstallFlow(true);
+        setTargetFormat(device);
         if ('showOpenFilePicker' in window) {
             await handleGetDict();
         } else {
@@ -169,18 +211,25 @@ export default function HeadlessSlideOver({ open, setOpen }) {
         }
     }
 
-    function handleFileDownload(format) {}
+    async function handleFileDownload(format) {
+        states.setInstallFlow(false);
+        setTargetFormat(format);
+        await handleGetDict();
+    }
 
     return (
         <div>
             {modalStep ? (
                 <InstallModal
+                    installFlow={states.installFlow}
+                    handleFileDownload={handleFileDownload}
+                    downloads={states.downloads}
                     handleInstall={() => handleInstall()}
                     setModalStep={() => setModalStep(null)}
                     modalStep={modalStep}
                     handleDeviceInstall={handleDeviceInstall}
-                    setTargetDevice={setTargetDevice}
-                    targetDevice={targetDevice}
+                    setTargetFormat={setTargetFormat}
+                    targetFormat={targetFormat}
                     status={states.status}
                     error={error}
                     isThinking={isThinking}
@@ -260,7 +309,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                             onClick={() =>
                                                 pullDictsFromS3(
                                                     library,
-                                                    targetDevice
+                                                    targetFormat
                                                 )
                                             }
                                         >

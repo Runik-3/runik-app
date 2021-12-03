@@ -5,12 +5,12 @@ import convertBlobToFile from './convertBlobToFile';
 import getTitleFromUrl from './getTitleFromUrl';
 
 /* eslint-disable import/prefer-default-export */
-export async function getS3UploadUrl(target) {
-    const data = await fetch(`/api/s3UrlService?target=${target}`).catch(
-        (err) => {
-            throw new Error(err);
-        }
-    );
+export async function getS3UploadUrl(target, name, lang) {
+    const data = await fetch(
+        `/api/s3UrlService?target=${target}&lang=${lang}&name=${name}`
+    ).catch((err) => {
+        throw new Error(err);
+    });
     const dataJSON = await data.json();
     return dataJSON.url;
 }
@@ -43,7 +43,12 @@ export async function uploadCollectionToS3(fileCollection, library, target) {
         const libRef = library[i][0];
         const collectionObj = {};
         if (!libRef.s3Url) {
-            const secureUrl = await getS3UploadUrl(target).catch((err) => {
+            const name = getTitleFromUrl(libRef.url);
+            const secureUrl = await getS3UploadUrl(
+                target,
+                name,
+                libRef.convertLang
+            ).catch((err) => {
                 throw new Error(err);
             });
             const libTitle = getTitleFromUrl(libRef.url);

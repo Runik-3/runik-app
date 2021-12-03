@@ -1,7 +1,5 @@
 /* eslint-disable no-restricted-syntax */
 export default async function installDictionaries(dictionaries) {
-    // modal explaining steps?
-    console.log(dictionaries);
     let dir = await window.showDirectoryPicker().catch((error) => {
         throw new Error(error);
     });

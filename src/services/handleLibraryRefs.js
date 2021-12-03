@@ -15,7 +15,7 @@ export default async function handleLibraryRefs(library) {
             }
             if (!libRef.s3Url) {
                 const dict = fetchDictionary(
-                    `https://dev.runik.app/api/dictionary/${dictTitle}?lang=${libRef.convertLang}&capacity=50`,
+                    `https://dev.runik.app/api/dictionary/${dictTitle}?lang=${libRef.convertLang}`,
                     dictTitle
                 );
                 dictsArr.push(dict);
