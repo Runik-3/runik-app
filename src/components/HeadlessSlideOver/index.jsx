@@ -309,7 +309,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                     <>
                                                         {library.map(
                                                             (libRef) => (
-                                                                <li
+                                                                <div
                                                                     key={
                                                                         libRef[0]
                                                                             .url
@@ -322,7 +322,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                                             }
                                                                         />
                                                                     </div>
-                                                                </li>
+                                                                </div>
                                                             )
                                                         )}
                                                     </>
