@@ -6,7 +6,7 @@ import team from '../Content/Avatar';
 
 export default function About() {
     return (
-        <div className="flex flex-col h-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
+        <div className="flex z-0 relative flex-col h-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <NavBar aDisplay="hidden" />
             <div className="flex justify-center items-center">
                 <div className="flex flex-col justify-end h-32 w-[73%] pb-0.5 max-w-6xl border-b border-[#C4C4C4]">

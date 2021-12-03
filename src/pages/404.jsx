@@ -8,7 +8,7 @@ export default function PageNotFound() {
     const router = useRouter();
 
     return (
-        <div className="flex flex-col h-full w-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
+        <div className="flex z-0 relative flex-col h-full w-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <NavBar aDisplay="hidden" />
             <div className="h-full flex text-center flex-col justify-center items-center">
                 <div className="pb-20 flex justify-evenly pt-20">
