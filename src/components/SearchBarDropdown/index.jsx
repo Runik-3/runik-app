@@ -23,6 +23,7 @@ export default function SearchBarDropdown({
                 />
             );
         }
+
         return (
             <ul>
                 {liveResults.map((result, i) => {
@@ -45,6 +46,7 @@ export default function SearchBarDropdown({
             </ul>
         );
     }
+
     return (
         <div
             className={`${dropdownVisibility} relative top-0 w-4/6 mx-auto bg-white rounded-b-2xl px-8 py-4 ${
