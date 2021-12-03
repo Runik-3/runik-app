@@ -9,8 +9,8 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useContext, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import LibraryOpenIcon from '../Icons/LibraryOpenIcon';
-import Divider from '../Icons/Divider';
+import { XCircleIcon } from '@heroicons/react/outline';
+
 import { LibraryContext } from '../../context/libraryContext';
 import LibraryCard from '../LibraryCard';
 import useDictionaryStates from '../../hooks/useDictionaryStates';
@@ -32,7 +32,7 @@ import {
 import getTitleFromUrl from '../../services/getTitleFromUrl';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
-    const [library] = useContext(LibraryContext);
+    const [library, , , removeAllReferences] = useContext(LibraryContext);
     const [targetFormat, setTargetFormat] = useState('kobo');
     const [modalStep, setModalStep] = useState();
     const [isThinking, setIsThinking] = useState(true);
@@ -238,87 +238,128 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             <Transition.Root show={open} as={Fragment}>
                 <Dialog
                     as="div"
-                    static
                     className="fixed inset-0 overflow-hidden"
-                    open={open}
                     onClose={setOpen}
                 >
                     <div className="absolute inset-0 overflow-hidden">
-                        <Transition.Child
-                            as={Fragment}
-                            enter="ease-in-out duration-200"
-                            enterFrom="opacity-0"
-                            enterTo="opacity-100"
-                            leave="ease-in-out duration-200"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
-                        >
-                            <Dialog.Overlay className="absolute inset-0 transition-opacity" />
-                        </Transition.Child>
-                        <div className="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+                        <Dialog.Overlay className="absolute inset-0" />
+
+                        <div className="fixed inset-y-0 right-0 pl-10 max-w-full flex sm:pl-16">
                             <Transition.Child
                                 as={Fragment}
-                                enter="transform transition ease-in-out duration-200 sm:duration-200"
+                                enter="transform transition ease-in-out duration-500 sm:duration-700"
                                 enterFrom="translate-x-full"
                                 enterTo="translate-x-0"
-                                leave="transform transition ease-in-out duration-200 sm:duration-200"
+                                leave="transform transition ease-in-out duration-500 sm:duration-700"
                                 leaveFrom="translate-x-0"
                                 leaveTo="translate-x-full"
                             >
-                                <div className="relative w-screen max-w-sm">
-                                    <div
-                                        id="library"
-                                        className="h-full flex flex-col top-0 right-0 z-20 absolute w-full justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll shadow-xl"
-                                    >
-                                        <Transition.Child
-                                            as={Fragment}
-                                            enter="ease-in-out duration-200"
-                                            enterFrom="opacity-0"
-                                            enterTo="opacity-100"
-                                            leave="ease-in-out duration-200"
-                                            leaveFrom="opacity-100"
-                                            leaveTo="opacity-0"
-                                        >
-                                            <div className="absolute top-library-icon-top z-30 left-library-icon-right transform translate-x-20">
-                                                <button
-                                                    id="close"
-                                                    onClick={() =>
-                                                        setOpen(false)
-                                                    }
-                                                >
-                                                    <span className="sr-only">
-                                                        Close panel
-                                                    </span>
-                                                    <LibraryOpenIcon />
-                                                </button>
+                                <div className="w-screen max-w-md">
+                                    <div className="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
+                                        <div className="flex flex-col min-h-screen w-full">
+                                            <div className="p-6">
+                                                <div className="flex items-start justify-between">
+                                                    <Dialog.Title className="mt-4 text-3xl text-runik-neutral-med">
+                                                        <h1>Library</h1>
+                                                    </Dialog.Title>
+                                                    <div className="ml-3 h-7 flex items-center">
+                                                        <button
+                                                            type="button"
+                                                            className="bg-white rounded-md text-runik-neutral-gray hover:text-runik-neutral-med transition duration-300 ease-in-out"
+                                                            onClick={() =>
+                                                                setOpen(false)
+                                                            }
+                                                        >
+                                                            <span className="sr-only">
+                                                                Close panel
+                                                            </span>
+                                                            <XCircleIcon
+                                                                className="h-9 w-9"
+                                                                aria-hidden="true"
+                                                            />
+                                                        </button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </Transition.Child>
-                                        <Divider />
-                                        <div className="w-library-children-width mt-4 text-3xl text-runik-neutral-med">
-                                            <h1>Library</h1>
-                                        </div>
-                                        <div className="mt-6 relative flex-1">
-                                            {library.map((libRef) => {
-                                                return (
-                                                    <LibraryCard
-                                                        key={libRef[0].url}
-                                                        libRef={libRef[0]}
-                                                    />
-                                                );
-                                            })}
-                                        </div>
-                                        <Divider />
-                                        <div className="flex flex-col w-library-children-width mt-4 text-2xl text-runik-neutral-med">
-                                            <div className="flex-col items-center w-4/5 mx-auto mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-12">
-                                                <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
-                                                    <input
-                                                        type="button"
-                                                        value="Install"
-                                                        className="font-semibold cursor-pointer bg-transparent w-full h-full"
-                                                        onClick={() => {
-                                                            triggerModalStart();
-                                                        }}
-                                                    />
+
+                                            <div
+                                                className={`dictionaries flex-1  ${
+                                                    library.length === 0
+                                                        ? 'flex justify-center items-center'
+                                                        : ''
+                                                }`}
+                                            >
+                                                {library.length === 0 ? (
+                                                    <div className="text-runik-neutral-med text-md text-center">
+                                                        <p className="text-3xl">
+                                                            ¯\_(ツ)_/¯
+                                                        </p>
+                                                        <h2>
+                                                            You don’t have any
+                                                            dictionaries to
+                                                            install.
+                                                        </h2>
+                                                        <p>
+                                                            Search and add a
+                                                            fictional universe
+                                                            to get started.
+                                                        </p>
+                                                    </div>
+                                                ) : (
+                                                    <>
+                                                        <ul className="flex-1 divide-y divide-gray-200 overflow-y-auto">
+                                                            {library.map(
+                                                                (libRef) => (
+                                                                    <li
+                                                                        key={
+                                                                            libRef[0]
+                                                                                .url
+                                                                        }
+                                                                    >
+                                                                        <div className="relative group py-6 px-5 flex items-center">
+                                                                            <LibraryCard
+                                                                                libRef={
+                                                                                    libRef[0]
+                                                                                }
+                                                                            />
+                                                                        </div>
+                                                                    </li>
+                                                                )
+                                                            )}
+                                                        </ul>
+                                                    </>
+                                                )}
+                                            </div>
+
+                                            <div className="library-buttons w-full p-6">
+                                                <div className="flex">
+                                                    {library.length === 0 ? (
+                                                        <></>
+                                                    ) : (
+                                                        <>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => {
+                                                                    triggerModalStart();
+                                                                    setOpen(
+                                                                        false
+                                                                    );
+                                                                }}
+                                                                className="flex-1 bg-runik-primary-dark bg-opacity-75 hover:bg-opacity-100 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white"
+                                                            >
+                                                                Install All
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => {
+                                                                    removeAllReferences();
+                                                                }}
+                                                                className="flex-1 ml-3 bg-red-500 hover:bg-red-700 py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-runik-neutral-light"
+                                                            >
+                                                                Clear Library
+                                                            </button>
+                                                        </>
+                                                    )}
                                                 </div>
                                             </div>
                                         </div>
