@@ -9,9 +9,9 @@ jobs:
         runs-on: ubuntu-latest
 
         env:
-            DATABASE_URL: ${{ secrets.DATABASE_URL }}
-            WIKI_USERNAME: ${{ secrets.WIKI_USERNAME }}
-            WIKI_PASSWORD: ${{ secrets.WIKI_PASSWORD }}
+            MONGO_URI: ${{ secrets.MONGO_URI }}
+            S3_SECRET: ${{secrets.S3_SECRET}}
+            S3_ACCESS: ${{ secrets.S3_ACCESS }}
 
         strategy:
             matrix:
