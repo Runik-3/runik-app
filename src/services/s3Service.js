@@ -1,6 +1,7 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-plusplus */
 
+import convertBlobToFile from './convertBlobToFile';
 import getTitleFromUrl from './getTitleFromUrl';
 
 /* eslint-disable import/prefer-default-export */
@@ -66,4 +67,24 @@ export async function uploadCollectionToS3(fileCollection, library, target) {
         );
     }
     return collectionObjArray;
+}
+
+export async function pullDictsFromS3(library) {
+    const dictsFromDb = [];
+    for (let i = 0; i < library.length; i++) {
+        const libRef = library[i][0];
+
+        if (libRef.s3Url) {
+            const response = await fetch(libRef.s3Url);
+            const fileData = await response.blob();
+
+            const dictFile = convertBlobToFile(
+                fileData,
+                getTitleFromUrl(libRef.url),
+                'zip'
+            );
+            dictsFromDb.push(dictFile);
+        }
+    }
+    return dictsFromDb;
 }

@@ -24,7 +24,11 @@ import {
     checkLibraryAgainstDb,
     addS3RefsToDb,
 } from '../../services/databaseController';
-import { getS3UploadUrl, uploadCollectionToS3 } from '../../services/s3Service';
+import {
+    getS3UploadUrl,
+    pullDictsFromS3,
+    uploadCollectionToS3,
+} from '../../services/s3Service';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
@@ -68,7 +72,10 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     }
 
     async function handleInstall() {
-        await installDictionaries(states.convertedDicts).catch((err) => {
+        const dbDicts = await pullDictsFromS3(library, targetDevice);
+        let { convertedDicts } = states;
+        convertedDicts = convertedDicts.concat(dbDicts);
+        await installDictionaries(convertedDicts).catch((err) => {
             throw new Error(err);
         });
         setModalStep('installed');
@@ -138,10 +145,12 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     }, [error]);
 
     useEffect(() => {
-        setModalStep('install');
-        states.setStatus(
-            'Dictionaries in database! Make sure your e-reader is connected to your computer'
-        );
+        if (states.inDb) {
+            setModalStep('install');
+            states.setStatus(
+                'Dictionaries in database! Make sure your e-reader is connected to your computer'
+            );
+        }
     }, [states.inDb]);
 
     // USER FLOW
@@ -246,44 +255,20 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                             })}
                                         </div>
                                         <Divider />
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                pullDictsFromS3(
+                                                    library,
+                                                    targetDevice
+                                                )
+                                            }
+                                        >
+                                            text
+                                        </button>
                                         <div className="flex flex-col w-library-children-width mt-4 text-2xl text-runik-neutral-med">
                                             <h2>Select Your Device</h2>
                                             <div className="flex-col items-center w-4/5 mx-auto mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-12">
-                                                {/* <div className="w-full flex">
-                                                    <div
-                                                        tabIndex="0"
-                                                        className={
-                                                            targetDevice ===
-                                                            'kobo'
-                                                                ? 'kobo w-2/4 bg-runik-neutral-dark text-white py-2 px-6 rounded-l-xl cursor-pointer border-2 border-runik-neutral-dark'
-                                                                : 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-l-xl'
-                                                        }
-                                                        onClick={() =>
-                                                            setTargetDevice(
-                                                                'kobo'
-                                                            )
-                                                        }
-                                                    >
-                                                        Kobo
-                                                    </div>
-                                                    <div
-                                                        tabIndex="0"
-                                                        className={
-                                                            targetDevice ===
-                                                            'kindle'
-                                                                ? 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-r-xl bg-runik-neutral-dark text-white'
-                                                                : 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-r-xl'
-                                                        }
-                                                        onClick={() =>
-                                                            setTargetDevice(
-                                                                'kindle'
-                                                            )
-                                                        }
-                                                    >
-                                                        Kindle
-                                                    </div>
-                                                </div> */}
-
                                                 <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
                                                     <input
                                                         type="button"
