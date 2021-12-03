@@ -63,9 +63,7 @@ export async function uploadCollectionToS3(fileCollection, library, target) {
             uploadItem.file,
             uploadItem.secureUrl,
             uploadItem.file.type
-        ).catch((err) => {
-            throw new Error(err);
-        });
+        );
     }
     return collectionObjArray;
 }

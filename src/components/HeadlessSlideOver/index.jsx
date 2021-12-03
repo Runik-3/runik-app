@@ -40,12 +40,15 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     // DICTIONARY LOGIC
     // IN dict refs OUT xdxf words
     async function handleGetDict() {
+        setModalStep('dbcheck');
+        states.setStatus('Checking for dictionaries in database...');
+        setIsThinking(true);
+
         const inDb = await libraryDictsInDb(library, targetDevice);
         checkLibraryAgainstDb(library, inDb); // appends s3Url to libref of existing db ojects
 
         if (library.length > 0) {
             setModalStep('generating');
-            setIsThinking(true);
             states.setStatus(
                 library.length === 1
                     ? `Generating words list for ${library.length} dictionary...`
@@ -56,6 +59,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 throw new Error(err);
             });
 
+            if (rawDicts) {
+                states.setInDb(true);
+            }
             states.setStatus('Words list generated');
             states.setDicts(rawDicts);
         }
@@ -65,6 +71,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
         await installDictionaries(states.convertedDicts).catch((err) => {
             throw new Error(err);
         });
+        setModalStep('installed');
         states.setStatus('Dictionaries installed!');
     }
 
@@ -123,11 +130,19 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             setError(false);
         }
     }, [modalStep]);
+
     useEffect(() => {
         if (error) {
             setModalStep('error');
         }
     }, [error]);
+
+    useEffect(() => {
+        setModalStep('install');
+        states.setStatus(
+            'Dictionaries in database! Make sure your e-reader is connected to your computer'
+        );
+    }, [states.inDb]);
 
     // USER FLOW
     function triggerModalStart() {

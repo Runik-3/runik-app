@@ -86,7 +86,34 @@ export default function InstallModal({
                     </button>
                 </div>
 
-                {/* Step 2: generating */}
+                {/* step 2: dbcheck */}
+                <div
+                    className={`${
+                        modalStep === 'dbcheck' ? 'flex' : 'hidden'
+                    } flex-col justify-center items-center h-full w-full`}
+                >
+                    <div className={`flex ${isThinking ? '' : 'hidden'}`}>
+                        <Spinner />
+                    </div>
+                    <p className="text-center my-8">{status}</p>
+                    <div className="absolute flex w-1/2 justify-around bottom-8">
+                        <button
+                            type="button"
+                            onClick={setModalStep}
+                            className="font-spartan p-2 bg-red-400 border-red-400 border-2 rounded-lg text-gray-200 cursor-pointer hover:text-white hover:bg-red-500 hover:border-red-500"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="button"
+                            className="font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400 cursor-pointerw"
+                        >
+                            Add to Device
+                        </button>
+                    </div>
+                </div>
+
+                {/* Step 3: generating */}
                 <div
                     className={`${
                         modalStep === 'generating' ? 'flex' : 'hidden'
@@ -113,31 +140,10 @@ export default function InstallModal({
                     </div>
                 </div>
 
-                {/* step 3: converting */}
+                {/* step 4: converting */}
                 <div
                     className={`${modalStep === 'converting' ? '' : 'hidden'}`}
                 >
-                    <div
-                        className={`flex ${
-                            status === 'Dictionaries installed!' ? '' : 'hidden'
-                        }`}
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="60"
-                            height="60"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="MediumSeaGreen"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="feather feather-check-circle"
-                        >
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                            <polyline points="22 4 12 14.01 9 11.01" />
-                        </svg>
-                    </div>
                     <p className="text-center my-8">{status}</p>
                     <div
                         className={`flex ${isThinking ? 'hidden' : ''} ${
@@ -148,7 +154,7 @@ export default function InstallModal({
                     </div>
                 </div>
 
-                {/* step4: install */}
+                {/* step5: install */}
                 <div
                     className={`${
                         modalStep === 'install' && !error ? 'flex' : 'hidden'
@@ -174,6 +180,40 @@ export default function InstallModal({
                             onClick={handleInstall}
                         >
                             Add to Device
+                        </button>
+                    </div>
+                </div>
+
+                {/* step 6: installed */}
+                <div
+                    className={`${
+                        modalStep === 'installed' && !error ? 'flex' : 'hidden'
+                    } flex-col justify-center items-center h-full w-full`}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="60"
+                        height="60"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="MediumSeaGreen"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="feather feather-check-circle"
+                    >
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+
+                    <p className="text-center my-8">{status}</p>
+                    <div className="absolute flex w-1/2 justify-around bottom-8">
+                        <button
+                            type="button"
+                            onClick={setModalStep}
+                            className="font-spartan p-2 bg-transparent border-runik-neutral-dark border-2 rounded-lg text-runik-neutral-dark cursor-pointer hover:text-black hover:bg-blackhover:border-black"
+                        >
+                            Done!
                         </button>
                     </div>
                 </div>

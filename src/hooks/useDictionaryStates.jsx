@@ -4,6 +4,7 @@ export default function useDictionaryStates() {
     const [dicts, setDicts] = useState([]);
     const [convertedDicts, setConvertedDicts] = useState([]);
     const [status, setStatus] = useState();
+    const [inDb, setInDb] = useState(false);
 
     // takes in fandom list objects returns xdxf files -- passes file name and url through dictRef
     return {
@@ -13,5 +14,7 @@ export default function useDictionaryStates() {
         setConvertedDicts, // sets dict converted from raw dict
         status,
         setStatus, // sets progress/status
+        inDb,
+        setInDb,
     };
 }

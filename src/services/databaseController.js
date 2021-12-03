@@ -21,7 +21,6 @@ export async function addS3RefsToDb(uploadArr) {
         const { name } = upItem.file;
 
         const isInDb = await dbResult.json();
-        console.log(isInDb.data);
         if (!isInDb.success) {
             const response = await fetch(
                 `/api/dictionary?s3Url=${publicUrl}&targetFormat=${target}&lang=${lang}&name=${name}&url=${url}`,
@@ -37,7 +36,6 @@ export async function addS3RefsToDb(uploadArr) {
                     body: JSON.stringify(isInDb.data),
                 }
             );
-            console.log(response);
         }
     }
 }
