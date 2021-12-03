@@ -16,10 +16,16 @@ const s3 = new aws.S3({
     signatureVersion: 'v4',
 });
 
-export default async function generateS3Url() {
+export default async function generateS3Url(target) {
+    let fileExt;
+    if (target === 'kobo') {
+        fileExt = 'zip';
+    } else if (target === 'xdxf') {
+        fileExt = 'xdxf';
+    }
+
     const rawBytes = await randomBytes(16);
-    const fileName = `${rawBytes.toString('hex')}.zip`;
-    console.log();
+    const fileName = `${rawBytes.toString('hex')}.${fileExt}`;
 
     const params = {
         Bucket: bucketName,

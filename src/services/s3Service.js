@@ -4,10 +4,12 @@
 import getTitleFromUrl from './getTitleFromUrl';
 
 /* eslint-disable import/prefer-default-export */
-export async function getS3UploadUrl() {
-    const data = await fetch(`/api/s3UrlService`).catch((err) => {
-        throw new Error(err);
-    });
+export async function getS3UploadUrl(target) {
+    const data = await fetch(`/api/s3UrlService?target=${target}`).catch(
+        (err) => {
+            throw new Error(err);
+        }
+    );
     const dataJSON = await data.json();
     return dataJSON.url;
 }
@@ -20,6 +22,11 @@ export async function uploadFileToS3(file, url, mimeType) {
         },
         body: file,
     });
+}
+
+function getPublicUrlFromSecure(secureUrl) {
+    const publicUrl = secureUrl.split('?')[0];
+    return publicUrl;
 }
 
 export async function uploadCollectionToS3(fileCollection, library, target) {
@@ -35,22 +42,23 @@ export async function uploadCollectionToS3(fileCollection, library, target) {
         const libRef = library[i][0];
         const collectionObj = {};
         if (!libRef.s3Url) {
-            const secureUrl = await getS3UploadUrl().catch((err) => {
+            const secureUrl = await getS3UploadUrl(target).catch((err) => {
                 throw new Error(err);
             });
             const libTitle = getTitleFromUrl(libRef.url);
-            collectionObj.title = libTitle;
+            const publicUrl = getPublicUrlFromSecure(secureUrl);
             collectionObj.secureUrl = secureUrl;
+            collectionObj.publicUrl = publicUrl;
             collectionObj.file = collectionList[libTitle];
             collectionObj.target = target;
             collectionObj.lang = libRef.convertLang;
+            collectionObj.url = libRef.url;
             collectionObjArray.push(collectionObj);
         }
     }
 
     for (let i = 0; i < collectionObjArray.length; i++) {
         const uploadItem = collectionObjArray[i];
-        console.log(uploadItem.file.type);
         await uploadFileToS3(
             uploadItem.file,
             uploadItem.secureUrl,
@@ -59,4 +67,5 @@ export async function uploadCollectionToS3(fileCollection, library, target) {
             throw new Error(err);
         });
     }
+    return collectionObjArray;
 }

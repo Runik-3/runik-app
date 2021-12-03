@@ -22,6 +22,7 @@ import {
     findDict,
     libraryDictsInDb,
     checkLibraryAgainstDb,
+    addS3RefsToDb,
 } from '../../services/databaseController';
 import { getS3UploadUrl, uploadCollectionToS3 } from '../../services/s3Service';
 
@@ -91,9 +92,14 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     setError(dict.error);
                 }
             });
-            console.log(converted);
-            // add dicts not already in db to db
-            await uploadCollectionToS3(converted, library, targetDevice);
+            // add dicts not already in db to s3 -- returns public s3 links for db add
+            const dbUploadArr = await uploadCollectionToS3(
+                converted,
+                library,
+                targetDevice
+            );
+            // add dict file to db using public s3url
+            await addS3RefsToDb(dbUploadArr);
 
             states.setConvertedDicts(converted);
             setIsThinking(false);

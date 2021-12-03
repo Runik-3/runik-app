@@ -6,7 +6,8 @@ import Dictionary from '../../models/dictionaryModel';
 import getTitleFromUrl from '../../services/getTitleFromUrl';
 
 export default async function handler(req, res) {
-    const { url, targetFormat, lang, s3Url } = req.query;
+    const { body } = req;
+    const { url, targetFormat, lang, name, s3Url } = req.query;
     const { method } = req;
 
     await dbConnect();
@@ -30,11 +31,28 @@ export default async function handler(req, res) {
 
         case 'POST':
             const createDict = new Dictionary();
-            createDict.title = getTitleFromUrl(url);
-            createDict.dictionaries[targetFormat] = [{ lang, url: 'tset' }];
+            createDict.name = name;
+            createDict.url = url;
+            const obj = {};
+            obj[lang] = s3Url;
+            createDict.dictionaries[targetFormat] = obj;
 
             const entry = await Dictionary.create(createDict);
+
             res.status(200).json({ success: true, data: entry });
+            break;
+
+        case 'PUT':
+            const bodyObj = JSON.parse(body);
+
+            bodyObj.dictionaries[targetFormat][lang] = s3Url;
+
+            const update = await Dictionary.findOneAndUpdate(
+                { url: url },
+                bodyObj
+            );
+
+            res.status(200).json({ success: true, data: update });
             break;
 
         default:
