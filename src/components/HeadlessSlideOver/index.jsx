@@ -21,6 +21,7 @@ import { getS3Url } from '../../services/s3Service';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
+    // eslint-disable-next-line no-unused-vars
     const [targetDevice, setTargetDevice] = useState('kobo');
     const [modalActive, setModalActive] = useState(false);
     const [isThinking, setIsThinking] = useState(true);
@@ -173,7 +174,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                         leaveFrom="opacity-100"
                                         leaveTo="opacity-0"
                                     >
-                                        <div className="absolute top-library-icon-top z-30 left-library-icon-right transform translate-x-10">
+                                        <div className="absolute top-library-icon-top z-30 left-library-icon-right transform translate-x-20">
                                             <button
                                                 id="close"
                                                 onClick={() => setOpen(false)}
@@ -187,7 +188,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                     </Transition.Child>
                                     <div
                                         id="library"
-                                        className="h-full flex flex-col top-0 right-0 z-20 absolute w-full justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll"
+                                        className="h-full flex flex-col top-0 right-0 z-20 absolute w-full justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll shadow-xl"
                                     >
                                         <Divider />
                                         <div className="w-library-children-width mt-4 text-3xl text-runik-neutral-med">
@@ -205,42 +206,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                         </div>
                                         <Divider />
                                         <div className="flex flex-col w-library-children-width mt-4 text-2xl text-runik-neutral-med">
-                                            <h2>Select Your Device</h2>
                                             <div className="flex-col items-center w-4/5 mx-auto mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-12">
-                                                <div className="w-full flex">
-                                                    <div
-                                                        tabIndex="0"
-                                                        className={
-                                                            targetDevice ===
-                                                            'kobo'
-                                                                ? 'kobo w-2/4 bg-runik-neutral-dark text-white py-2 px-6 rounded-l-xl cursor-pointer border-2 border-runik-neutral-dark'
-                                                                : 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-l-xl'
-                                                        }
-                                                        onClick={() =>
-                                                            setTargetDevice(
-                                                                'kobo'
-                                                            )
-                                                        }
-                                                    >
-                                                        Kobo
-                                                    </div>
-                                                    <div
-                                                        tabIndex="0"
-                                                        className={
-                                                            targetDevice ===
-                                                            'kindle'
-                                                                ? 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-r-xl bg-runik-neutral-dark text-white'
-                                                                : 'kindle w-2/4 py-2 px-6 cursor-pointer border-2 border-runik-neutral-dark rounded-r-xl'
-                                                        }
-                                                        onClick={() =>
-                                                            setTargetDevice(
-                                                                'kindle'
-                                                            )
-                                                        }
-                                                    >
-                                                        Kindle
-                                                    </div>
-                                                </div>
                                                 {/* <button
                                                     type="button"
                                                     onClick={() =>
