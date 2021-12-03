@@ -48,7 +48,7 @@ const DetailsCard = ({ url, title, author, description, thumbnail }) => {
                 />
             </div>
             <div className="flex-col font-spartan ml-10 w-content-width">
-                <h3 className="text-3xl">{title}</h3>
+                <h3 className="text-4xl font-bold">{title}</h3>
                 <h4 className="text-2xl mb-10">{author}</h4>
                 <p className="">{trim(description)}</p>
             </div>

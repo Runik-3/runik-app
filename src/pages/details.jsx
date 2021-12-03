@@ -16,7 +16,7 @@ export default function Details() {
     const { url, title, author, description, thumbnail, category, languages } =
         book[0] || {};
     return (
-        <div className="flex flex-col items-center relative z-0 overflow-visible w-full min-h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
+        <div className="flex flex-col items-center relative overflow-visible w-full min-h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <div className="flex pb-5 w-full max-w-8xl justify-start items-start">
                 <NavBar aDisplay="hidden" rDisplay="flex" />
             </div>
