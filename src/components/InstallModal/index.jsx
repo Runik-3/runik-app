@@ -3,6 +3,7 @@ import Button from '../Button';
 import Spinner from '../Spinner';
 
 export default function InstallModal({
+    installFlow,
     handleInstall,
     setModalStep,
     modalStep,
@@ -17,7 +18,7 @@ export default function InstallModal({
 }) {
     return (
         <div className="flex justify-center items-center absolute top-0 left-0 bg-black h-screen w-screen z-10 bg-opacity-40">
-            <div className="flex flex-col absolute w-3/6 h-80 bg-white rounded-xl p-6">
+            <div className="flex flex-col absolute w-11/12 sm:w-5/6 md:w-4/6 lg:w-3/6 h-80 bg-white rounded-xl p-6">
                 {/* Error modal */}
                 <div
                     className={`${
@@ -56,7 +57,7 @@ export default function InstallModal({
                     >
                         Install Directly to Kobo e-reader
                     </button>
-                    <p className="text-xl my-4">or</p>
+                    <p className="text-xl text-runik-neutral-med my-8">OR</p>
                     {/* <div className="flex w-40 justify-between mt-2">
                         <button
                             className={`${
@@ -83,7 +84,7 @@ export default function InstallModal({
                     </div> */}
                     <button
                         type="button"
-                        className="text-lg underline"
+                        className="text-lg underline hover:text-runik-neutral-med duration-200"
                         onClick={() => handleFileDownload(targetFormat)}
                     >
                         Download dictionaries as{' '}
@@ -102,17 +103,19 @@ export default function InstallModal({
                         <Spinner />
                     </div>
                     <p className="text-center my-8">{status}</p>
-                    <div className="absolute flex w-1/2 justify-around bottom-8">
+                    <div className="absolute flex w-11/12 sm:w-1/2 justify-around bottom-8">
                         <button
                             type="button"
                             onClick={setModalStep}
-                            className="font-spartan p-2 bg-red-400 border-red-400 border-2 rounded-lg text-gray-200 cursor-pointer hover:text-white hover:bg-red-500 hover:border-red-500"
+                            className="font-spartan p-2 bg-red-500 hover:bg-red-700 rounded-lg text-white cursor-pointer"
                         >
                             Cancel
                         </button>
                         <button
                             type="button"
-                            className="font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400"
+                            className={`${
+                                !installFlow ? 'hidden' : ''
+                            } font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400`}
                         >
                             Add to Device
                         </button>
@@ -133,13 +136,15 @@ export default function InstallModal({
                         <button
                             type="button"
                             onClick={setModalStep}
-                            className="font-spartan p-2 bg-red-400 border-red-400 border-2 rounded-lg text-gray-200 cursor-pointer hover:text-white hover:bg-red-500 hover:border-red-500"
+                            className="font-spartan p-2 bg-red-500 hover:bg-red-700 rounded-lg text-white cursor-pointer"
                         >
                             Cancel
                         </button>
                         <button
                             type="button"
-                            className="font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400"
+                            className={`${
+                                !installFlow ? 'hidden' : ''
+                            } font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400`}
                         >
                             Add to Device
                         </button>
@@ -171,18 +176,20 @@ export default function InstallModal({
                         src="/icons/e-reader.svg"
                         alt="e-reader icon"
                     />
-                    <p className="mb-20 w-4/5 text-lg text-center">{status}</p>
-                    <div className="absolute flex w-1/2 justify-around bottom-8">
+                    <p className="mb-20 w-full sm:w-4/5 text-center">
+                        {status}
+                    </p>
+                    <div className="absolute flex w-5/6 sm:w-1/2 justify-around bottom-8">
                         <button
                             type="button"
                             onClick={setModalStep}
-                            className="font-spartan p-2 bg-red-400 border-red-400 border-2 rounded-lg text-gray-200 cursor-pointer hover:text-white hover:bg-red-500 hover:border-red-500"
+                            className="font-spartan p-2 bg-red-500 hover:bg-red-700 rounded-lg text-white cursor-pointer"
                         >
                             Cancel
                         </button>
                         <button
                             type="button"
-                            className="font-spartan p-2 rounded-lg border-2 border-runik-neutral-dark text-runik-neutral-dark cursor-pointer hover:border-black hover:text-black "
+                            className="font-spartan p-2 rounded-lg border-2 border-runik-neutral-dark text-runik-neutral-dark cursor-pointer hover:border-transparent hover:bg-runik-primary-med hover:shadow-lg duration-200 "
                             onClick={handleInstall}
                         >
                             Add to Device
@@ -217,7 +224,7 @@ export default function InstallModal({
                         <button
                             type="button"
                             onClick={setModalStep}
-                            className="font-spartan p-2 bg-transparent border-runik-neutral-dark border-2 rounded-lg text-runik-neutral-dark cursor-pointer hover:text-black hover:bg-blackhover:border-black"
+                            className="font-spartan p-2 px-4 bg-transparent border-runik-neutral-dark border-2 rounded-lg text-runik-neutral-dark cursor-pointer hover:text-black hover:bg-blackhover:border-black"
                         >
                             Done!
                         </button>
@@ -237,17 +244,17 @@ export default function InstallModal({
                     >
                         Close
                     </button>
-                    <p className="my-6 font-semibold w-5/6 text-lg text-center">
+                    <p className="my-5 font-semibold w-5/6 text-lg text-center">
                         {status}
                     </p>
-                    <div className="w-3/5 h-full border-2 border-runik-neutral-gray rounded-lg p-2 overflow-scroll">
+                    <div className="w-full sm:w-5/6 md:4/6 h-full bg-gray-200 rounded-lg p-2 sm:px-6 overflow-scroll">
                         {downloads.map((download) => {
                             if (targetFormat === 'kobo') {
                                 return (
-                                    <div className="flex my-2 px-2 rounded-sm p-1 w-full justify-between text-lg">
+                                    <div className="flex my-2 px-4 bg-white rounded p-1 w-full justify-between items-center text-lg bg-runik">
                                         <p>{download.name}</p>
                                         <a
-                                            className="border-2 border-runik-neutral-gray rounded p-1 hover:border-transparent hover:bg-runik-primary-med hover:shadow duration-200"
+                                            className="border-2 border-runik-neutral-dark rounded-lg p-1 hover:border-transparent hover:bg-runik-primary-med hover:shadow duration-200"
                                             href={download.url}
                                             download={`dicthtml-${download.name}.zip`}
                                         >

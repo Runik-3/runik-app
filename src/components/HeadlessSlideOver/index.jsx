@@ -68,7 +68,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
             if (rawDicts) {
                 states.setInDb(true);
             }
-            states.setStatus('Words list generated');
+            states.setStatus('Words list generated.');
             states.setDicts(rawDicts);
         }
     }
@@ -184,7 +184,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
         if (states.inDb && states.installFlow) {
             setModalStep('install');
             states.setStatus(
-                'Dictionaries found in database! Make sure your e-reader is connected to your computer'
+                'Dictionaries found in database! Make sure your e-reader is connected to your computer.'
             );
         } else if (states.inDb && !states.installFlow) {
             handleDownload();
@@ -255,12 +255,12 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                 leaveFrom="translate-x-0"
                                 leaveTo="translate-x-full"
                             >
-                                <div className="w-screen max-w-md">
+                                <div className="w-screen max-w-sm">
                                     <div className="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
                                         <div className="flex flex-col min-h-screen w-full">
                                             <div className="p-4">
                                                 <div className="flex items-start justify-between">
-                                                    <Dialog.Title className="mt-4 text-3xl text-runik-neutral-med">
+                                                    <Dialog.Title className="mt-4 text-3xl font-spartan text-runik-neutral-med">
                                                         <h1>Library</h1>
                                                     </Dialog.Title>
                                                     <div className="ml-3 h-7 flex items-center">
@@ -313,7 +313,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                                             .url
                                                                     }
                                                                 >
-                                                                    <div className="relative group py-6 px-5 flex items-center">
+                                                                    <div className="relative group py-2 px-5 flex items-center">
                                                                         <LibraryCard
                                                                             libRef={
                                                                                 libRef[0]
