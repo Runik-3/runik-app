@@ -14,9 +14,18 @@ export const LibraryProvider = ({ children }) => {
         setLibrary(library.filter((dict) => dict[0].url !== url));
     }
 
+    function removeAllReferences() {
+        setLibrary([]);
+    }
+
     return (
         <LibraryContext.Provider
-            value={[library, addReference, removeReference]}
+            value={[
+                library,
+                addReference,
+                removeReference,
+                removeAllReferences,
+            ]}
         >
             {children}
         </LibraryContext.Provider>

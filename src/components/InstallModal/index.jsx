@@ -166,48 +166,11 @@ export default function InstallModal({
                         modalStep === 'install' && !error ? 'flex' : 'hidden'
                     } flex-col justify-center items-center h-full w-full`}
                 >
-                    <svg
-                        className="mb-6"
-                        width="48"
-                        height="79"
-                        viewBox="0 0 48 79"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <rect
-                            x="2"
-                            y="2"
-                            width="44"
-                            height="55"
-                            rx="3"
-                            stroke="black"
-                            strokeWidth="4"
-                        />
-                        <path
-                            d="M24 67.3701C24 76.7425 28.9383 77.5472 31.4074 76.778"
-                            stroke="url(#paint0_linear_1232_1126)"
-                            strokeWidth="3"
-                        />
-                        <path
-                            d="M24 57V67.3704"
-                            stroke="black"
-                            strokeWidth="3"
-                        />
-                        <defs>
-                            <linearGradient
-                                id="paint0_linear_1232_1126"
-                                x1="22.5"
-                                y1="72"
-                                x2="25.5"
-                                y2="77"
-                                gradientUnits="userSpaceOnUse"
-                            >
-                                <stop />
-                                <stop offset="1" stopOpacity="0" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-
+                    <img
+                        className="mb-8"
+                        src="/icons/e-reader.svg"
+                        alt="e-reader icon"
+                    />
                     <p className="mb-20 w-4/5 text-lg text-center">{status}</p>
                     <div className="absolute flex w-1/2 justify-around bottom-8">
                         <button
@@ -288,27 +251,10 @@ export default function InstallModal({
                                             href={download.url}
                                             download={`dicthtml-${download.name}.zip`}
                                         >
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                width="24"
-                                                height="24"
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeWidth="2"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                className="feather feather-download"
-                                            >
-                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                                <polyline points="7 10 12 15 17 10" />
-                                                <line
-                                                    x1="12"
-                                                    y1="15"
-                                                    x2="12"
-                                                    y2="3"
-                                                />
-                                            </svg>
+                                            <img
+                                                src="/icons/download.svg"
+                                                alt="download button"
+                                            />
                                         </a>
                                     </div>
                                 );

@@ -15,7 +15,6 @@ const fuse = new Fuse(booksList, options);
 export default function Results() {
     const router = useRouter();
     const [liveResults, setLiveResults] = useState([]);
-    //
     const [showButton, setShowButton] = useState(false);
 
     function filterSearch(string) {
