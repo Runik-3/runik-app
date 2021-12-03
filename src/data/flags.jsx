@@ -85,513 +85,513 @@ const flags = {
     ar: {
         name: 'Arabic',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ast: {
         name: 'Asturian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     az: {
         name: 'Azerbaijani',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     bcc: {
         name: 'Southern Balochi',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     be: {
         name: 'Belarusian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
 
     'be-tarask': {
         name: 'Belarusian (Taraškievica)',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
 
     bg: {
         name: 'Bulgarian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     bn: {
         name: 'Bangla',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     br: {
         name: 'Breton',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     bs: {
         name: 'Bosnian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ca: {
         name: 'Catalan',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ce: {
         name: 'Chechen',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ckb: {
         name: 'Central Kurdish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     cs: {
         name: 'Czech',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     da: {
         name: 'Danish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     de: {
         name: 'German',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     diq: {
         name: 'Zazaki',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     el: {
         name: 'Greek',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     eo: {
         name: 'Esperanto',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     es: {
         name: 'Spanish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     fa: {
         name: 'Persian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     fi: {
         name: 'Finnish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     fr: {
         name: 'French',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     gl: {
         name: 'Galician',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     gu: {
         name: 'Gujarati',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     he: {
         name: 'Hebrew',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     hi: {
         name: 'Hindi',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     hr: {
         name: 'Croatian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     hu: {
         name: 'Hungarian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     hy: {
         name: 'Armenian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     id: {
         name: 'Indonesian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     io: {
         name: 'Ido',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     is: {
         name: 'Icelandic',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     it: {
         name: 'Italian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ja: {
         name: 'Japanese',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     jv: {
         name: 'Javanese',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ka: {
         name: 'Georgian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     kk: {
         name: 'Kazakh',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     km: {
         name: 'Khmer',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ko: {
         name: 'Korean',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     'ko-kp': {
         name: 'Korean (North Korea)',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ksh: {
         name: 'Colognian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ku: {
         name: 'Kurdish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     kw: {
         name: 'Cornish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     la: {
         name: 'Latin',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     lb: {
         name: 'Luxembourgish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     'map-bms': {
         name: 'Basa Banyumasan',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     min: {
         name: 'Minangkabau',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     mk: {
         name: 'Macedonian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ml: {
         name: 'Malayalam',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     mr: {
         name: 'Marathi',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ms: {
         name: 'Malay',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     mwl: {
         name: 'Mirandese',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     nl: {
         name: 'Dutch',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     no: {
         name: 'Norwegian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     oc: {
         name: 'Occitan',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     or: {
         name: 'Odia',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     pl: {
         name: 'Polish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ps: {
         name: 'Pashto',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     pt: {
         name: 'Portuguese',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     'pt-br': {
         name: 'Brazilian Portuguese',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ro: {
         name: 'Romanian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ru: {
         name: 'Russian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     sc: {
         name: 'Sardinian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     sd: {
         name: 'Sindhi',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     si: {
         name: 'Sinhala',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     sl: {
         name: 'Slovenian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     sk: {
         name: 'Slovak',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     sq: {
         name: 'Albanian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     sr: {
         name: 'Serbian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     so: {
         name: 'Somali',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     sv: {
         name: 'Swedish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     ta: {
         name: 'Tamil',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     tg: {
         name: 'Tajik',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     th: {
         name: 'Thai',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     tr: {
         name: 'Turkish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     uz: {
         name: 'Uzbek',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     uk: {
         name: 'Ukrainian',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     vi: {
         name: 'Vietnamese',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     yue: {
         name: 'Cantonese',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     yi: {
         name: 'Yiddish',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     zh: {
         name: 'Chinese',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     'zh-hans': {
         name: 'Simplified Chinese',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     'zh-hant': {
         name: 'Traditional Chinese',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
     'zh-tw': {
         name: 'Chinese (Taiwan)',
         icon: () => {
-            return <>TBD</>;
+            return <>{'   '}</>;
         },
     },
 };
