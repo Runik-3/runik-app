@@ -27,7 +27,7 @@ export default function InstallModal({
                     <button
                         type="button"
                         onClick={setModalStep}
-                        className="absolute top-2 right-2 font-spartan p-2 bg-red-400 rounded-lg text-gray-200 text-sm cursor-pointer hover:text-white hover:bg-red-500"
+                        className="absolute top-2 right-2 font-spartan p-2 bg-red-500 hover:bg-red-700 rounded-lg text-sm cursor-pointer text-white"
                     >
                         Close
                     </button>
@@ -51,7 +51,7 @@ export default function InstallModal({
                     </button>
                     <button
                         type="button"
-                        className="p-3 mt-6 border-2 rounded-lg border-black text-xl"
+                        className="p-3 mt-6 border-2 rounded-lg border-black text-xl "
                         onClick={() => handleDeviceInstall('kobo')}
                     >
                         Install Directly to Kobo e-reader
@@ -233,7 +233,7 @@ export default function InstallModal({
                     <button
                         type="button"
                         onClick={setModalStep}
-                        className="absolute top-2 right-2 font-spartan p-2 bg-red-400 rounded-lg text-gray-200 text-sm cursor-pointer hover:text-white hover:bg-red-500"
+                        className="absolute top-2 right-2 font-spartan p-2 bg-red-500 hover:bg-red-700 rounded-lg text-sm cursor-pointer text-white"
                     >
                         Close
                     </button>
