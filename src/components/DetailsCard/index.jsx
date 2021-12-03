@@ -34,22 +34,23 @@ const DetailsCard = ({ url, title, author, description, thumbnail }) => {
 
     return (
         // direction-row
-        <div className="flex  text-runik-neutral-dark pt-10">
-            <div className="flex flex-col items-center rounded-xl">
+        <div className="flex flex-col w-5/6 text-runik-neutral-dark pt-10">
+            <div>
+                <h3 className="text-4xl font-bold mt-6">{title}</h3>
+                <h4 className="text-2xl">{author}</h4>
+            </div>
+            <img
+                src={thumbnail}
+                alt="Placeholder"
+                className="rounded-xl shadow-lg mt-6 max-w-xs items-center"
+            />
+
+            <div className="my-12 mr-0 w-full ">
                 <Button
                     text="Add to Library"
                     url={url}
                     onclick={() => addToLibrary()}
                 />
-                <img
-                    src={thumbnail}
-                    alt="Placeholder"
-                    className="rounded-xl shadow-lg mt-6"
-                />
-            </div>
-            <div className="flex-col font-spartan ml-10">
-                <h3 className="text-3xl">{title}</h3>
-                <h4 className="text-2xl mb-10">{author}</h4>
                 <p className="">{trim(description)}</p>
             </div>
         </div>

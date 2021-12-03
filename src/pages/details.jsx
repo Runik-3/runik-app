@@ -16,25 +16,6 @@ export default function Details() {
     const { url, title, author, description, thumbnail, category, languages } =
         book[0] || {};
     return (
-<<<<<<< HEAD
-        <div className="flex flex-col items-center relative overflow-visible w-full min-h-screen bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
-            <div className="flex pb-5 w-full max-w-8xl justify-start items-start">
-                <NavBar aDisplay="hidden" rDisplay="flex" />
-            </div>
-            <div className="flex justify-center h-[calc(100vh-135px)]">
-                <DetailsCard
-                    url={url}
-                    title={title}
-                    author={author}
-                    description={description}
-                    thumbnail={thumbnail}
-                    category={category}
-                    languages={languages}
-                />
-            </div>
-            <div className="w-full">
-                <Footer />
-=======
         // <div className="flex flex-col w-full items-center relative z-0">
         //     <div className="flex pb-5  max-w-8xl justify-start items-start">
         //         <NavBar aDisplay="hidden" rDisplay="flex" />
@@ -68,7 +49,6 @@ export default function Details() {
                         languages={languages}
                     />
                 </div>
->>>>>>> develop
             </div>
             <Footer />
         </div>
