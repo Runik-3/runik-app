@@ -310,9 +310,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                         <Divider />
                                         <div className="flex flex-col w-library-children-width mt-4 text-2xl text-runik-neutral-med">
                                             <div className="flex-col items-center w-4/5 mx-auto mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-12">
-
                                                 <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
-
                                                     <input
                                                         type="button"
                                                         value="Install"
