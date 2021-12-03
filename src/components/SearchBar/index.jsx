@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-undef */
 // eslint-disable-next-line react/prop-types
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Fuse from 'fuse.js';
 import SearchBarDropdown from '../SearchBarDropdown';
 import booksList from '../../data/booksList.json';
@@ -32,15 +33,38 @@ const doubleFuse = new Fuse(booksList, {
 });
 
 // eslint-disable-next-line react/prop-types
-const SearchBar = ({ visibility, SearchHeight }) => {
+const SearchBar = ({
+    visibility,
+    SearchHeight,
+    resultsSearch,
+    filterSearch,
+}) => {
+    const searchRef = useRef(null);
+    // eslint-disable-next-line no-unused-vars
+    const [focused, setFocused] = useState(false);
+    const handleFocus = () => setFocused(true);
+    const handleBlur = () => setFocused(false);
+
+    // eslint-disable-next-line no-unused-vars
+    const handleKeyDown = (e) => {
+        // if (e.key === 'Enter' && focused) {
+        //     searchRef.current.click();
+        // }
+    };
+
     const [searchString, setSearchString] = useState('');
     const [liveResults, setLiveResults] = useState([]);
 
     function handleSearchInput(e) {
         setSearchString(e.target.value);
+
+        if (resultsSearch && searchString) {
+            searchRef.current.click();
+            filterSearch(searchString);
+        }
     }
 
-    function filterSearch(string) {
+    function filter(string) {
         if (string.length === 1) {
             setLiveResults(singleFuse.search(string));
         } else if (string.length === 2) {
@@ -52,7 +76,7 @@ const SearchBar = ({ visibility, SearchHeight }) => {
 
     useEffect(() => {
         if (searchString !== '') {
-            filterSearch(searchString);
+            filter(searchString);
         }
     }, [searchString]);
 
@@ -68,6 +92,9 @@ const SearchBar = ({ visibility, SearchHeight }) => {
                     placeholder="Search..."
                     className={`w-11/12 ${SearchHeight} border-0 rounded-lg text-base sm:text-xl font-spartan bg-runik-neutral-light text-gray-700 focus:ring-0 focus:border-gray-700`}
                     onChange={(e) => handleSearchInput(e)}
+                    onFocus={handleFocus}
+                    onBlur={handleBlur}
+                    onKeyDown={handleKeyDown}
                 />
                 <Link
                     href={{
@@ -76,6 +103,7 @@ const SearchBar = ({ visibility, SearchHeight }) => {
                     }}
                 >
                     <button
+                        ref={searchRef}
                         type="submit"
                         className="scale-75 transform hover:opacity-60 cursor-pointer transition-ease-in-out duration-500 pb-2 pr-4 pt-2"
                     >
@@ -98,12 +126,14 @@ const SearchBar = ({ visibility, SearchHeight }) => {
                 </Link>
             </div>
             <div>
-                <SearchBarDropdown
-                    barVisibility={visibility}
-                    dropdownVisibility={searchString ? 'block' : 'hidden'}
-                    liveResults={liveResults}
-                    search={searchString}
-                />
+                {!resultsSearch && (
+                    <SearchBarDropdown
+                        barVisibility={visibility}
+                        dropdownVisibility={searchString ? 'block' : 'hidden'}
+                        liveResults={liveResults}
+                        search={searchString}
+                    />
+                )}
             </div>
         </div>
     );

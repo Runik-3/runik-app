@@ -14,6 +14,8 @@ export default function NavBar({
     aDisplay,
     rDisplay,
     SearchHeight,
+    resultsSearch,
+    filterSearch,
 }) {
     const [isOpen, setIsOpen] = useState(false);
     const [open, setOpen] = useState(false);
@@ -31,6 +33,8 @@ export default function NavBar({
                 <SearchBar
                     visibility={visibility}
                     SearchHeight={SearchHeight}
+                    resultsSearch={resultsSearch}
+                    filterSearch={filterSearch}
                 />
                 <LibraryButton onClick={() => setOpen(true)} />
                 <HeadlessSlideOver open={open} setOpen={setOpen}>

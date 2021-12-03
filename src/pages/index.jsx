@@ -15,7 +15,7 @@ export default function Home() {
                         <MainLogo />
                     </div>
                     <div className="w-11/12 max-h-16">
-                        <SearchBar SearchHeight="h-16" />
+                        <SearchBar SearchHeight="h-16" resultsSearch={false} />
                     </div>
                 </div>
             </div>

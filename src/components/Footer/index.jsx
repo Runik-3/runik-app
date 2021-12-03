@@ -5,8 +5,8 @@ import Github from '../Icons/Github/index';
 
 const Footer = () => {
     return (
-        <div className="  w-full flex flex-col sm:flex-row justify-between p-3 bg-runik-neutral-light border-runik-neutral-gray border-t text-sm sm:text-lg font-normal text-runik-neutral-med">
-            <div className="flex flex-row justify-evenly items-center  ml-6 sm:ml-0">
+        <div className="flex flex-col sm:flex-row justify-between p-3 bg-runik-neutral-light border-runik-neutral-gray border-t text-sm sm:text-lg font-normal text-runik-neutral-med">
+            <div className="flex flex-row justify-center items-center sm:ml-0">
                 <Link href="/">
                     <p className="px-5 hover:underline cursor-pointer">Home</p>
                 </Link>
