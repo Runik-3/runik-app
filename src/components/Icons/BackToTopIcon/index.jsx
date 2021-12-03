@@ -14,7 +14,7 @@ export default function BackToTopIcon({ onclick }) {
                 strokeWidth={2}
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="prefix__feather prefix__feather-arrow-up-circle"
+                className="prefix__feather prefix__feather-arrow-up-circle  hover:text-runik-primary-light transition duration-300 ease-in-out"
                 onClick={() => onclick()}
             >
                 <circle cx={12} cy={12} r={10} />

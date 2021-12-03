@@ -33,7 +33,8 @@ export default function SearchDropdownItem({ title, author, url, search }) {
             new RegExp(search, 'gi'),
             (str) => `<strong>${str}</strong>`
         );
-        return result;
+        const count = 40;
+        return result.slice(0, count) + (result.length > count ? '...' : '');
     };
 
     const checkAuthor = () => {
@@ -41,33 +42,42 @@ export default function SearchDropdownItem({ title, author, url, search }) {
             new RegExp(search, 'gi'),
             (str) => `<strong>${str}</strong>`
         );
-        return result;
+        const count = 35;
+        return result.slice(0, count) + (result.length > count ? '...' : '');
     };
 
     function toRender() {
-        return (
-            <div>
+        if (title.length === 0) {
+            return (
                 <li className="flex justify-between text-xl py-4 border-b-2 last:border-0 cursor-pointer">
-                    <Link
-                        href={{
-                            pathname: '/details',
-                        }}
-                    >
-                        <div
-                            dangerouslySetInnerHTML={
-                                author
-                                    ? {
-                                          __html: `${checkTitle()} by ${checkAuthor()}`,
-                                      }
-                                    : {
-                                          __html: `${checkTitle()}`,
-                                      }
-                            }
-                        />
-                    </Link>
-                    <PlusCircle url={url} onclick={() => addToLibrary()} />
+                    No matches found.
                 </li>
-            </div>
+            );
+        }
+        return (
+            <li className="flex justify-between text-xl py-4 border-b-2 last:border-0 cursor-pointer">
+                <Link
+                    href={{
+                        pathname: '/details',
+                        query: {
+                            url,
+                        },
+                    }}
+                >
+                    <div
+                        dangerouslySetInnerHTML={
+                            author
+                                ? {
+                                      __html: `${checkTitle()} by ${checkAuthor()}`,
+                                  }
+                                : {
+                                      __html: `${checkTitle()}`,
+                                  }
+                        }
+                    />
+                </Link>
+                <PlusCircle url={url} onclick={() => addToLibrary()} />
+            </li>
         );
     }
 

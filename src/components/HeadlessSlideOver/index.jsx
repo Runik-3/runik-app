@@ -266,27 +266,33 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                 leaveTo="translate-x-full"
                             >
                                 <div className="relative w-screen max-w-sm">
-                                    <Transition.Child
-                                        as={Fragment}
-                                        enter="ease-in-out duration-200"
-                                        enterFrom="opacity-0"
-                                        enterTo="opacity-100"
-                                        leave="ease-in-out duration-200"
-                                        leaveFrom="opacity-100"
-                                        leaveTo="opacity-0"
+                                    <div
+                                        id="library"
+                                        className="h-full flex flex-col top-0 right-0 z-20 absolute w-full justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll"
                                     >
-                                        <div className="absolute top-library-icon-top left-library-icon-right transform translate-x-10">
-                                            <button
-                                                onClick={() => setOpen(false)}
-                                            >
-                                                <span className="sr-only">
-                                                    Close panel
-                                                </span>
-                                                <LibraryOpenIcon />
-                                            </button>
-                                        </div>
-                                    </Transition.Child>
-                                    <div className="h-full flex flex-col justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll">
+                                        <Transition.Child
+                                            as={Fragment}
+                                            enter="ease-in-out duration-200"
+                                            enterFrom="opacity-0"
+                                            enterTo="opacity-100"
+                                            leave="ease-in-out duration-200"
+                                            leaveFrom="opacity-100"
+                                            leaveTo="opacity-0"
+                                        >
+                                            <div className="absolute top-library-icon-top z-30 left-library-icon-right transform translate-x-10">
+                                                <button
+                                                    id="close"
+                                                    onClick={() =>
+                                                        setOpen(false)
+                                                    }
+                                                >
+                                                    <span className="sr-only">
+                                                        Close panel
+                                                    </span>
+                                                    <LibraryOpenIcon />
+                                                </button>
+                                            </div>
+                                        </Transition.Child>
                                         <Divider />
                                         <div className="w-library-children-width mt-4 text-3xl text-runik-neutral-med">
                                             <h1>Library</h1>
@@ -304,7 +310,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                         <Divider />
                                         <div className="flex flex-col w-library-children-width mt-4 text-2xl text-runik-neutral-med">
                                             <div className="flex-col items-center w-4/5 mx-auto mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-12">
+
                                                 <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
+
                                                     <input
                                                         type="button"
                                                         value="Install"
