@@ -114,7 +114,7 @@ export default function InstallModal({
                             type="button"
                             className={`${
                                 !installFlow ? 'hidden' : ''
-                            } font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400`}
+                            } font-spartan p-2 rounded-lg border-2 border-gray-300 text-gray-300 cursor-default`}
                         >
                             Add to Device
                         </button>
@@ -143,7 +143,7 @@ export default function InstallModal({
                             type="button"
                             className={`${
                                 !installFlow ? 'hidden' : ''
-                            } font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400`}
+                            } font-spartan p-2 rounded-lg border-2 border-gray-300 text-gray-300 cursor-default`}
                         >
                             Add to Device
                         </button>
