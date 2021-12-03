@@ -2,102 +2,33 @@
 const flags = {
     en: {
         name: 'English',
-        icon: (props) => (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                width={25}
-                height={25}
-                viewBox="0 0 7410 3900"
-                {...props}
-            >
-                <path fill="#b22234" d="M0 0h7410v3900H0z" />
-                <path
-                    d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
-                    stroke="#fff"
-                    strokeWidth={300}
-                />
-                <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
-                <g fill="#fff">
-                    <g id="d">
-                        <g id="c">
-                            <g id="e">
-                                <g id="b">
-                                    <path
-                                        id="a"
-                                        d="m247 90 70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
-                                    />
-                                    <use xlinkHref="#a" y={420} />
-                                    <use xlinkHref="#a" y={840} />
-                                    <use xlinkHref="#a" y={1260} />
-                                </g>
-                                <use xlinkHref="#a" y={1680} />
-                            </g>
-                            <use xlinkHref="#b" x={247} y={210} />
-                        </g>
-                        <use xlinkHref="#c" x={494} />
-                    </g>
-                    <use xlinkHref="#d" x={988} />
-                    <use xlinkHref="#c" x={1976} />
-                    <use xlinkHref="#e" x={2470} />
-                </g>
-            </svg>
-        ),
+        icon: () => {
+            return <>{'    '}</>;
+        },
     },
     af: {
         name: 'Afrikaans',
-        icon: () => (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                width={25}
-                height={25}
-                viewBox="0 0 9 6"
-            >
-                <clipPath id="c">
-                    <path d="m0 0 4.5 3L0 6" id="b" />
-                </clipPath>
-                <clipPath id="a">
-                    <path d="M0 0h9v6H0z" />
-                </clipPath>
-                <g clipPath="url(#a)">
-                    <path d="M0 0v6h9V0z" fill="#002395" />
-                    <path d="M0 0v3h9V0z" fill="#de3831" />
-                    <g strokeWidth={2} stroke="#fff">
-                        <path d="m0 0 4.5 3L0 6m4.5-3H9" id="d" />
-                        <use
-                            xlinkHref="#b"
-                            stroke="#ffb612"
-                            clipPath="url(#c)"
-                        />
-                    </g>
-                    <use
-                        xlinkHref="#d"
-                        fill="none"
-                        stroke="#007a4d"
-                        strokeWidth={1.2}
-                    />
-                </g>
-            </svg>
-        ),
+        icon: () => {
+            return <>{'    '}</>;
+        },
     },
 
     ar: {
         name: 'Arabic',
         icon: () => {
-            return <>{'   '}</>;
+            return <>{'    '}</>;
         },
     },
     ast: {
         name: 'Asturian',
         icon: () => {
-            return <>{'   '}</>;
+            return <>{'    '}</>;
         },
     },
     az: {
         name: 'Azerbaijani',
         icon: () => {
-            return <>{'   '}</>;
+            return <> {'   '}</>;
         },
     },
     bcc: {
