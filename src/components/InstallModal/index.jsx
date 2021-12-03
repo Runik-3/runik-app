@@ -10,7 +10,6 @@ export default function InstallModal({
     handleFileDownload,
     downloads,
     handleDeviceInstall,
-    setTargetFormat,
     targetFormat,
     status,
     error,

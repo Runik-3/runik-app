@@ -227,7 +227,6 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     setModalStep={() => setModalStep(null)}
                     modalStep={modalStep}
                     handleDeviceInstall={handleDeviceInstall}
-                    setTargetFormat={setTargetFormat}
                     targetFormat={targetFormat}
                     status={states.status}
                     error={error}
