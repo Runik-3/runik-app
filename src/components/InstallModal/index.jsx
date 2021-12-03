@@ -230,16 +230,24 @@ export default function InstallModal({
                         modalStep === 'download' && !error ? 'flex' : 'hidden'
                     } flex-col justify-start items-center h-full w-full`}
                 >
-                    <p className="mb-6 font-bold w-4/5 text-lg text-center">
+                    <button
+                        type="button"
+                        onClick={setModalStep}
+                        className="absolute top-2 right-2 font-spartan p-2 bg-red-400 rounded-lg text-gray-200 text-sm cursor-pointer hover:text-white hover:bg-red-500"
+                    >
+                        Close
+                    </button>
+                    <p className="my-6 font-semibold w-5/6 text-lg text-center">
                         {status}
                     </p>
-                    <div className="w-3/5 flex-start h-3/6 mb-18 overflow-scroll">
+                    <div className="w-3/5 h-full border-2 border-runik-neutral-gray rounded-lg p-2 overflow-scroll">
                         {downloads.map((download) => {
                             if (targetFormat === 'kobo') {
                                 return (
-                                    <div className="flex my-2 border-2 border-runik-neutral-gray rounded p-1 w-full justify-between text-lg">
+                                    <div className="flex my-2 px-2 rounded-sm p-1 w-full justify-between text-lg">
                                         <p>{download.name}</p>
                                         <a
+                                            className="border-2 border-runik-neutral-gray rounded p-1 hover:border-transparent hover:bg-runik-primary-med hover:shadow duration-200"
                                             href={download.url}
                                             download={`dicthtml-${download.name}.zip`}
                                         >
@@ -253,23 +261,6 @@ export default function InstallModal({
                             }
                             return '';
                         })}
-                    </div>
-
-                    <div className="absolute flex w-1/2 justify-around bottom-8">
-                        <button
-                            type="button"
-                            onClick={setModalStep}
-                            className="font-spartan p-2 bg-red-400 border-red-400 border-2 rounded-lg text-gray-200 cursor-pointer hover:text-white hover:bg-red-500 hover:border-red-500"
-                        >
-                            Cancel
-                        </button>
-                        <button
-                            type="button"
-                            className="font-spartan p-2 rounded-lg border-2 border-runik-neutral-dark text-runik-neutral-dark cursor-pointer hover:border-black hover:text-black "
-                            onClick={handleInstall}
-                        >
-                            Add to Device
-                        </button>
                     </div>
                 </div>
             </div>

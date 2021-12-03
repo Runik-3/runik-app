@@ -154,9 +154,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     'Dictionaries converted and ready to be installed! Make sure your e-reader is connected to your computer.'
                 );
             } else {
-                states.setStatus(
-                    'Dictionaries converted and ready to be downloaded'
-                );
+                states.setStatus('Dictionaries converted.');
             }
         }
         return () => {
@@ -304,19 +302,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                             })}
                                         </div>
                                         <Divider />
-                                        <button
-                                            type="button"
-                                            onClick={() =>
-                                                pullDictsFromS3(
-                                                    library,
-                                                    targetFormat
-                                                )
-                                            }
-                                        >
-                                            text
-                                        </button>
                                         <div className="flex flex-col w-library-children-width mt-4 text-2xl text-runik-neutral-med">
-                                            <h2>Select Your Device</h2>
                                             <div className="flex-col items-center w-4/5 mx-auto mt-6 font-spartan font-semibold text-lg text-runik-neutral-dark mb-12">
                                                 <div className="w-5/5 mt-6 text-xl text-center m-auto p-auto outline-dark py-2 rounded cursor-pointer">
                                                     <input
