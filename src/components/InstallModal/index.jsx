@@ -170,11 +170,48 @@ export default function InstallModal({
                         modalStep === 'install' && !error ? 'flex' : 'hidden'
                     } flex-col justify-center items-center h-full w-full`}
                 >
-                    <img
+                    <svg
                         className="mb-8"
-                        src="/icons/e-reader.svg"
-                        alt="e-reader icon"
-                    />
+                        width="48"
+                        height="79"
+                        viewBox="0 0 48 79"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <rect
+                            x="2"
+                            y="2"
+                            width="44"
+                            height="55"
+                            rx="3"
+                            stroke="black"
+                            strokeWidth="4"
+                        />
+                        <path
+                            d="M24 67.3701C24 76.7425 28.9383 77.5472 31.4074 76.778"
+                            stroke="url(#paint0_linear_1232_1126)"
+                            strokeWidth="3"
+                        />
+                        <path
+                            d="M24 57V67.3704"
+                            stroke="black"
+                            strokeWidth="3"
+                        />
+                        <defs>
+                            <linearGradient
+                                id="paint0_linear_1232_1126"
+                                x1="22.5"
+                                y1="72"
+                                x2="25.5"
+                                y2="77"
+                                gradientUnits="userSpaceOnUse"
+                            >
+                                <stop />
+                                <stop offset="1" stopOpacity="0" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
                     <p className="mb-20 w-full sm:w-4/5 text-center">
                         {status}
                     </p>
