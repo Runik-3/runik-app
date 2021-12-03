@@ -49,9 +49,9 @@ function LibraryIcon({ children, className }) {
                 <div
                     className={`${library.length === 0 ? 'hidden' : ''} ${
                         bouncy ? 'animate-bounce' : ''
-                    } absolute justify-center transform`}
+                    } absolute top-1 right-6 justify-center transform`}
                 >
-                    <div className="bg-black rounded-full w-6 text-base text-white">
+                    <div className="bg-[#D39D33] rounded-full w-6 text-base text-white">
                         {library.length}
                     </div>
                 </div>

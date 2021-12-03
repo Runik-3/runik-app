@@ -17,7 +17,7 @@ export default function About() {
                 <div>
                     <MainLogo hidden="hidden" />
                 </div>
-                <div className="pt-12 pl-4 w-3/6 flex flex-col justify-center pr-4 font-spartan text-runik-neutral-dark">
+                <div className="pt-12 pl-4 w-11/12 sm:w-4/6 lg:w-3/6 flex flex-col justify-center pr-4 font-spartan text-runik-neutral-dark">
                     <p className="text-lg pb-8">
                         Meet runik, a web-app that allows users to generate
                         custom e-book dictionaries for their favourite fictional

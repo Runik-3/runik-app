@@ -55,7 +55,7 @@ export default function SearchDropdownItem({ title, author, url, search }) {
             );
         }
         return (
-            <li className="flex justify-between text-xl py-4 border-b-2 last:border-0 cursor-pointer">
+            <li className="flex justify-between text-sm sm:text-base md:text-xl py-4 border-b-2 last:border-0 cursor-pointer">
                 <Link
                     href={{
                         pathname: '/details',

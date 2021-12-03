@@ -10,6 +10,7 @@
 import { Fragment, useContext, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XCircleIcon } from '@heroicons/react/outline';
+import LibraryOpenIcon from '../Icons/LibraryOpenIcon';
 
 import { LibraryContext } from '../../context/libraryContext';
 import LibraryCard from '../LibraryCard';
@@ -257,7 +258,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                 <div className="w-screen max-w-md">
                                     <div className="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
                                         <div className="flex flex-col min-h-screen w-full">
-                                            <div className="p-6">
+                                            <div className="p-4">
                                                 <div className="flex items-start justify-between">
                                                     <Dialog.Title className="mt-4 text-3xl text-runik-neutral-med">
                                                         <h1>Library</h1>
@@ -273,10 +274,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                             <span className="sr-only">
                                                                 Close panel
                                                             </span>
-                                                            <XCircleIcon
-                                                                className="h-9 w-9"
-                                                                aria-hidden="true"
-                                                            />
+                                                            <LibraryOpenIcon />
                                                         </button>
                                                     </div>
                                                 </div>
