@@ -4,9 +4,10 @@ import mongoose, { Schema } from 'mongoose';
 const dictionarySchema = new Schema({
     name: String,
     dictionaries: {
-        kobo: [''],
-        xdxf: [''],
+        kobo: {},
+        xdxf: {},
     },
+    url: String,
 });
 
 const Dictionary =
