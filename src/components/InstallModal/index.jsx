@@ -16,10 +16,8 @@ export default function InstallModal({
     isThinking,
 }) {
     return (
-
         <div className="flex justify-center items-center absolute top-0 left-0 bg-black h-screen w-screen z-10 bg-opacity-40">
             <div className="flex flex-col absolute w-3/6 h-80 bg-white rounded-xl p-6">
-
                 {/* Error modal */}
                 <div
                     className={`${
