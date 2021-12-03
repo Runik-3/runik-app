@@ -59,12 +59,14 @@ const SearchBar = ({ visibility, SearchHeight }) => {
     return (
         <div id="navigation" className="w-full h-search-bar-height">
             <div
-                className={`w-4/6 mt-2 mx-auto min-w-max flex border border-[#BABABA] rounded-lg ${visibility} bg-runik-neutral-light`}
+                className={` w-full sm:w-4/6 mt-2 mx-auto min-w-max border border-[#BABABA] rounded-lg ${
+                    visibility ? 'hidden' : 'flex'
+                } bg-runik-neutral-light`}
             >
                 <input
                     type="text"
-                    placeholder="Search a book to begin..."
-                    className={`w-11/12 ${SearchHeight} border-0 rounded-lg text-xl font-spartan bg-runik-neutral-light text-gray-700 focus:ring-0 focus:border-gray-700`}
+                    placeholder="Search..."
+                    className={`w-11/12 ${SearchHeight} border-0 rounded-lg text-base sm:text-xl font-spartan bg-runik-neutral-light text-gray-700 focus:ring-0 focus:border-gray-700`}
                     onChange={(e) => handleSearchInput(e)}
                 />
                 <Link

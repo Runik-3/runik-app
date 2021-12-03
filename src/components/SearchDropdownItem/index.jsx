@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 /* eslint-disable react/no-danger */
 /* eslint-disable array-callback-return */
 /* eslint-disable react/prop-types */
@@ -17,7 +18,6 @@ export default function SearchDropdownItem({ title, author, url, search }) {
             return book.url === url;
         });
 
-        // eslint-disable-next-line array-callback-return
         library.map((ref) => {
             if (ref[0].url === bookToAdd[0].url) {
                 duplicate = true;
@@ -55,7 +55,7 @@ export default function SearchDropdownItem({ title, author, url, search }) {
             );
         }
         return (
-            <li className="flex justify-between text-xl py-4 border-b-2 last:border-0 cursor-pointer">
+            <li className="flex justify-between text-sm sm:text-base md:text-xl py-4 border-b-2 last:border-0 cursor-pointer">
                 <Link
                     href={{
                         pathname: '/details',

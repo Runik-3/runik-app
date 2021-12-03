@@ -6,7 +6,7 @@ import team from '../Content/Avatar';
 
 export default function About() {
     return (
-        <div className="flex flex-col h-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
+        <div className="flex z-0 relative flex-col h-full bg-gradient-to-b from-runik-neutral-light to-runik-background-blue">
             <NavBar aDisplay="hidden" />
             <div className="flex justify-center items-center">
                 <div className="flex flex-col justify-end h-32 w-[73%] pb-0.5 max-w-6xl border-b border-[#C4C4C4]">
@@ -17,7 +17,7 @@ export default function About() {
                 <div>
                     <MainLogo hidden="hidden" />
                 </div>
-                <div className="pt-12 pl-4 w-3/6 flex flex-col justify-center pr-4 font-spartan text-runik-neutral-dark">
+                <div className="pt-12 pl-4 w-11/12 sm:w-4/6 lg:w-3/6 flex flex-col justify-center pr-4 font-spartan text-runik-neutral-dark">
                     <p className="text-lg pb-8">
                         Meet runik, a web-app that allows users to generate
                         custom e-book dictionaries for their favourite fictional

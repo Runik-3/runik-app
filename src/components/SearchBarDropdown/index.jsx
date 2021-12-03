@@ -23,10 +23,11 @@ export default function SearchBarDropdown({
                 />
             );
         }
+
         return (
             <ul>
                 {liveResults.map((result, i) => {
-                    if (i < 5) {
+                    if (i < 4) {
                         return (
                             <SearchDropdownItem
                                 key={result.item.url + i}
@@ -45,9 +46,10 @@ export default function SearchBarDropdown({
             </ul>
         );
     }
+
     return (
         <div
-            className={`${dropdownVisibility} relative top-0 w-4/6 mx-auto bg-white rounded-b-2xl px-8 py-4 ${
+            className={`${dropdownVisibility} relative top-0 w-full sm:w-4/6 mx-auto bg-white rounded-b-2xl px-4 py-2 sm:px-8 sm:py-4 ${
                 barVisibility === 'invisible' ? 'hidden' : 'block'
             }`}
         >
