@@ -35,7 +35,7 @@ export default function Details() {
         //         <Footer />
         //     </div>
         // </div>
-        <div className="flex flex-col justify-between min-h-screen">
+        <div className="flex flex-col relative z-0 overflow-visible justify-between min-h-screen">
             <NavBar aDisplay="hidden" rDisplay="flex" />
             <div className="flex-1">
                 <div className="flex flex-1 justify-center">
