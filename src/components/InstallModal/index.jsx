@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import Button from '../Button';
 import Spinner from '../Spinner';
 
 export default function InstallModal({
