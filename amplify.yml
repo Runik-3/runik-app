@@ -11,7 +11,7 @@ frontend:
 
         build:
             commands:
-                - npm run build
+                - npm run build:$BUILD_ENV
     artifacts:
         baseDirectory: .next
         files:
