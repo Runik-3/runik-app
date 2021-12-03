@@ -51,13 +51,13 @@ export default function InstallModal({
                     </button>
                     <button
                         type="button"
-                        className="p-3 mt-6 border-2 rounded-lg border-black text-xl "
+                        className="p-3 mt-6 border-2 rounded-lg border-runik-neutral-dark text-xl text-runik-neutral-dark hover:bg-runik-primary-med hover:border-transparent hover:shadow-lg duration-200"
                         onClick={() => handleDeviceInstall('kobo')}
                     >
                         Install Directly to Kobo e-reader
                     </button>
                     <p className="text-xl my-4">or</p>
-                    <div className="flex w-40 justify-between mt-2">
+                    {/* <div className="flex w-40 justify-between mt-2">
                         <button
                             className={`${
                                 targetFormat === 'kobo'
@@ -80,10 +80,10 @@ export default function InstallModal({
                         >
                             xdxf
                         </button>
-                    </div>
+                    </div> */}
                     <button
                         type="button"
-                        className="text-lg mt-4 underline"
+                        className="text-lg underline"
                         onClick={() => handleFileDownload(targetFormat)}
                     >
                         Download dictionaries as{' '}
@@ -112,7 +112,7 @@ export default function InstallModal({
                         </button>
                         <button
                             type="button"
-                            className="font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400 cursor-pointerw"
+                            className="font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400"
                         >
                             Add to Device
                         </button>
@@ -139,7 +139,7 @@ export default function InstallModal({
                         </button>
                         <button
                             type="button"
-                            className="font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400 cursor-pointerw"
+                            className="font-spartan p-2 rounded-lg border-2 border-gray-400 text-gray-400"
                         >
                             Add to Device
                         </button>
