@@ -307,26 +307,24 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                     </div>
                                                 ) : (
                                                     <>
-                                                        <ul className="flex-1 divide-y divide-gray-200 overflow-y-auto">
-                                                            {library.map(
-                                                                (libRef) => (
-                                                                    <li
-                                                                        key={
-                                                                            libRef[0]
-                                                                                .url
-                                                                        }
-                                                                    >
-                                                                        <div className="relative group py-6 px-5 flex items-center">
-                                                                            <LibraryCard
-                                                                                libRef={
-                                                                                    libRef[0]
-                                                                                }
-                                                                            />
-                                                                        </div>
-                                                                    </li>
-                                                                )
-                                                            )}
-                                                        </ul>
+                                                        {library.map(
+                                                            (libRef) => (
+                                                                <li
+                                                                    key={
+                                                                        libRef[0]
+                                                                            .url
+                                                                    }
+                                                                >
+                                                                    <div className="relative group py-6 px-5 flex items-center">
+                                                                        <LibraryCard
+                                                                            libRef={
+                                                                                libRef[0]
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                </li>
+                                                            )
+                                                        )}
                                                     </>
                                                 )}
                                             </div>
