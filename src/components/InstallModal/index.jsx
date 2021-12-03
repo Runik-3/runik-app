@@ -152,15 +152,30 @@ export default function InstallModal({
 
                 {/* step 4: converting */}
                 <div
-                    className={`${modalStep === 'converting' ? '' : 'hidden'}`}
+                    className={`${
+                        modalStep === 'converting' ? 'flex' : 'hidden'
+                    } flex-col justify-center items-center h-full w-full`}
                 >
+                    <div className={`flex ${isThinking ? '' : 'hidden'}`}>
+                        <Spinner />
+                    </div>
                     <p className="text-center my-8">{status}</p>
-                    <div
-                        className={`flex ${isThinking ? 'hidden' : ''} ${
-                            status === 'Dictionaries installed!' ? 'hidden' : ''
-                        }`}
-                    >
-                        <Button text="Add to Device" onclick={handleInstall} />
+                    <div className="absolute flex w-1/2 justify-around bottom-8">
+                        <button
+                            type="button"
+                            onClick={setModalStep}
+                            className="font-spartan p-2 bg-red-500 hover:bg-red-700 rounded-lg text-white cursor-pointer"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="button"
+                            className={`${
+                                !installFlow ? 'hidden' : ''
+                            } font-spartan p-2 rounded-lg border-2 border-gray-300 text-gray-300 cursor-default`}
+                        >
+                            Add to Device
+                        </button>
                     </div>
                 </div>
 
