@@ -268,7 +268,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                 <div className="relative w-screen max-w-sm">
                                     <div
                                         id="library"
-                                        className="h-full flex flex-col top-0 right-0 z-20 absolute w-full justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll"
+                                        className="h-full flex flex-col top-0 right-0 z-20 absolute w-full justify-center items-center bg-gradient-to-t from-runik-library-dark to-runik-library-light pt-library-children overflow-y-scroll shadow-xl"
                                     >
                                         <Transition.Child
                                             as={Fragment}
@@ -279,7 +279,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                             leaveFrom="opacity-100"
                                             leaveTo="opacity-0"
                                         >
-                                            <div className="absolute top-library-icon-top z-30 left-library-icon-right transform translate-x-10">
+                                            <div className="absolute top-library-icon-top z-30 left-library-icon-right transform translate-x-20">
                                                 <button
                                                     id="close"
                                                     onClick={() =>
