@@ -294,10 +294,22 @@ export default function InstallModal({
                                             href={download.url}
                                             download={`dicthtml-${download.name}.zip`}
                                         >
-                                            <img
-                                                src="/icons/download.svg"
-                                                alt="download button"
-                                            />
+                                            <svg
+                                                width="32"
+                                                height="32"
+                                                viewBox="0 0 32 32"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M15.9993 21.3335L21.3327 14.6668H17.3327V5.3335H14.666V14.6668H10.666L15.9993 21.3335Z"
+                                                    fill="black"
+                                                />
+                                                <path
+                                                    d="M26.666 23.9998H5.33268V14.6665H2.66602V23.9998C2.66602 25.4705 3.86202 26.6665 5.33268 26.6665H26.666C28.1367 26.6665 29.3327 25.4705 29.3327 23.9998V14.6665H26.666V23.9998Z"
+                                                    fill="black"
+                                                />
+                                            </svg>
                                         </a>
                                     </div>
                                 );
