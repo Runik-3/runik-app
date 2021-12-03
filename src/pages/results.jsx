@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import Fuse from 'fuse.js';
@@ -82,9 +83,12 @@ export default function Results() {
                 </div>
                 <div className="w-11/12 flex justify-center items-center">
                     <div className="flex w-11/12 max-w-6xl justify-evenly items-center py-16 flex-wrap">
-                        {liveResults.map((libRef) => {
+                        {liveResults.map((libRef, idx) => {
                             return (
-                                <ResultsCard key={libRef.url} libRef={libRef} />
+                                <ResultsCard
+                                    key={`${libRef.url} ${idx}`}
+                                    libRef={libRef}
+                                />
                             );
                         })}
                     </div>
