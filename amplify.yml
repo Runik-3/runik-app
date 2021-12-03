@@ -7,9 +7,9 @@ frontend:
 
         build:
             commands:
-                - MONGO_URI=$MONGO_URI=$MONGO_URI=$MONGO_URI >> .env.local
-                - S3_SECRET=$S3_SECRET=$S3_SECRET=$S3_SECRET >> .env.local
-                - S3_ACCESS=$S3_ACCESS=$S3_ACCESS=$S3_ACCESS >> .env.local
+                - echo "MONGO_URI=$MONGO_URI" >> .env.local
+                - echo "S3_SECRET==$S3_SECRET" >> .env.local
+                - echo "S3_ACCESS=$S3_ACCESS" >> .env.local
                 - npm run build
                 
     artifacts:
