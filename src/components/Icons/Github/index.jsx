@@ -1,13 +1,5 @@
-import * as React from 'react';
-
-const SvgComponent = (props) => (
-    <svg
-        width={88}
-        height={31}
-        id="svg255"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-    >
+const SvgComponent = () => (
+    <svg width={88} height={31} id="svg255" xmlns="http://www.w3.org/2000/svg">
         <defs id="defs217">
             <linearGradient
                 id="gradient-fill"
