@@ -1,16 +1,21 @@
 version: 1
 frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm ci
-    build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: .next
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
+    phases:
+        preBuild:
+            commands:
+                - npm ci
+                - npm run build:$BUILD_ENV
+                - echo "MONGO_URI=$MONGO_URI"
+                - echo "S3_SECRET=$S3_SECRET"
+                - echo "S3_ACCESS=$S3_ACCESS"
+
+        build:
+            commands:
+                - npm run build
+    artifacts:
+        baseDirectory: .next
+        files:
+            - '**/*'
+    cache:
+        paths:
+            - node_modules/**/*
