@@ -34,7 +34,7 @@ const DetailsCard = ({ url, title, author, description, thumbnail }) => {
 
     return (
         // direction-row
-        <div className="flex bg-gradient-to-b from-runik-neutral-light to-runik-background-blue text-runik-neutral-dark pt-10">
+        <div className="flex  text-runik-neutral-dark pt-10">
             <div className="flex flex-col items-center rounded-xl">
                 <Button
                     text="Add to Library"
@@ -44,11 +44,11 @@ const DetailsCard = ({ url, title, author, description, thumbnail }) => {
                 <img
                     src={thumbnail}
                     alt="Placeholder"
-                    className="rounded-xl shadow-lg mt-6 w-details-image-width h-details-image-height"
+                    className="rounded-xl shadow-lg mt-6"
                 />
             </div>
-            <div className="flex-col font-spartan ml-10 w-content-width">
-                <h3 className="text-4xl font-bold">{title}</h3>
+            <div className="flex-col font-spartan ml-10">
+                <h3 className="text-3xl">{title}</h3>
                 <h4 className="text-2xl mb-10">{author}</h4>
                 <p className="">{trim(description)}</p>
             </div>
