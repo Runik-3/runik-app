@@ -56,7 +56,7 @@ const LibraryCard = ({ libRef }) => {
                             })}
                         </select>
                     ) : (
-                        <p className="mt-1 text-gray-400 font-bold w-min border-1 border-gray-400 rounded-md py-0.5 px-1.5">
+                        <p className="mt-1 text-gray-400 font-bold w-min border-1 border-gray-400 rounded-md py-0.5 px-2">
                             english
                         </p>
                     )}

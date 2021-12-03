@@ -1,8 +1,4 @@
 import aws from 'aws-sdk';
-import crypto from 'crypto';
-import { promisify } from 'util';
-
-const randomBytes = promisify(crypto.randomBytes);
 
 const region = 'us-west-1';
 const bucketName = 'runik-dictionary-files';
@@ -16,13 +12,18 @@ const s3 = new aws.S3({
     signatureVersion: 'v4',
 });
 
-export default async function generateS3Url() {
-    const rawBytes = randomBytes(16);
-    const fileName = rawBytes.toString('hex');
+export default async function generateS3Url(target, name, lang) {
+    let fileName;
+    if (target === 'kobo') {
+        fileName = `dicthtml-${name}-${lang}.zip`;
+    } else if (target === 'xdxf') {
+        fileName = 'xdxf';
+    }
 
     const params = {
         Bucket: bucketName,
         Key: fileName,
+        ContentType: 'application/zip',
         Expires: 60,
     };
 
