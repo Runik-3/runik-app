@@ -35,7 +35,7 @@
         "lang": "es",
         "url": "https://sherlockholmes.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://sherlockholmes.fandom.com/es/api.php/"
       },
@@ -43,7 +43,7 @@
         "lang": "ru",
         "url": "https://sherlock.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://sherlock.fandom.com/ru/api.php/"
       },
@@ -51,7 +51,7 @@
         "lang": "pt-br",
         "url": "https://sherlockholmes.fandom.com/pt-br/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://sherlockholmes.fandom.com/pt-br/api.php/"
       },
@@ -59,7 +59,7 @@
         "lang": "ro",
         "url": "https://sherlock.fandom.com/ro/wiki/",
         "langname": "Romanian",
-        "autonym": "română",
+        "autonym": "Română",
         "title": "https://sherlock.fandom.com/ro/api.php/"
       }
     ],
@@ -82,7 +82,7 @@
         "lang": "ru",
         "url": "https://divergent.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://divergent.fandom.com/ru/api.php/"
       },
@@ -98,7 +98,7 @@
         "lang": "es",
         "url": "https://divergente.fandom.com/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://divergente.fandom.com/api.php/"
       },
@@ -106,7 +106,7 @@
         "lang": "pl",
         "url": "https://niezgodna.fandom.com/wiki/",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "",
         "apiUrl": "https://niezgodna.fandom.com/api.php/"
       },
@@ -114,7 +114,7 @@
         "lang": "pt-br",
         "url": "https://divergente.fandom.com/pt-br/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://divergente.fandom.com/pt-br/api.php/"
       }
@@ -161,7 +161,7 @@
         "lang": "es",
         "url": "https://una-corte-de-rosas-y-espinas.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://una-corte-de-rosas-y-espinas.fandom.com/es/api.php/"
       },
@@ -169,7 +169,7 @@
         "lang": "pt-br",
         "url": "https://cortedeespinhoserosas.fandom.com/pt-br/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://cortedeespinhoserosas.fandom.com/pt-br/api.php/"
       }
@@ -339,7 +339,7 @@
         "lang": "es",
         "url": "https://asimov.fandom.com/es/wiki/Wiki_Asimov",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "Wiki Asimov",
         "apiUrl": "https://asimov.fandom.com/es/api.php/"
       }
@@ -844,7 +844,7 @@
         "lang": "pl",
         "url": "https://atramentowe-serce.fandom.com/pl/wiki/Atramentowe_serce_Wiki",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "Atramentowe serce Wiki",
         "apiUrl": "https://atramentowe-serce.fandom.com/pl/api.php/"
       }
@@ -913,7 +913,7 @@
         "lang": "pt-br",
         "url": "https://desventurasemserie.fandom.com/pt-br/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://desventurasemserie.fandom.com/pt-br/api.php/"
       },
@@ -921,7 +921,7 @@
         "lang": "fr",
         "url": "https://lemonysnicket.fandom.com/fr/wiki/",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "",
         "apiUrl": "https://lemonysnicket.fandom.com/fr/api.php/"
       },
@@ -929,7 +929,7 @@
         "lang": "es",
         "url": "https://snicket.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://snicket.fandom.com/es/api.php/"
       },
@@ -937,7 +937,7 @@
         "lang": "ru",
         "url": "https://snicket.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://snicket.fandom.com/ru/api.php/"
       }
@@ -1323,7 +1323,7 @@
         "lang": "fr",
         "url": "https://rougemuraille.fandom.com/wiki/Accueil",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "Accueil",
         "apiUrl": "https://rougemuraille.fandom.com/api.php/"
       }
@@ -1560,7 +1560,7 @@
         "lang": "it",
         "url": "https://player-one.fandom.com/it/wiki/",
         "langname": "Italian",
-        "autonym": "italiano",
+        "autonym": "Italiano",
         "title": "",
         "apiUrl": "https://player-one.fandom.com/it/api.php/"
       }
@@ -1874,7 +1874,7 @@
         "lang": "es",
         "url": "https://grisha.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://grisha.fandom.com/es/api.php/"
       },
@@ -1882,7 +1882,7 @@
         "lang": "fr",
         "url": "https://grishaverse.fandom.com/fr/wiki/",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "",
         "apiUrl": "https://grishaverse.fandom.com/fr/api.php/"
       },
@@ -1890,7 +1890,7 @@
         "lang": "pt-br",
         "url": "https://grishaverso.fandom.com/pt-br/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://grishaverso.fandom.com/pt-br/api.php/"
       },
@@ -1898,7 +1898,7 @@
         "lang": "ru",
         "url": "https://thegrishaverse.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://thegrishaverse.fandom.com/ru/api.php/"
       }
@@ -1952,7 +1952,7 @@
         "lang": "es",
         "url": "https://hieloyfuego.fandom.com/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://hieloyfuego.fandom.com/api.php/"
       },
@@ -1960,7 +1960,7 @@
         "lang": "da",
         "url": "https://gameofthrones.fandom.com/da/wiki/",
         "langname": "Danish",
-        "autonym": "dansk",
+        "autonym": "Dansk",
         "title": "",
         "apiUrl": "https://gameofthrones.fandom.com/da/api.php/"
       },
@@ -1976,7 +1976,7 @@
         "lang": "fr",
         "url": "https://gameofthrones.fandom.com/fr/wiki/",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "",
         "apiUrl": "https://gameofthrones.fandom.com/fr/api.php/"
       },
@@ -2000,7 +2000,7 @@
         "lang": "hu",
         "url": "https://gameofthrones.fandom.com/hu/wiki/",
         "langname": "Hungarian",
-        "autonym": "magyar",
+        "autonym": "Magyar",
         "title": "",
         "apiUrl": "https://gameofthrones.fandom.com/hu/api.php/"
       },
@@ -2016,7 +2016,7 @@
         "lang": "it",
         "url": "https://iltronodispade.fandom.com/it/wiki/",
         "langname": "Italian",
-        "autonym": "italiano",
+        "autonym": "Italiano",
         "title": "",
         "apiUrl": "https://iltronodispade.fandom.com/it/api.php/"
       },
@@ -2024,7 +2024,7 @@
         "lang": "lt",
         "url": "https://gameofthrones.fandom.com/lt/wiki/",
         "langname": "Lithuanian",
-        "autonym": "lietuvių",
+        "autonym": "Italiano",
         "title": "",
         "apiUrl": "https://gameofthrones.fandom.com/lt/api.php/"
       },
@@ -2040,7 +2040,7 @@
         "lang": "pl",
         "url": "https://gameofthrones.fandom.com/pl/wiki/",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "",
         "apiUrl": "https://gameofthrones.fandom.com/pl/api.php/"
       },
@@ -2048,7 +2048,7 @@
         "lang": "pt-br",
         "url": "https://gameofthrones.fandom.com/pt-br/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://gameofthrones.fandom.com/pt-br/api.php/"
       },
@@ -2056,7 +2056,7 @@
         "lang": "ro",
         "url": "https://urzeala-tronurilor.fandom.com/ro/wiki/",
         "langname": "Romanian",
-        "autonym": "română",
+        "autonym": "Română",
         "title": "",
         "apiUrl": "https://urzeala-tronurilor.fandom.com/ro/api.php/"
       },
@@ -2064,7 +2064,7 @@
         "lang": "ru",
         "url": "https://gameofthrones.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://gameofthrones.fandom.com/ru/api.php/"
       },
@@ -2072,7 +2072,7 @@
         "lang": "sv",
         "url": "https://gameofthrones.fandom.com/sv/wiki/",
         "langname": "Swedish",
-        "autonym": "svenska",
+        "autonym": "Svenska",
         "title": "",
         "apiUrl": "https://gameofthrones.fandom.com/sv/api.php/"
       },
@@ -2088,7 +2088,7 @@
         "lang": "uk",
         "url": "https://gameofthrones.fandom.com/uk/wiki/",
         "langname": "Ukrainian",
-        "autonym": "українська",
+        "autonym": "Yкраїнська",
         "title": "",
         "apiUrl": "https://gameofthrones.fandom.com/uk/api.php/"
       },
@@ -2136,7 +2136,7 @@
         "lang": "es",
         "url": "https://cincuenta-sombras.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://cincuenta-sombras.fandom.com/es/api.php/"
       },
@@ -2144,7 +2144,7 @@
         "lang": "it",
         "url": "https://fifty-shades-italia.fandom.com/it/wiki/",
         "langname": "Italian",
-        "autonym": "italiano",
+        "autonym": "Italiano",
         "title": "",
         "apiUrl": "https://fifty-shades-italia.fandom.com/it/api.php/"
       },
@@ -2152,7 +2152,7 @@
         "lang": "pl",
         "url": "https://piecdziesiat-twarzy-greya.fandom.com/pl/wiki/",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "",
         "apiUrl": "https://piecdziesiat-twarzy-greya.fandom.com/pl/api.php/"
       }
@@ -2206,7 +2206,7 @@
         "lang": "es",
         "url": "https://bourne.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://bourne.fandom.com/es/api.php/"
       }
@@ -2260,7 +2260,7 @@
         "lang": "fr",
         "url": "https://legend-of-the-seeker.fandom.com/fr/wiki/Wiki_Legend_of_the_Seeker",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "Wiki Legend of the Seeker",
         "apiUrl": "https://legend-of-the-seeker.fandom.com/fr/api.php/"
       }
@@ -2292,7 +2292,7 @@
         "lang": "es",
         "url": "https://malaz-es.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://malaz-es.fandom.com/es/api.php/"
       },
@@ -2300,7 +2300,7 @@
         "lang": "it",
         "url": "https://malazan.fandom.com/it/wiki/",
         "langname": "Italian",
-        "autonym": "italiano",
+        "autonym": "Italiano",
         "title": "",
         "apiUrl": "https://malazan.fandom.com/it/api.php/"
       },
@@ -2308,7 +2308,7 @@
         "lang": "pl",
         "url": "https://malazan.fandom.com/pl/wiki/",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "",
         "apiUrl": "https://malazan.fandom.com/pl/api.php/"
       }
@@ -2355,7 +2355,7 @@
         "lang": "pl",
         "url": "https://twilightsaga.fandom.com/pl/wiki/",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "",
         "apiUrl": "https://twilightsaga.fandom.com/pl/api.php/"
       },
@@ -2363,7 +2363,7 @@
         "lang": "pt",
         "url": "https://crepusculo.fandom.com/pt/wiki/",
         "langname": "Portuguese",
-        "autonym": "português",
+        "autonym": "Português",
         "title": "",
         "apiUrl": "https://crepusculo.fandom.com/pt/api.php/"
       }
@@ -2402,7 +2402,7 @@
         "lang": "cs",
         "url": "https://lovci-stinu.fandom.com/cs/wiki/",
         "langname": "Czech",
-        "autonym": "čeština",
+        "autonym": "Čeština",
         "title": "",
         "apiUrl": "https://lovci-stinu.fandom.com/cs/api.php/"
       },
@@ -2426,7 +2426,7 @@
         "lang": "es",
         "url": "https://shadowhunters.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://shadowhunters.fandom.com/es/api.php/"
       },
@@ -2434,7 +2434,7 @@
         "lang": "fr",
         "url": "https://shadowhunters.fandom.com/fr/wiki/",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "",
         "apiUrl": "https://shadowhunters.fandom.com/fr/api.php/"
       },
@@ -2442,7 +2442,7 @@
         "lang": "hu",
         "url": "https://shadowhunters.fandom.com/hu/wiki/",
         "langname": "Hungarian",
-        "autonym": "magyar",
+        "autonym": "Magyar",
         "title": "",
         "apiUrl": "https://shadowhunters.fandom.com/hu/api.php/"
       },
@@ -2450,7 +2450,7 @@
         "lang": "it",
         "url": "https://shadowhunters.fandom.com/it/wiki/",
         "langname": "Italian",
-        "autonym": "italiano",
+        "autonym": "Italiano",
         "title": "",
         "apiUrl": "https://shadowhunters.fandom.com/it/api.php/"
       },
@@ -2474,7 +2474,7 @@
         "lang": "pl",
         "url": "https://nocni-lowcy.fandom.com/wiki/",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "",
         "apiUrl": "https://nocni-lowcy.fandom.com/api.php/"
       },
@@ -2482,7 +2482,7 @@
         "lang": "pt-br",
         "url": "https://shadowhunters.fandom.com/pt-br/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://shadowhunters.fandom.com/pt-br/api.php/"
       },
@@ -2490,7 +2490,7 @@
         "lang": "ru",
         "url": "https://shadowhunters.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://shadowhunters.fandom.com/ru/api.php/"
       },
@@ -2498,7 +2498,7 @@
         "lang": "sv",
         "url": "https://shadowhunters.fandom.com/sv/wiki/",
         "langname": "Swedish",
-        "autonym": "svenska",
+        "autonym": "Svenska",
         "title": "",
         "apiUrl": "https://shadowhunters.fandom.com/sv/api.php/"
       }
@@ -2522,7 +2522,7 @@
         "lang": "es",
         "url": "https://outlander.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://outlander.fandom.com/es/api.php/"
       }
@@ -2688,7 +2688,7 @@
         "lang": "es",
         "url": "https://oz.fandom.com/es/wiki/Wiki_Tierra_de_oz",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "Wiki Tierra de oz",
         "apiUrl": "https://oz.fandom.com/es/api.php/"
       },
@@ -2696,7 +2696,7 @@
         "lang": "fr",
         "url": "https://paysdoz.fandom.com/fr/wiki/Wiki_Oz",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "Wiki Oz",
         "apiUrl": "https://paysdoz.fandom.com/fr/api.php/"
       }
@@ -2720,7 +2720,7 @@
         "lang": "es",
         "url": "https://kingkiller.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://kingkiller.fandom.com/es/api.php/"
       },
@@ -2736,7 +2736,7 @@
         "lang": "it",
         "url": "http://it.lecronachedellassassinodelre.wikia.com/wiki/",
         "langname": "Italian",
-        "autonym": "italiano",
+        "autonym": "Italiano",
         "title": "",
         "apiUrl": "http://it.lecronachedellassassinodelre.wikia.com/api.php/"
       },
@@ -2744,7 +2744,7 @@
         "lang": "pt",
         "url": "http://pt.o-nome-do-vento.wikia.com/wiki/",
         "langname": "Portuguese",
-        "autonym": "português",
+        "autonym": "Português",
         "title": "",
         "apiUrl": "http://pt.o-nome-do-vento.wikia.com/api.php/"
       },
@@ -2752,7 +2752,7 @@
         "lang": "pl",
         "url": "https://kroniki-krolobojcy.fandom.com/pl/wiki/",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "",
         "apiUrl": "https://kroniki-krolobojcy.fandom.com/pl/api.php/"
       }
@@ -2798,7 +2798,7 @@
         "lang": "es",
         "url": "https://laruedadeltiempo.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://laruedadeltiempo.fandom.com/es/api.php/"
       },
@@ -2806,7 +2806,7 @@
         "lang": "it",
         "url": "https://laruotadeltempo.fandom.com/it/wiki/",
         "langname": "Italian",
-        "autonym": "italiano",
+        "autonym": "Italiano",
         "title": "",
         "apiUrl": "https://laruotadeltempo.fandom.com/it/api.php/"
       },
@@ -2935,7 +2935,7 @@
         "lang": "es",
         "url": "https://themagisterium.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://themagisterium.fandom.com/es/api.php/"
       },
@@ -2943,7 +2943,7 @@
         "lang": "pt-br",
         "url": "https://magisterium.fandom.com/pt-br/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://magisterium.fandom.com/pt-br/api.php/"
       },
@@ -2951,7 +2951,7 @@
         "lang": "ru",
         "url": "https://themagisterium.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://themagisterium.fandom.com/ru/api.php/"
       }
@@ -2998,7 +2998,7 @@
         "lang": "es",
         "url": "https://lamateriaoscura.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://lamateriaoscura.fandom.com/es/api.php/"
       },
@@ -3006,7 +3006,7 @@
         "lang": "fr",
         "url": "https://a-la-croisee-des-mondes.fandom.com/fr/wiki/",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "",
         "apiUrl": "https://a-la-croisee-des-mondes.fandom.com/fr/api.php/"
       },
@@ -3014,7 +3014,7 @@
         "lang": "it",
         "url": "https://questeoscurematerie.fandom.com/it/wiki/",
         "langname": "Italian",
-        "autonym": "italiano",
+        "autonym": "Italiano",
         "title": "",
         "apiUrl": "https://questeoscurematerie.fandom.com/it/api.php/"
       },
@@ -3022,7 +3022,7 @@
         "lang": "pt-br",
         "url": "https://fronteirasdouniverso.fandom.com/pt-br/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://fronteirasdouniverso.fandom.com/pt-br/api.php/"
       },
@@ -3030,7 +3030,7 @@
         "lang": "ru",
         "url": "https://materials.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://materials.fandom.com/ru/api.php/"
       }
@@ -3392,7 +3392,7 @@
         "lang": "fr",
         "url": "https://lalongueterre.fandom.com/fr/wiki/Wikia_La_Longue_Terre",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "Wikia La Longue Terre",
         "apiUrl": "https://lalongueterre.fandom.com/fr/api.php/"
       }
@@ -3511,7 +3511,7 @@
         "lang": "es",
         "url": "https://latorreoscura.fandom.com/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://latorreoscura.fandom.com/api.php/"
       }
@@ -4065,7 +4065,7 @@
         "lang": "es",
         "url": "https://aliceinwonderland.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://aliceinwonderland.fandom.com/es/api.php/"
       }
@@ -4097,7 +4097,7 @@
         "lang": "es",
         "url": "https://mazerunner.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://mazerunner.fandom.com/es/api.php/"
       },
@@ -4105,7 +4105,7 @@
         "lang": "fr",
         "url": "https://mazerunner.fandom.com/fr/wiki/",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "",
         "apiUrl": "https://mazerunner.fandom.com/fr/api.php/"
       },
@@ -4113,7 +4113,7 @@
         "lang": "ru",
         "url": "https://mazerunner.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://mazerunner.fandom.com/ru/api.php/"
       },
@@ -4121,7 +4121,7 @@
         "lang": "pt-br",
         "url": "https://mazerunner.fandom.com/pt-br/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://mazerunner.fandom.com/pt-br/api.php/"
       }
@@ -4196,7 +4196,7 @@
         "lang": "es",
         "url": "https://dune.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://dune.fandom.com/es/api.php/"
       },
@@ -4204,7 +4204,7 @@
         "lang": "pl",
         "url": "https://dune.fandom.com/pl/wiki/",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "",
         "apiUrl": "https://dune.fandom.com/pl/api.php/"
       },
@@ -4212,7 +4212,7 @@
         "lang": "ru",
         "url": "https://dune.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://dune.fandom.com/ru/api.php/"
       }
@@ -4259,7 +4259,7 @@
         "lang": "es",
         "url": "https://los-juegos-del-hambre.fandom.com/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://los-juegos-del-hambre.fandom.com/api.php/"
       },
@@ -4267,7 +4267,7 @@
         "lang": "fr",
         "url": "https://hungergames.fandom.com/fr/wiki/",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "",
         "apiUrl": "https://hungergames.fandom.com/fr/api.php/"
       },
@@ -4283,7 +4283,7 @@
         "lang": "pl",
         "url": "https://igrzyskasmierci.fandom.com/wiki/",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "",
         "apiUrl": "https://igrzyskasmierci.fandom.com/api.php/"
       },
@@ -4291,7 +4291,7 @@
         "lang": "pt-br",
         "url": "https://jogosvorazes.fandom.com/wiki/",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "",
         "apiUrl": "https://jogosvorazes.fandom.com/api.php/"
       }
@@ -4344,7 +4344,7 @@
         "lang": "es",
         "url": "https://amanecer-rojo.fandom.com/es/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://amanecer-rojo.fandom.com/es/api.php/"
       },
@@ -4352,7 +4352,7 @@
         "lang": "hu",
         "url": "https://voros-lazadas.fandom.com/hu/wiki/",
         "langname": "Hungarian",
-        "autonym": "magyar",
+        "autonym": "Magyar",
         "title": "",
         "apiUrl": "https://voros-lazadas.fandom.com/hu/api.php/"
       },
@@ -4517,7 +4517,7 @@
         "lang": "fr",
         "url": "https://demidieux.fandom.com/wiki/",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "",
         "apiUrl": "https://demidieux.fandom.com/api.php/"
       },
@@ -4525,7 +4525,7 @@
         "lang": "es",
         "url": "https://campamentomestizo.fandom.com/wiki/",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "",
         "apiUrl": "https://campamentomestizo.fandom.com/api.php/"
       },
@@ -4533,7 +4533,7 @@
         "lang": "ru",
         "url": "https://riordan.fandom.com/ru/wiki/",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "",
         "apiUrl": "https://riordan.fandom.com/ru/api.php/"
       },
@@ -4541,7 +4541,7 @@
         "lang": "pl",
         "url": "https://riordan.fandom.com/pl/wiki/Riordanopedia",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "Riordanopedia",
         "apiUrl": "https://riordan.fandom.com/pl/api.php/"
       }
@@ -4587,7 +4587,7 @@
         "lang": "fr",
         "url": "https://heritage.fandom.com/fr/wiki/Wikia_H%C3%A9ritage",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "Wikia Héritage",
         "apiUrl": "https://heritage.fandom.com/fr/api.php/"
       },
@@ -4595,7 +4595,7 @@
         "lang": "es",
         "url": "https://ellegado.fandom.com/wiki/Portada",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "Portada",
         "apiUrl": "https://ellegado.fandom.com/api.php/"
       },
@@ -4603,7 +4603,7 @@
         "lang": "fi",
         "url": "https://perillinen.fandom.com/fi/wiki/Etusivu",
         "langname": "Finnish",
-        "autonym": "suomi",
+        "autonym": "Suomi",
         "title": "Etusivu",
         "apiUrl": "https://perillinen.fandom.com/fi/api.php/"
       },
@@ -4611,7 +4611,7 @@
         "lang": "it",
         "url": "https://eragon.fandom.com/it/wiki/Pagina_principale",
         "langname": "Italian",
-        "autonym": "italiano",
+        "autonym": "Italiano",
         "title": "Pagina principale",
         "apiUrl": "https://eragon.fandom.com/it/api.php/"
       },
@@ -4635,7 +4635,7 @@
         "lang": "pl",
         "url": "https://dziedzictwo.fandom.com/wiki/Dziedzictwo_Wiki",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "Dziedzictwo Wiki",
         "apiUrl": "https://dziedzictwo.fandom.com/api.php/"
       },
@@ -4643,7 +4643,7 @@
         "lang": "ru",
         "url": "https://inheritance.fandom.com/ru/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "Заглавная страница",
         "apiUrl": "https://inheritance.fandom.com/ru/api.php/"
       }
@@ -4667,7 +4667,7 @@
         "lang": "ca",
         "url": "https://lotr.fandom.com/ca/wiki/P%C3%A0gina_principal",
         "langname": "Catalan",
-        "autonym": "català",
+        "autonym": "Català",
         "title": "Pàgina principal",
         "apiUrl": "https://lotr.fandom.com/ca/api.php/"
       },
@@ -4683,7 +4683,7 @@
         "lang": "es",
         "url": "https://esdla.fandom.com/wiki/Portada",
         "langname": "Spanish",
-        "autonym": "español",
+        "autonym": "Español",
         "title": "Portada",
         "apiUrl": "https://esdla.fandom.com/api.php/"
       },
@@ -4691,7 +4691,7 @@
         "lang": "fi",
         "url": "https://tsh.fandom.com/fi/wiki/Etusivu",
         "langname": "Finnish",
-        "autonym": "suomi",
+        "autonym": "Suomi",
         "title": "Etusivu",
         "apiUrl": "https://tsh.fandom.com/fi/api.php/"
       },
@@ -4699,7 +4699,7 @@
         "lang": "fr",
         "url": "https://lotr.fandom.com/fr/wiki/Accueil",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "Accueil",
         "apiUrl": "https://lotr.fandom.com/fr/api.php/"
       },
@@ -4715,7 +4715,7 @@
         "lang": "it",
         "url": "https://lotr.fandom.com/it/wiki/Pagina_principale",
         "langname": "Italian",
-        "autonym": "italiano",
+        "autonym": "Italiano",
         "title": "Pagina principale",
         "apiUrl": "https://lotr.fandom.com/it/api.php/"
       },
@@ -4739,7 +4739,7 @@
         "lang": "pl",
         "url": "https://lotr.fandom.com/pl/wiki/Strona_g%C5%82%C3%B3wna",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "Strona główna",
         "apiUrl": "https://lotr.fandom.com/pl/api.php/"
       },
@@ -4747,7 +4747,7 @@
         "lang": "pt-br",
         "url": "https://terramedia.fandom.com/wiki/P%C3%A1gina_principal",
         "langname": "Brazilian Portuguese",
-        "autonym": "português do Brasil",
+        "autonym": "Português do Brasil",
         "title": "Página principal",
         "apiUrl": "https://terramedia.fandom.com/api.php/"
       },
@@ -4755,7 +4755,7 @@
         "lang": "ru",
         "url": "https://lotr.fandom.com/ru/wiki/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0",
         "langname": "Russian",
-        "autonym": "русский",
+        "autonym": "Pусский",
         "title": "Заглавная страница",
         "apiUrl": "https://lotr.fandom.com/ru/api.php/"
       },
@@ -4763,7 +4763,7 @@
         "lang": "sk",
         "url": "https://tolkien.fandom.com/sk/wiki/Slovensk%C3%A1_Tolkien_Wikia",
         "langname": "Slovak",
-        "autonym": "slovenčina",
+        "autonym": "Slovenčina",
         "title": "Slovenská Tolkien Wikia",
         "apiUrl": "https://tolkien.fandom.com/sk/api.php/"
       },
@@ -4771,7 +4771,7 @@
         "lang": "uk",
         "url": "https://silmarillion.fandom.com/uk/wiki/%D0%93%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0_%D1%81%D1%82%D0%BE%D1%80%D1%96%D0%BD%D0%BA%D0%B0",
         "langname": "Ukrainian",
-        "autonym": "українська",
+        "autonym": "Yкраїнська",
         "title": "Головна сторінка",
         "apiUrl": "https://silmarillion.fandom.com/uk/api.php/"
       },
@@ -4811,7 +4811,7 @@
         "lang": "fr",
         "url": "https://narnia.fandom.com/fr/wiki/",
         "langname": "French",
-        "autonym": "français",
+        "autonym": "Français",
         "title": "",
         "apiUrl": "https://narnia.fandom.com/fr/api.php/"
       },
@@ -4827,7 +4827,7 @@
         "lang": "pl",
         "url": "https://narnia.fandom.com/pl/wiki/",
         "langname": "Polish",
-        "autonym": "polski",
+        "autonym": "Polski",
         "title": "",
         "apiUrl": "https://narnia.fandom.com/pl/api.php/"
       }

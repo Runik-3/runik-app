@@ -27,7 +27,7 @@ const LanguageOption = ({ language }) => {
 // eslint-disable-next-line react/prop-types
 const LibraryCard = ({ libRef }) => {
     const defaultLanguage = {
-        lang: 'en',
+        lang: 'az',
         autonym: 'English',
     };
 
