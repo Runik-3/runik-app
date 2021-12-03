@@ -21,6 +21,7 @@ import { getS3Url } from '../../services/s3Service';
 
 export default function HeadlessSlideOver({ open, setOpen }) {
     const [library] = useContext(LibraryContext);
+    // eslint-disable-next-line no-unused-vars
     const [targetDevice, setTargetDevice] = useState('kobo');
     const [modalActive, setModalActive] = useState(false);
     const [isThinking, setIsThinking] = useState(true);
