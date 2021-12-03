@@ -13,7 +13,7 @@ export default function Home() {
                     rDisplay="hidden"
                 />
             </div>
-            <div className="flex flex-col justify-start h-full">
+            <div className="flex flex-col justify-start h-[calc(100vh-135px)]">
                 <div className="flex flex-col items-center justify-between h-96 w-11/12 max-w-5xl mx-auto pt-20">
                     <div>
                         <MainLogo />
