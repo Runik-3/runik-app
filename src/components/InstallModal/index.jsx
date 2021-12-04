@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import Button from '../Button';
 import Spinner from '../Spinner';
 
 export default function InstallModal({
@@ -152,15 +151,30 @@ export default function InstallModal({
 
                 {/* step 4: converting */}
                 <div
-                    className={`${modalStep === 'converting' ? '' : 'hidden'}`}
+                    className={`${
+                        modalStep === 'converting' ? 'flex' : 'hidden'
+                    } flex-col justify-center items-center h-full w-full`}
                 >
+                    <div className={`flex ${isThinking ? '' : 'hidden'}`}>
+                        <Spinner />
+                    </div>
                     <p className="text-center my-8">{status}</p>
-                    <div
-                        className={`flex ${isThinking ? 'hidden' : ''} ${
-                            status === 'Dictionaries installed!' ? 'hidden' : ''
-                        }`}
-                    >
-                        <Button text="Add to Device" onclick={handleInstall} />
+                    <div className="absolute flex w-1/2 justify-around bottom-8">
+                        <button
+                            type="button"
+                            onClick={setModalStep}
+                            className="font-spartan p-2 bg-red-500 hover:bg-red-700 rounded-lg text-white cursor-pointer"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            type="button"
+                            className={`${
+                                !installFlow ? 'hidden' : ''
+                            } font-spartan p-2 rounded-lg border-2 border-gray-300 text-gray-300 cursor-default`}
+                        >
+                            Add to Device
+                        </button>
                     </div>
                 </div>
 
@@ -294,10 +308,22 @@ export default function InstallModal({
                                             href={download.url}
                                             download={`dicthtml-${download.name}.zip`}
                                         >
-                                            <img
-                                                src="/icons/download.svg"
-                                                alt="download button"
-                                            />
+                                            <svg
+                                                width="32"
+                                                height="32"
+                                                viewBox="0 0 32 32"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M15.9993 21.3335L21.3327 14.6668H17.3327V5.3335H14.666V14.6668H10.666L15.9993 21.3335Z"
+                                                    fill="black"
+                                                />
+                                                <path
+                                                    d="M26.666 23.9998H5.33268V14.6665H2.66602V23.9998C2.66602 25.4705 3.86202 26.6665 5.33268 26.6665H26.666C28.1367 26.6665 29.3327 25.4705 29.3327 23.9998V14.6665H26.666V23.9998Z"
+                                                    fill="black"
+                                                />
+                                            </svg>
                                         </a>
                                     </div>
                                 );

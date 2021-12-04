@@ -9,7 +9,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useContext, useEffect, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { XCircleIcon } from '@heroicons/react/outline';
+// import { XCircleIcon } from '@heroicons/react/outline';
 import LibraryOpenIcon from '../Icons/LibraryOpenIcon';
 
 import { LibraryContext } from '../../context/libraryContext';
@@ -112,6 +112,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
     useEffect(async () => {
         if (states.dicts && states.dicts.length > 0) {
             let converted = [];
+            setModalStep('converting');
             states.setStatus('Converting dictionaries...');
             for (let i = 0; i < states.dicts.length; i++) {
                 const dict = states.dicts[i];
@@ -144,8 +145,9 @@ export default function HeadlessSlideOver({ open, setOpen }) {
 
             states.setConvertedDicts(converted);
             setIsThinking(false);
+            // double if statements fix this
             if (states.installFlow) {
-                setModalStep('install');
+                // setModalStep('install');
             } else {
                 await handleDownload(dbUploadArr);
                 setModalStep('download');
@@ -154,6 +156,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                 states.setStatus(
                     'Dictionaries converted and ready to be installed! Make sure your e-reader is connected to your computer.'
                 );
+                setModalStep('install');
             } else {
                 states.setStatus('Dictionaries converted.');
             }
