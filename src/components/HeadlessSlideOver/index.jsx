@@ -28,7 +28,7 @@ import {
     getS3UploadUrl,
     pullDictsFromS3,
     uploadCollectionToS3,
-} from '../../services/s3Service';
+} from '../../services/s3Controller';
 import getTitleFromUrl from '../../services/getTitleFromUrl';
 
 export default function HeadlessSlideOver({ open, setOpen }) {

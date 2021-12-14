@@ -7,7 +7,7 @@ import getTitleFromUrl from './getTitleFromUrl';
 /* eslint-disable import/prefer-default-export */
 export async function getS3UploadUrl(target, name, lang) {
     const data = await fetch(
-        `/api/s3UrlService?target=${target}&lang=${lang}&name=${name}`
+        `/api/s3?target=${target}&lang=${lang}&name=${name}`
     ).catch((err) => {
         throw new Error(err);
     });
