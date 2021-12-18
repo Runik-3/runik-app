@@ -25,53 +25,36 @@ export async function uploadFileToS3(file, url, mimeType) {
     });
 }
 
-function getPublicUrlFromSecure(secureUrl) {
+export function getPublicUrlFromSecure(secureUrl) {
     const publicUrl = secureUrl.split('?')[0];
     return publicUrl;
 }
 
 export async function uploadCollectionToS3(fileCollection, library, target) {
-    const collectionList = {};
-    const collectionObjArray = [];
+    const collectionData = new FormData();
 
-    for (let i = 0; i < fileCollection.length; i++) {
-        const file = fileCollection[i];
-        collectionList[file.name] = file;
-    }
+    collectionData.append('library', JSON.stringify(library));
+    fileCollection.forEach((file) => {
+        collectionData.append(file.name, file);
+    });
 
-    for (let i = 0; i < library.length; i++) {
-        const libRef = library[i][0];
-        const collectionObj = {};
-        if (!libRef.s3Url) {
-            const name = getTitleFromUrl(libRef.url);
-            const secureUrl = await getS3UploadUrl(
-                target,
-                name,
-                libRef.convertLang
-            ).catch((err) => {
-                throw new Error(err);
-            });
-            const libTitle = getTitleFromUrl(libRef.url);
-            const publicUrl = getPublicUrlFromSecure(secureUrl);
-            collectionObj.secureUrl = secureUrl;
-            collectionObj.publicUrl = publicUrl;
-            collectionObj.file = collectionList[libTitle];
-            collectionObj.target = target;
-            collectionObj.lang = libRef.convertLang;
-            collectionObj.url = libRef.url;
-            collectionObjArray.push(collectionObj);
-        }
-    }
+    const response = await fetch(`/api/s3?target=${target}`, {
+        method: 'POST',
+        body: collectionData,
+    });
 
-    for (let i = 0; i < collectionObjArray.length; i++) {
-        const uploadItem = collectionObjArray[i];
-        await uploadFileToS3(
-            uploadItem.file,
-            uploadItem.secureUrl,
-            uploadItem.file.type
-        );
-    }
-    return collectionObjArray;
+    const collectionObjArray = await response.json();
+    console.log(collectionObjArray);
+
+    // for (let i = 0; i < collectionObjArray.length; i++) {
+    //     const uploadItem = collectionObjArray[i];
+    //     await uploadFileToS3(
+    //         uploadItem.file,
+    //         uploadItem.secureUrl,
+    //         uploadItem.file.type
+    //     );
+    // }
+    // return collectionObjArray;
 }
 
 export async function pullDictsFromS3(library) {

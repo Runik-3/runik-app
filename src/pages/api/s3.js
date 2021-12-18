@@ -1,30 +1,79 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-await-in-loop */
+import formidable from 'formidable';
 import generateS3Url from './s3Setup';
+import getTitleFromUrl from '../../services/getTitleFromUrl';
+import getPublicUrlFromSecure from '../../services/s3Controller';
 
-const allowedReferers = [
-    'https://runik.app/',
-    'https://runik-app-mauve.vercel.app/',
-    'http://localhost:8080/',
-];
+export const config = {
+    api: {
+        bodyParser: false,
+    },
+};
 
 export default async function handler(req, res) {
-    const { referer } = req.headers;
-    console.log(referer);
-    let sameOrigin = false;
-    if (referer) {
-        allowedReferers.forEach((allowed) => {
-            if (allowed === referer) {
-                sameOrigin = true;
+    // this function only has to take in files, target, and their names
+    // it will generate a url and upload the files to s3, returning a
+    // json object {name, publicUrl}
+    if (req.method === 'POST') {
+        const { target } = req.query;
+
+        const collectionData = new formidable.IncomingForm({
+            multiples: true,
+            keepExtensions: true,
+        });
+
+        collectionData.uploadDir = './';
+        collectionData.keepExtensions = true;
+        const [library, fileCollection] = await new Promise(
+            (resolve, reject) => {
+                collectionData.parse(req, (err, fields, files) => {
+                    if (!err) {
+                        resolve([fields, files]);
+                    } else {
+                        reject(err);
+                    }
+                });
             }
-        });
-    }
-    if (sameOrigin) {
-        const { target, name, lang } = req.query;
-        const url = await generateS3Url(target, name, lang);
-        res.send({ url });
+        );
+
+        console.log(library);
+
+        const collectionObjArray = [];
+
+        // for (let i = 0; i < fileCollection.length; i++) {
+        //     const file = fileCollection[i];
+        //     collectionList[file.name] = file;
+        // }
+
+        for (let i = 0; i < library.length; i++) {
+            const libRef = library[i][0];
+            const collectionObj = {};
+            if (!libRef.s3Url) {
+                const name = getTitleFromUrl(libRef.url);
+                const secureUrl = await generateS3Url(
+                    target,
+                    name,
+                    libRef.convertLang
+                ).catch((err) => {
+                    throw new Error(err);
+                });
+                const libTitle = getTitleFromUrl(libRef.url);
+                const publicUrl = getPublicUrlFromSecure(secureUrl);
+                collectionObj.secureUrl = secureUrl;
+                collectionObj.publicUrl = publicUrl;
+                collectionObj.file = fileCollection[libTitle];
+                collectionObj.target = target;
+                collectionObj.lang = libRef.convertLang;
+                collectionObj.url = libRef.url;
+                collectionObjArray.push(collectionObj);
+            }
+        }
+        console.log(collectionObjArray);
+        res.json({ collection: collectionObjArray });
     } else {
-        res.status(403).json({
-            success: false,
-            message: 'Request not from same origin.',
-        });
+        res.status(404).send('Invalid request');
     }
+
+    //    const url = await generateS3Url(target, name, lang);
 }

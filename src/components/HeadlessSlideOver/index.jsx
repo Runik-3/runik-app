@@ -305,7 +305,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                         </p>
                                                     </div>
                                                 ) : (
-                                                    <>
+                                                    <div>
                                                         {library.map(
                                                             (libRef) => (
                                                                 <div
@@ -324,7 +324,7 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                                                                 </div>
                                                             )
                                                         )}
-                                                    </>
+                                                    </div>
                                                 )}
                                             </div>
 
