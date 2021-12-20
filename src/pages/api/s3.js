@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-await-in-loop */
 import formidable from 'formidable';
@@ -75,6 +76,7 @@ export default async function handler(req, res) {
                     collectionObj.secureUrl,
                     collectionObj.file
                 );
+                console.log(response);
             }
         }
         res.json({ collection: collectionObjArray });

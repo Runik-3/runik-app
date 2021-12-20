@@ -44,6 +44,7 @@ export async function uploadCollectionToS3(fileCollection, library, target) {
     });
 
     const collectionObjArray = await response.json();
+    console.log(collectionObjArray);
 
     // for (let i = 0; i < collectionObjArray.length; i++) {
     //     const uploadItem = collectionObjArray[i];
