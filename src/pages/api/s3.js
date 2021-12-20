@@ -1,9 +1,10 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-await-in-loop */
 import formidable from 'formidable';
+import axios from 'axios';
 import generateS3Url from './s3Setup';
 import getTitleFromUrl from '../../services/getTitleFromUrl';
-import getPublicUrlFromSecure from '../../services/s3Controller';
+import { getPublicUrlFromSecure } from '../../services/s3Controller';
 
 export const config = {
     api: {
@@ -25,19 +26,15 @@ export default async function handler(req, res) {
 
         collectionData.uploadDir = './';
         collectionData.keepExtensions = true;
-        const [library, fileCollection] = await new Promise(
-            (resolve, reject) => {
-                collectionData.parse(req, (err, fields, files) => {
-                    if (!err) {
-                        resolve([fields, files]);
-                    } else {
-                        reject(err);
-                    }
-                });
-            }
-        );
-
-        console.log(library);
+        let [library, fileCollection] = await new Promise((resolve, reject) => {
+            collectionData.parse(req, (err, fields, files) => {
+                if (!err) {
+                    resolve([fields, files]);
+                } else {
+                    reject(err);
+                }
+            });
+        });
 
         const collectionObjArray = [];
 
@@ -45,6 +42,8 @@ export default async function handler(req, res) {
         //     const file = fileCollection[i];
         //     collectionList[file.name] = file;
         // }
+
+        library = JSON.parse(library.library);
 
         for (let i = 0; i < library.length; i++) {
             const libRef = library[i][0];
@@ -58,6 +57,8 @@ export default async function handler(req, res) {
                 ).catch((err) => {
                     throw new Error(err);
                 });
+
+                // append public url to object to be accessed on frontend
                 const libTitle = getTitleFromUrl(libRef.url);
                 const publicUrl = getPublicUrlFromSecure(secureUrl);
                 collectionObj.secureUrl = secureUrl;
@@ -67,9 +68,15 @@ export default async function handler(req, res) {
                 collectionObj.lang = libRef.convertLang;
                 collectionObj.url = libRef.url;
                 collectionObjArray.push(collectionObj);
+                console.log(collectionObjArray);
+
+                // upload dictionary file to s3
+                const response = await axios.put(
+                    collectionObj.secureUrl,
+                    collectionObj.file
+                );
             }
         }
-        console.log(collectionObjArray);
         res.json({ collection: collectionObjArray });
     } else {
         res.status(404).send('Invalid request');

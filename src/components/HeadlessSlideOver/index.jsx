@@ -133,12 +133,14 @@ export default function HeadlessSlideOver({ open, setOpen }) {
                     setError(dict.error);
                 }
             });
+
             // add dicts not already in db to s3 -- returns public s3 links for db add
             const dbUploadArr = await uploadCollectionToS3(
                 converted,
                 library,
                 targetFormat
             );
+
             // add dict file to db using public s3url
             await addS3RefsToDb(dbUploadArr);
 
