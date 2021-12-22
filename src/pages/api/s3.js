@@ -2,8 +2,7 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-await-in-loop */
 import formidable from 'formidable';
-import axios from 'axios';
-import generateS3Url from './s3Setup';
+import { generateS3Url } from './s3Setup';
 import getTitleFromUrl from '../../services/getTitleFromUrl';
 import { getPublicUrlFromSecure } from '../../services/s3Controller';
 
@@ -25,7 +24,6 @@ export default async function handler(req, res) {
             keepExtensions: true,
         });
 
-        collectionData.uploadDir = './';
         collectionData.keepExtensions = true;
         let [library, fileCollection] = await new Promise((resolve, reject) => {
             collectionData.parse(req, (err, fields, files) => {
@@ -45,6 +43,8 @@ export default async function handler(req, res) {
         // }
 
         library = JSON.parse(library.library);
+        console.log(library.length, library);
+        console.log(fileCollection);
 
         for (let i = 0; i < library.length; i++) {
             const libRef = library[i][0];
@@ -69,17 +69,20 @@ export default async function handler(req, res) {
                 collectionObj.lang = libRef.convertLang;
                 collectionObj.url = libRef.url;
                 collectionObjArray.push(collectionObj);
-                console.log(collectionObjArray);
 
                 // upload dictionary file to s3
-                const response = await axios.put(
-                    collectionObj.secureUrl,
-                    collectionObj.file
-                );
-                console.log(response);
+                // let fileName;
+                // if (target === 'kobo') {
+                //     fileName = `dicthtml-${name}-${lang}.zip`;
+                // } else if (target === 'xdxf') {
+                //     fileName = 'xdxf';
+                // }
+
+                // s3.upload();
             }
         }
-        res.json({ collection: collectionObjArray });
+        console.log(collectionObjArray);
+        res.json({ collection: collectionObjArray.earthsea });
     } else {
         res.status(404).send('Invalid request');
     }

@@ -12,7 +12,7 @@ const s3 = new aws.S3({
     signatureVersion: 'v4',
 });
 
-export default async function generateS3Url(target, name, lang) {
+export async function generateS3Url(target, name, lang) {
     let fileName;
     if (target === 'kobo') {
         fileName = `dicthtml-${name}-${lang}.zip`;
@@ -30,3 +30,5 @@ export default async function generateS3Url(target, name, lang) {
     const uploadUrl = await s3.getSignedUrlPromise('putObject', params);
     return uploadUrl;
 }
+
+export { s3 };
