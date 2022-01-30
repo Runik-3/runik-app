@@ -1,36 +1,104 @@
-# Runik Application
+<div id="top"></div>
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- PROJECT LOGO -->
+<br />
+
+  <a align="left" href="https://runik.app">
+    <img src="./assets/images/runik-logo.svg" alt="Logo" width="40" height="40">
+  </a>
+
+<!-- ABOUT THE PROJECT -->
+
+## Runik App
+
+<p align="center">
+    <img alt="Search" src="./assets/images/runik-kobo.png" width="100%"/>
+</p>
+
+📖 A web app that allows users to generate custom e-book dictionaries for their favourite fictional worlds. Stay fully emersed in your book while enjoying custom definitions of items, characters, places, and more. 
+
+### Built With
+
+-   ![React](https://img.shields.io/badge/-React-050B1E?&logo=React)
+-   ![JavaScript](https://img.shields.io/badge/-TypeScript-050B1E?&logo=JavaScript)
+-   ![TailwindCSS](https://img.shields.io/badge/-Tailwind_CSS-050B1E?&logo=tailwind-css)
+
+<!-- GETTING STARTED -->
 
 ## Getting Started
 
-First, run the development server:
+### 1. Download starter and install dependencies
 
-```bash
-npm run dev
-# or
-yarn dev
+Clone this repository:
+
+```
+git clone git@github.com:Runik-3/runik-app.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install npm dependencies:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+cd runik-app
+npm install
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### 2. Start Development Server
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+npm run dev
+```
 
-## Learn More
+The server is now running on http://localhost:8080.
 
-To learn more about Next.js, take a look at the following resources:
+<!-- USAGE EXAMPLES -->
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+--
 
-## Deploy on Vercel
+<!-- ROADMAP -->
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Roadmap
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- -   [x] Add Changelog -->
+
+-   [ ] Add support for kindle
+
+See the [open issues](https://github.com/Runik-3/runik-app/issues) for a full list of proposed features (and known issues).
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+<!-- If you would like to contribute, please have a look at our [contributing guidelines](https://github.com/BCIT-DDC/docs/blob/main/contributing.md). -->
+
+### Contributors
+
+This project exists thanks to all the people who contribute.
+<br/>
+<a href="https://github.com/Runik-3/runik-app/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=runik-3/runik-app" height="40"/>
+</a>
+
+<!-- TESTING -->
+
+<!-- ## TESTING -->
+
+<!-- LINTING -->
+
+<!-- ## Linting -->
+
+<!-- LICENSE -->
+
+## License
+
+[GPL-3.0](LICENSE.md) © Runik
+
+<!-- ACKNOWLEDGMENTS -->
+
+## Acknowledgments
+
+-   [Heroicons](https://heroicons.com/)
+-   [Headless UI](https://headlessui.dev/)
