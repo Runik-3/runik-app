@@ -21,7 +21,7 @@
 ### Built With
 
 -   ![React](https://img.shields.io/badge/-React-050B1E?&logo=React)
--   ![JavaScript](https://img.shields.io/badge/-TypeScript-050B1E?&logo=JavaScript)
+-   ![JavaScript](https://img.shields.io/badge/-Javascript-050B1E?&logo=JavaScript)
 -   ![TailwindCSS](https://img.shields.io/badge/-Tailwind_CSS-050B1E?&logo=tailwind-css)
 
 <!-- GETTING STARTED -->
