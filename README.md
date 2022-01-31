@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-    <img alt="Search" src="./assets/images/runik-kindle.jpg" width="100%"/>
+    <img alt="Search" src="./assets/images/runik-kindle.jpg" width="50%"/>
 </p>
 
 
