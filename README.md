@@ -14,7 +14,7 @@
 📖 A web app that allows users to generate custom e-book dictionaries for their favourite fictional worlds. Stay fully emersed in your book while enjoying custom definitions of items, characters, places, and more. 
 
 <p align="center">
-    <img alt="Search" src="./assets/images/runik-kobo.png" width="100%"/>
+    <img alt="Search" src="./assets/images/runik-kobo.png" width="50%"/>
 </p>
 
 
