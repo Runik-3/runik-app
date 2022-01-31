@@ -17,6 +17,10 @@
     <img alt="Search" src="./assets/images/runik-kobo.png" width="100%"/>
 </p>
 
+<p align="center">
+    <img alt="Search" src="./assets/images/runik-kindle.jpg" width="100%"/>
+</p>
+
 
 ### Built With
 
